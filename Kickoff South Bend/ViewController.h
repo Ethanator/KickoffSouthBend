@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import "ProfileData.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate> {
+    NSInteger gameReceived;
+    UILabel *gameLabel;
+    UILabel *countDownLabel;
+    PFObject *gameObject;
+    ProfileData *userProfileData;
+}
 
 @end

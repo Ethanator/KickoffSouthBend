@@ -7,12 +7,31 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h> 
+#import "ProfileData.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    // Initialize user profile data structure
+    userProfileData = [ProfileData sharedInstance];
+    [userProfileData setUserName:@""];
+    [userProfileData setEmailAddress:@""];
+    [userProfileData setContactAddress:@""];
+    [userProfileData setPhoneNumber1:@""];
+    [userProfileData setPhoneNumber2:@""];
+    [userProfileData setProfileActive:0];
+
+    [Parse setApplicationId:@"Ig5J9neTZHgB77Yj5P5XqyPJGz74V2NsLo9VNMAm"
+                  clientKey:@"9sL4NqgJ192MI8kilhowJCAv96sTUM9EdlCCJ4sD"];
+    
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    
     return YES;
 }
 							

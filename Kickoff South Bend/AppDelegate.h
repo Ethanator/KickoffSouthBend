@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProfileData.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+    ProfileData *userProfileData; // Used for quick access to this user's profile info anywhere in app (ProfileData.h/m}
+}
 
 @property (strong, nonatomic) UIWindow *window;
 
