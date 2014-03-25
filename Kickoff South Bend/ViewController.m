@@ -238,7 +238,7 @@
     events1Label.backgroundColor = [UIColor clearColor];
     events1Label.font = [UIFont fontWithName:@FONT size:FONT_SIZE];
     events1Label.numberOfLines = 2;
-    events1Label.text = @"Events \r(On Campus)";
+    events1Label.text = @"News";
     
     UIButton *offCampusEventsBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     offCampusEventsBtn.frame = CGRectMake(BTN_X+BTN_X_DIFF*2, BTN_Y+BTN_Y_DIFF-10, BTN_SIZE, BTN_SIZE);
@@ -253,7 +253,7 @@
     events2Label.backgroundColor = [UIColor clearColor];
     events2Label.font = [UIFont fontWithName:@FONT size:FONT_SIZE];
     events2Label.numberOfLines = 2;
-    events2Label.text = @"Events \r(Off Campus)";
+    events2Label.text = @"Events";
     
     UIButton *diningBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     diningBtn.frame = CGRectMake(BTN_X, BTN_Y+BTN_Y_DIFF*2, BTN_SIZE, BTN_SIZE);
