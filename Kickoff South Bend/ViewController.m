@@ -223,7 +223,7 @@
     scheduleLabel.textColor = [UIColor whiteColor];
     scheduleLabel.backgroundColor = [UIColor clearColor];
     scheduleLabel.font = [UIFont fontWithName:@FONT size:FONT_SIZE];
-    scheduleLabel.text = @"My Schedule";
+    scheduleLabel.text = @"Schedule";
     
     UIButton *onCampusEventsBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     onCampusEventsBtn.frame = CGRectMake(BTN_X+BTN_X_DIFF, BTN_Y+BTN_Y_DIFF-10, BTN_SIZE, BTN_SIZE);
