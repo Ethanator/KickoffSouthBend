@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0FF0CC8D18E11D950017D230 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF0CC8B18E11D790017D230 /* Parse.framework */; };
 		771D3D51177BE02A00026892 /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D3D50177BE02A00026892 /* MyProfileViewController.m */; };
 		7747C38417664630004089CA /* profile_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 7747C38317664630004089CA /* profile_placeholder.png */; };
 		7751DFFC1896047A00F43614 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7751DFFB1896047A00F43614 /* libz.dylib */; };
@@ -36,6 +35,7 @@
 		77C1FF1716E6EB4D00B3015E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C1FF1616E6EB4D00B3015E /* AppDelegate.m */; };
 		77C1FF2016E6EB4D00B3015E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77C1FF1E16E6EB4D00B3015E /* MainStoryboard.storyboard */; };
 		77C1FF2316E6EB4D00B3015E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C1FF2216E6EB4D00B3015E /* ViewController.m */; };
+		77E78B9B18E1ED56007E2156 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E78B9A18E1ED56007E2156 /* Parse.framework */; };
 		77F7737516E6FB9900C338BA /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77F7737416E6FB9900C338BA /* AppIcon.png */; };
 		77F7737D16E6FBB100C338BA /* DiningIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77F7737616E6FBB100C338BA /* DiningIcon.png */; };
 		77F7737E16E6FBB100C338BA /* FriendsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77F7737716E6FBB100C338BA /* FriendsIcon.png */; };
@@ -70,7 +70,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0FF0CC8B18E11D790017D230 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		771D3D4F177BE02A00026892 /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyProfileViewController.h; path = ../MyProfileViewController.h; sourceTree = "<group>"; };
 		771D3D50177BE02A00026892 /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyProfileViewController.m; path = ../MyProfileViewController.m; sourceTree = "<group>"; };
 		7747C38317664630004089CA /* profile_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_placeholder.png; sourceTree = "<group>"; };
@@ -119,6 +118,7 @@
 		77C1FF1F16E6EB4D00B3015E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		77C1FF2116E6EB4D00B3015E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		77C1FF2216E6EB4D00B3015E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		77E78B9A18E1ED56007E2156 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../../../Library/Frameworks/Parse.framework; sourceTree = "<group>"; };
 		77F7737416E6FB9900C338BA /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		77F7737616E6FBB100C338BA /* DiningIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DiningIcon.png; sourceTree = "<group>"; };
 		77F7737716E6FBB100C338BA /* FriendsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FriendsIcon.png; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FF0CC8D18E11D950017D230 /* Parse.framework in Frameworks */,
+				77E78B9B18E1ED56007E2156 /* Parse.framework in Frameworks */,
 				7751DFFC1896047A00F43614 /* libz.dylib in Frameworks */,
 				7775E69016EA6D1000080247 /* MapKit.framework in Frameworks */,
 				77F773AB16E78D1D00C338BA /* SystemConfiguration.framework in Frameworks */,
@@ -210,7 +210,7 @@
 		77C1FF0516E6EB4D00B3015E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0FF0CC8B18E11D790017D230 /* Parse.framework */,
+				77E78B9A18E1ED56007E2156 /* Parse.framework */,
 				7751DFFB1896047A00F43614 /* libz.dylib */,
 				7775E68F16EA6D1000080247 /* MapKit.framework */,
 				77F773AA16E78D1D00C338BA /* SystemConfiguration.framework */,
@@ -356,7 +356,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 77C1FEFE16E6EB4D00B3015E /* Build configuration list for PBXProject "kickoff south bend" */;
+			buildConfigurationList = 77C1FEFE16E6EB4D00B3015E /* Build configuration list for PBXProject "Kickoff South Bend" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -565,7 +565,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		77C1FEFE16E6EB4D00B3015E /* Build configuration list for PBXProject "kickoff south bend" */ = {
+		77C1FEFE16E6EB4D00B3015E /* Build configuration list for PBXProject "Kickoff South Bend" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				77C1FF2416E6EB4D00B3015E /* Debug */,
