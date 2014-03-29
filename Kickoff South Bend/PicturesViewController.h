@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MobileCoreServices/MobileCoreServices.h>
 
-@interface PicturesViewController : UIViewController
+@interface PicturesViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @end
+

@@ -21,6 +21,7 @@
 		7775E68A16E93F6100080247 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7775E68916E93F6100080247 /* Default@2x.png */; };
 		7775E68E16EA497200080247 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7775E68B16E93F6800080247 /* Default-568h@2x.png */; };
 		7775E69016EA6D1000080247 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7775E68F16EA6D1000080247 /* MapKit.framework */; };
+		777CE4A418E7252B0059A33C /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 777CE4A318E7252B0059A33C /* PhotoCell.m */; };
 		77B54317175BD44D0045C892 /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B54316175BD44D0045C892 /* MapPoint.m */; };
 		77B5431A176228740045C892 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B54319176228740045C892 /* FriendsViewController.m */; };
 		77B5431D176229490045C892 /* ProfileData.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B5431C176229490045C892 /* ProfileData.m */; };
@@ -90,6 +91,8 @@
 		7775E68916E93F6100080247 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		7775E68B16E93F6800080247 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7775E68F16EA6D1000080247 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		777CE4A218E7252B0059A33C /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoCell.h; path = ../PhotoCell.h; sourceTree = "<group>"; };
+		777CE4A318E7252B0059A33C /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoCell.m; path = ../PhotoCell.m; sourceTree = "<group>"; };
 		77B54315175BD44D0045C892 /* MapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapPoint.h; path = ../MapPoint.h; sourceTree = "<group>"; };
 		77B54316175BD44D0045C892 /* MapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapPoint.m; path = ../MapPoint.m; sourceTree = "<group>"; };
 		77B54318176228740045C892 /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendsViewController.h; path = ../FriendsViewController.h; sourceTree = "<group>"; };
@@ -267,6 +270,8 @@
 				77B54316175BD44D0045C892 /* MapPoint.m */,
 				7775E68116E93E5F00080247 /* PicturesViewController.h */,
 				7775E68216E93E5F00080247 /* PicturesViewController.m */,
+				777CE4A218E7252B0059A33C /* PhotoCell.h */,
+				777CE4A318E7252B0059A33C /* PhotoCell.m */,
 				7775E68416E93E6900080247 /* MessagesViewController.h */,
 				7775E68516E93E6900080247 /* MessagesViewController.m */,
 				77B54324176273AE0045C892 /* FDTakeController.h */,
@@ -413,6 +418,7 @@
 				77B543261762743B0045C892 /* FDTakeController.m in Sources */,
 				77C1FF1316E6EB4D00B3015E /* main.m in Sources */,
 				77C1FF1716E6EB4D00B3015E /* AppDelegate.m in Sources */,
+				777CE4A418E7252B0059A33C /* PhotoCell.m in Sources */,
 				77C1FF2316E6EB4D00B3015E /* ViewController.m in Sources */,
 				77F773AE16E78FAD00C338BA /* MyLoginViewController.m in Sources */,
 				77F773B116E78FC100C338BA /* MySignUpViewController.m in Sources */,
