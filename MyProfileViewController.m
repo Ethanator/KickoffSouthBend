@@ -290,8 +290,8 @@
     NSString *myEmail = [[userProfileData getOwnObject] objectForKey:@"emailAddress"];
     NSString *myAffiliation = [[userProfileData getOwnObject] objectForKey:@"affiliation"];
     NSString *myYear = [[userProfileData getOwnObject] objectForKey:@"year"];
-    BOOL graduate = [[userProfileData getOwnObject] objectForKey:@"ndgrad"];
-    BOOL student = [[userProfileData getOwnObject] objectForKey:@"ndstudent"];
+    BOOL graduate = [[[userProfileData getOwnObject] objectForKey:@"ndgrad"] boolValue];
+    BOOL student = [[[userProfileData getOwnObject] objectForKey:@"ndstudent"] boolValue];
     
     firstName.text = myFirstName;
     lastName.text = myLastName;
