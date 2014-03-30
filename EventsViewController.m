@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Christian Poellabauer. All rights reserved.
 //
 
-#import "OffCampusEventsViewController.h"
+#import "EventsViewController.h"
 
-@interface OffCampusEventsViewController ()
+@interface EventsViewController ()
 
 @end
 
-@implementation OffCampusEventsViewController
+@implementation EventsViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

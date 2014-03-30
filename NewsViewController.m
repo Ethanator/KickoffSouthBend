@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Christian Poellabauer. All rights reserved.
 //
 
-#import "OnCampusEventsViewController.h"
+#import "NewsViewController.h"
 
-@interface OnCampusEventsViewController ()
+@interface NewsViewController ()
 
 @end
 
-@implementation OnCampusEventsViewController
+@implementation NewsViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

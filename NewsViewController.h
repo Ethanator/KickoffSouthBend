@@ -1,5 +1,5 @@
 //
-//  OffCampusEventsViewController.h
+//  OnCampusEventsViewController.h
 //  Kickoff South Bend
 //
 //  Created by Christian Poellabauer on 3/6/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OffCampusEventsViewController : UITableViewController
+@interface NewsViewController : UITableViewController
 
 @end

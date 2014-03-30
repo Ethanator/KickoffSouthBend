@@ -66,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="484" y="1480"/>
         </scene>
-        <!--On Campus Events View Controller-->
+        <!--News View Controller-->
         <scene sceneID="AJ4-ui-dwv">
             <objects>
-                <tableViewController id="kcM-X8-dfc" customClass="OnCampusEventsViewController" sceneMemberID="viewController">
+                <tableViewController id="kcM-X8-dfc" customClass="NewsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="u09-cm-u6f">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -124,10 +124,10 @@
             </objects>
             <point key="canvasLocation" x="127" y="1480"/>
         </scene>
-        <!--Off Campus Events View Controller-->
+        <!--Events View Controller-->
         <scene sceneID="ZfO-cY-0if">
             <objects>
-                <tableViewController id="pw0-yi-lfR" customClass="OffCampusEventsViewController" sceneMemberID="viewController">
+                <tableViewController id="pw0-yi-lfR" customClass="EventsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="HCI-pR-zWZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
