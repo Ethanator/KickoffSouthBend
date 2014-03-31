@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F03182418E91EFF00F15449 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F03182318E91EFF00F15449 /* Parse.framework */; };
 		770816EF18E76BAC00084BC4 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 770816EE18E76BAC00084BC4 /* MBProgressHUD.m */; };
 		770816F118E7B64500084BC4 /* BlackBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 770816F018E7B64500084BC4 /* BlackBG.png */; };
 		771D3D51177BE02A00026892 /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D3D50177BE02A00026892 /* MyProfileViewController.m */; };
@@ -38,7 +39,6 @@
 		77C1FF1716E6EB4D00B3015E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C1FF1616E6EB4D00B3015E /* AppDelegate.m */; };
 		77C1FF2016E6EB4D00B3015E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77C1FF1E16E6EB4D00B3015E /* MainStoryboard.storyboard */; };
 		77C1FF2316E6EB4D00B3015E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C1FF2216E6EB4D00B3015E /* ViewController.m */; };
-		77E78B9B18E1ED56007E2156 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E78B9A18E1ED56007E2156 /* Parse.framework */; };
 		77F7737516E6FB9900C338BA /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77F7737416E6FB9900C338BA /* AppIcon.png */; };
 		77F7737D16E6FBB100C338BA /* DiningIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77F7737616E6FBB100C338BA /* DiningIcon.png */; };
 		77F7737E16E6FBB100C338BA /* FriendsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77F7737716E6FBB100C338BA /* FriendsIcon.png */; };
@@ -67,12 +67,11 @@
 		77F773AB16E78D1D00C338BA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F773AA16E78D1D00C338BA /* SystemConfiguration.framework */; };
 		77F773AE16E78FAD00C338BA /* MyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F773AD16E78FAD00C338BA /* MyLoginViewController.m */; };
 		77F773B116E78FC100C338BA /* MySignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F773B016E78FC100C338BA /* MySignUpViewController.m */; };
-		77F773B416E82A7D00C338BA /* OnCampusEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F773B316E82A7D00C338BA /* OnCampusEventsViewController.m */; };
-		77F773B716E82A8C00C338BA /* OffCampusEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F773B616E82A8C00C338BA /* OffCampusEventsViewController.m */; };
 		77F773BA16E82A9B00C338BA /* MyScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F773B916E82A9A00C338BA /* MyScheduleViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F03182318E91EFF00F15449 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../../../../../../Library/Frameworks/Parse.framework; sourceTree = "<group>"; };
 		770816ED18E76BAC00084BC4 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		770816EE18E76BAC00084BC4 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		770816F018E7B64500084BC4 /* BlackBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlackBG.png; sourceTree = "<group>"; };
@@ -126,7 +125,6 @@
 		77C1FF1F16E6EB4D00B3015E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		77C1FF2116E6EB4D00B3015E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		77C1FF2216E6EB4D00B3015E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		77E78B9A18E1ED56007E2156 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../../../Library/Frameworks/Parse.framework; sourceTree = "<group>"; };
 		77F7737416E6FB9900C338BA /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		77F7737616E6FBB100C338BA /* DiningIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DiningIcon.png; sourceTree = "<group>"; };
 		77F7737716E6FBB100C338BA /* FriendsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FriendsIcon.png; sourceTree = "<group>"; };
@@ -157,10 +155,6 @@
 		77F773AD16E78FAD00C338BA /* MyLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyLoginViewController.m; path = ../MyLoginViewController.m; sourceTree = "<group>"; };
 		77F773AF16E78FC100C338BA /* MySignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySignUpViewController.h; path = ../MySignUpViewController.h; sourceTree = "<group>"; };
 		77F773B016E78FC100C338BA /* MySignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySignUpViewController.m; path = ../MySignUpViewController.m; sourceTree = "<group>"; };
-		77F773B216E82A7D00C338BA /* OnCampusEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnCampusEventsViewController.h; path = ../OnCampusEventsViewController.h; sourceTree = "<group>"; };
-		77F773B316E82A7D00C338BA /* OnCampusEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnCampusEventsViewController.m; path = ../OnCampusEventsViewController.m; sourceTree = "<group>"; };
-		77F773B516E82A8C00C338BA /* OffCampusEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OffCampusEventsViewController.h; path = ../OffCampusEventsViewController.h; sourceTree = "<group>"; };
-		77F773B616E82A8C00C338BA /* OffCampusEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OffCampusEventsViewController.m; path = ../OffCampusEventsViewController.m; sourceTree = "<group>"; };
 		77F773B816E82A9A00C338BA /* MyScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyScheduleViewController.h; path = ../MyScheduleViewController.h; sourceTree = "<group>"; };
 		77F773B916E82A9A00C338BA /* MyScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyScheduleViewController.m; path = ../MyScheduleViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,7 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77E78B9B18E1ED56007E2156 /* Parse.framework in Frameworks */,
+				0F03182418E91EFF00F15449 /* Parse.framework in Frameworks */,
 				7751DFFC1896047A00F43614 /* libz.dylib in Frameworks */,
 				7775E69016EA6D1000080247 /* MapKit.framework in Frameworks */,
 				77F773AB16E78D1D00C338BA /* SystemConfiguration.framework in Frameworks */,
@@ -218,7 +212,7 @@
 		77C1FF0516E6EB4D00B3015E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				77E78B9A18E1ED56007E2156 /* Parse.framework */,
+				0F03182318E91EFF00F15449 /* Parse.framework */,
 				7751DFFB1896047A00F43614 /* libz.dylib */,
 				7775E68F16EA6D1000080247 /* MapKit.framework */,
 				77F773AA16E78D1D00C338BA /* SystemConfiguration.framework */,
@@ -257,10 +251,6 @@
 				77B543281765628F0045C892 /* CustomPeopleCell.m */,
 				77F773B816E82A9A00C338BA /* MyScheduleViewController.h */,
 				77F773B916E82A9A00C338BA /* MyScheduleViewController.m */,
-				77F773B516E82A8C00C338BA /* OffCampusEventsViewController.h */,
-				77F773B616E82A8C00C338BA /* OffCampusEventsViewController.m */,
-				77F773B216E82A7D00C338BA /* OnCampusEventsViewController.h */,
-				77F773B316E82A7D00C338BA /* OnCampusEventsViewController.m */,
 				7775E66B16E92B7500080247 /* DiningViewController.h */,
 				7775E66C16E92B7500080247 /* DiningViewController.m */,
 				7775E67116E92D7300080247 /* ParkingViewController.h */,
@@ -369,7 +359,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 77C1FEFE16E6EB4D00B3015E /* Build configuration list for PBXProject "Kickoff South Bend" */;
+			buildConfigurationList = 77C1FEFE16E6EB4D00B3015E /* Build configuration list for PBXProject "kickoff south bend" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -431,8 +421,6 @@
 				77C1FF2316E6EB4D00B3015E /* ViewController.m in Sources */,
 				77F773AE16E78FAD00C338BA /* MyLoginViewController.m in Sources */,
 				77F773B116E78FC100C338BA /* MySignUpViewController.m in Sources */,
-				77F773B416E82A7D00C338BA /* OnCampusEventsViewController.m in Sources */,
-				77F773B716E82A8C00C338BA /* OffCampusEventsViewController.m in Sources */,
 				77F773BA16E82A9B00C338BA /* MyScheduleViewController.m in Sources */,
 				7775E66D16E92B7500080247 /* DiningViewController.m in Sources */,
 				7775E67316E92D7300080247 /* ParkingViewController.m in Sources */,
@@ -581,7 +569,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		77C1FEFE16E6EB4D00B3015E /* Build configuration list for PBXProject "Kickoff South Bend" */ = {
+		77C1FEFE16E6EB4D00B3015E /* Build configuration list for PBXProject "kickoff south bend" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				77C1FF2416E6EB4D00B3015E /* Debug */,
