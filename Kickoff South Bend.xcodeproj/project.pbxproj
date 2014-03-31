@@ -8,6 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		0F03182418E91EFF00F15449 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F03182318E91EFF00F15449 /* Parse.framework */; };
+		0F4FDD4418EA2BEB008D7783 /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4FDD2418EA2BEB008D7783 /* EventsViewController.m */; };
+		0F4FDD4518EA2BEB008D7783 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4FDD2718EA2BEB008D7783 /* AppDelegate.m */; };
+		0F4FDD4618EA2BEB008D7783 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4FDD2818EA2BEB008D7783 /* Default-568h@2x.png */; };
+		0F4FDD4718EA2BEB008D7783 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4FDD2918EA2BEB008D7783 /* Default.png */; };
+		0F4FDD4818EA2BEB008D7783 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4FDD2A18EA2BEB008D7783 /* Default@2x.png */; };
+		0F4FDD4918EA2BEB008D7783 /* DiningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4FDD2C18EA2BEB008D7783 /* DiningViewController.m */; };
+		0F4FDD4A18EA2BEB008D7783 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F4FDD2D18EA2BEB008D7783 /* InfoPlist.strings */; };
+		0F4FDD4B18EA2BEB008D7783 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F4FDD2F18EA2BEB008D7783 /* MainStoryboard.storyboard */; };
+		0F4FDD4C18EA2BEB008D7783 /* FDTakeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4FDD3218EA2BEB008D7783 /* FDTakeController.m */; };
+		0F4FDD4D18EA2BEB008D7783 /* Kickoff South Bend-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F4FDD3318EA2BEB008D7783 /* Kickoff South Bend-Info.plist */; };
+		0F4FDD4E18EA2BEB008D7783 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4FDD3518EA2BEB008D7783 /* main.m */; };
+		0F4FDD4F18EA2BEB008D7783 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4FDD3718EA2BEB008D7783 /* MapViewController.m */; };
+		0F4FDD5018EA2BEB008D7783 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4FDD3918EA2BEB008D7783 /* MBProgressHUD.m */; };
+		0F4FDD5118EA2BEB008D7783 /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4FDD3B18EA2BEB008D7783 /* MessagesViewController.m */; };
+		0F4FDD5218EA2BEB008D7783 /* ParkingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4FDD3D18EA2BEB008D7783 /* ParkingViewController.m */; };
+		0F4FDD5318EA2BEB008D7783 /* PicturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4FDD3F18EA2BEB008D7783 /* PicturesViewController.m */; };
+		0F4FDD5418EA2BEB008D7783 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4FDD4118EA2BEB008D7783 /* ViewController.m */; };
+		0F4FDD5518EA2BEB008D7783 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4FDD4318EA2BEB008D7783 /* NewsViewController.m */; };
 		770816EF18E76BAC00084BC4 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 770816EE18E76BAC00084BC4 /* MBProgressHUD.m */; };
 		770816F118E7B64500084BC4 /* BlackBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 770816F018E7B64500084BC4 /* BlackBG.png */; };
 		771D3D51177BE02A00026892 /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D3D50177BE02A00026892 /* MyProfileViewController.m */; };
@@ -72,6 +90,36 @@
 
 /* Begin PBXFileReference section */
 		0F03182318E91EFF00F15449 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../../../../../../Library/Frameworks/Parse.framework; sourceTree = "<group>"; };
+		0F4FDD2318EA2BEB008D7783 /* EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventsViewController.h; path = ../EventsViewController.h; sourceTree = "<group>"; };
+		0F4FDD2418EA2BEB008D7783 /* EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventsViewController.m; path = ../EventsViewController.m; sourceTree = "<group>"; };
+		0F4FDD2618EA2BEB008D7783 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0F4FDD2718EA2BEB008D7783 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0F4FDD2818EA2BEB008D7783 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		0F4FDD2918EA2BEB008D7783 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		0F4FDD2A18EA2BEB008D7783 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		0F4FDD2B18EA2BEB008D7783 /* DiningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiningViewController.h; sourceTree = "<group>"; };
+		0F4FDD2C18EA2BEB008D7783 /* DiningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiningViewController.m; sourceTree = "<group>"; };
+		0F4FDD2E18EA2BEB008D7783 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0F4FDD3018EA2BEB008D7783 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		0F4FDD3118EA2BEB008D7783 /* FDTakeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDTakeController.h; sourceTree = "<group>"; };
+		0F4FDD3218EA2BEB008D7783 /* FDTakeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDTakeController.m; sourceTree = "<group>"; };
+		0F4FDD3318EA2BEB008D7783 /* Kickoff South Bend-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Kickoff South Bend-Info.plist"; sourceTree = "<group>"; };
+		0F4FDD3418EA2BEB008D7783 /* Kickoff South Bend-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Kickoff South Bend-Prefix.pch"; sourceTree = "<group>"; };
+		0F4FDD3518EA2BEB008D7783 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0F4FDD3618EA2BEB008D7783 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		0F4FDD3718EA2BEB008D7783 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		0F4FDD3818EA2BEB008D7783 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		0F4FDD3918EA2BEB008D7783 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		0F4FDD3A18EA2BEB008D7783 /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesViewController.h; sourceTree = "<group>"; };
+		0F4FDD3B18EA2BEB008D7783 /* MessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesViewController.m; sourceTree = "<group>"; };
+		0F4FDD3C18EA2BEB008D7783 /* ParkingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParkingViewController.h; sourceTree = "<group>"; };
+		0F4FDD3D18EA2BEB008D7783 /* ParkingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParkingViewController.m; sourceTree = "<group>"; };
+		0F4FDD3E18EA2BEB008D7783 /* PicturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicturesViewController.h; sourceTree = "<group>"; };
+		0F4FDD3F18EA2BEB008D7783 /* PicturesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicturesViewController.m; sourceTree = "<group>"; };
+		0F4FDD4018EA2BEB008D7783 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		0F4FDD4118EA2BEB008D7783 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0F4FDD4218EA2BEB008D7783 /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsViewController.h; path = ../NewsViewController.h; sourceTree = "<group>"; };
+		0F4FDD4318EA2BEB008D7783 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsViewController.m; path = ../NewsViewController.m; sourceTree = "<group>"; };
 		770816ED18E76BAC00084BC4 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		770816EE18E76BAC00084BC4 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		770816F018E7B64500084BC4 /* BlackBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlackBG.png; sourceTree = "<group>"; };
@@ -188,9 +236,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F4FDD2518EA2BEB008D7783 /* kickoff south bend */ = {
+			isa = PBXGroup;
+			children = (
+				0F4FDD2618EA2BEB008D7783 /* AppDelegate.h */,
+				0F4FDD2718EA2BEB008D7783 /* AppDelegate.m */,
+				0F4FDD2818EA2BEB008D7783 /* Default-568h@2x.png */,
+				0F4FDD2918EA2BEB008D7783 /* Default.png */,
+				0F4FDD2A18EA2BEB008D7783 /* Default@2x.png */,
+				0F4FDD2B18EA2BEB008D7783 /* DiningViewController.h */,
+				0F4FDD2C18EA2BEB008D7783 /* DiningViewController.m */,
+				0F4FDD2D18EA2BEB008D7783 /* InfoPlist.strings */,
+				0F4FDD2F18EA2BEB008D7783 /* MainStoryboard.storyboard */,
+				0F4FDD3118EA2BEB008D7783 /* FDTakeController.h */,
+				0F4FDD3218EA2BEB008D7783 /* FDTakeController.m */,
+				0F4FDD3318EA2BEB008D7783 /* Kickoff South Bend-Info.plist */,
+				0F4FDD3418EA2BEB008D7783 /* Kickoff South Bend-Prefix.pch */,
+				0F4FDD3518EA2BEB008D7783 /* main.m */,
+				0F4FDD3618EA2BEB008D7783 /* MapViewController.h */,
+				0F4FDD3718EA2BEB008D7783 /* MapViewController.m */,
+				0F4FDD3818EA2BEB008D7783 /* MBProgressHUD.h */,
+				0F4FDD3918EA2BEB008D7783 /* MBProgressHUD.m */,
+				0F4FDD3A18EA2BEB008D7783 /* MessagesViewController.h */,
+				0F4FDD3B18EA2BEB008D7783 /* MessagesViewController.m */,
+				0F4FDD3C18EA2BEB008D7783 /* ParkingViewController.h */,
+				0F4FDD3D18EA2BEB008D7783 /* ParkingViewController.m */,
+				0F4FDD3E18EA2BEB008D7783 /* PicturesViewController.h */,
+				0F4FDD3F18EA2BEB008D7783 /* PicturesViewController.m */,
+				0F4FDD4018EA2BEB008D7783 /* ViewController.h */,
+				0F4FDD4118EA2BEB008D7783 /* ViewController.m */,
+			);
+			path = "kickoff south bend";
+			sourceTree = "<group>";
+		};
 		77C1FEFA16E6EB4D00B3015E = {
 			isa = PBXGroup;
 			children = (
+				0F4FDD2518EA2BEB008D7783 /* kickoff south bend */,
 				77C1FF1E16E6EB4D00B3015E /* MainStoryboard.storyboard */,
 				77C1FF1516E6EB4D00B3015E /* AppDelegate.h */,
 				77C1FF1616E6EB4D00B3015E /* AppDelegate.m */,
@@ -237,6 +319,10 @@
 		77C1FF0C16E6EB4D00B3015E /* Kickoff South Bend */ = {
 			isa = PBXGroup;
 			children = (
+				0F4FDD4218EA2BEB008D7783 /* NewsViewController.h */,
+				0F4FDD4318EA2BEB008D7783 /* NewsViewController.m */,
+				0F4FDD2318EA2BEB008D7783 /* EventsViewController.h */,
+				0F4FDD2418EA2BEB008D7783 /* EventsViewController.m */,
 				77B5431B176229490045C892 /* ProfileData.h */,
 				77B5431C176229490045C892 /* ProfileData.m */,
 				77C1FF2116E6EB4D00B3015E /* ViewController.h */,
@@ -385,20 +471,26 @@
 				77C1FF2016E6EB4D00B3015E /* MainStoryboard.storyboard in Resources */,
 				77F7737516E6FB9900C338BA /* AppIcon.png in Resources */,
 				77F7737D16E6FBB100C338BA /* DiningIcon.png in Resources */,
+				0F4FDD4818EA2BEB008D7783 /* Default@2x.png in Resources */,
 				77F7737E16E6FBB100C338BA /* FriendsIcon.png in Resources */,
+				0F4FDD4618EA2BEB008D7783 /* Default-568h@2x.png in Resources */,
 				77F7737F16E6FBB100C338BA /* LodgingIcon.png in Resources */,
 				77F7738016E6FBB100C338BA /* MapIcon.png in Resources */,
 				77F7738116E6FBB100C338BA /* MessagesIcon.png in Resources */,
+				0F4FDD4B18EA2BEB008D7783 /* MainStoryboard.storyboard in Resources */,
 				77F7738216E6FBB100C338BA /* OffCampusIcon.png in Resources */,
 				77F7738316E6FBB100C338BA /* OnCampusIcon.png in Resources */,
 				77F7738916E6FBB900C338BA /* ParkingIcon.png in Resources */,
 				77F7738A16E6FBB900C338BA /* PictureIcon.png in Resources */,
 				77F7738B16E6FBB900C338BA /* ScheduleIcon.png in Resources */,
+				0F4FDD4D18EA2BEB008D7783 /* Kickoff South Bend-Info.plist in Resources */,
 				77F7738C16E6FBB900C338BA /* ShoppingIcon.png in Resources */,
+				0F4FDD4A18EA2BEB008D7783 /* InfoPlist.strings in Resources */,
 				77F7738D16E6FBB900C338BA /* TransportationIcon.png in Resources */,
 				77F7738F16E78BE800C338BA /* AppBackground.png in Resources */,
 				7775E67B16E9336A00080247 /* App Icon FINAL3.png in Resources */,
 				770816F118E7B64500084BC4 /* BlackBG.png in Resources */,
+				0F4FDD4718EA2BEB008D7783 /* Default.png in Resources */,
 				7775E67D16E93CB200080247 /* App Icon FINAL2.png in Resources */,
 				7775E68816E93F4800080247 /* Default.png in Resources */,
 				7775E68A16E93F6100080247 /* Default@2x.png in Resources */,
@@ -414,24 +506,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F4FDD4518EA2BEB008D7783 /* AppDelegate.m in Sources */,
 				77B543261762743B0045C892 /* FDTakeController.m in Sources */,
 				77C1FF1316E6EB4D00B3015E /* main.m in Sources */,
+				0F4FDD5218EA2BEB008D7783 /* ParkingViewController.m in Sources */,
 				77C1FF1716E6EB4D00B3015E /* AppDelegate.m in Sources */,
 				777CE4A418E7252B0059A33C /* PhotoCell.m in Sources */,
 				77C1FF2316E6EB4D00B3015E /* ViewController.m in Sources */,
+				0F4FDD5118EA2BEB008D7783 /* MessagesViewController.m in Sources */,
 				77F773AE16E78FAD00C338BA /* MyLoginViewController.m in Sources */,
+				0F4FDD4F18EA2BEB008D7783 /* MapViewController.m in Sources */,
 				77F773B116E78FC100C338BA /* MySignUpViewController.m in Sources */,
+				0F4FDD5518EA2BEB008D7783 /* NewsViewController.m in Sources */,
 				77F773BA16E82A9B00C338BA /* MyScheduleViewController.m in Sources */,
 				7775E66D16E92B7500080247 /* DiningViewController.m in Sources */,
 				7775E67316E92D7300080247 /* ParkingViewController.m in Sources */,
+				0F4FDD4418EA2BEB008D7783 /* EventsViewController.m in Sources */,
+				0F4FDD5018EA2BEB008D7783 /* MBProgressHUD.m in Sources */,
 				7775E67916E92D9900080247 /* MapViewController.m in Sources */,
 				7775E68316E93E5F00080247 /* PicturesViewController.m in Sources */,
 				7775E68616E93E6900080247 /* MessagesViewController.m in Sources */,
+				0F4FDD4E18EA2BEB008D7783 /* main.m in Sources */,
 				770816EF18E76BAC00084BC4 /* MBProgressHUD.m in Sources */,
+				0F4FDD4C18EA2BEB008D7783 /* FDTakeController.m in Sources */,
 				77B54317175BD44D0045C892 /* MapPoint.m in Sources */,
+				0F4FDD4918EA2BEB008D7783 /* DiningViewController.m in Sources */,
+				0F4FDD5418EA2BEB008D7783 /* ViewController.m in Sources */,
 				77B5431A176228740045C892 /* FriendsViewController.m in Sources */,
 				77B5431D176229490045C892 /* ProfileData.m in Sources */,
 				77B54320176230B50045C892 /* FindFriendViewController.m in Sources */,
+				0F4FDD5318EA2BEB008D7783 /* PicturesViewController.m in Sources */,
 				77B54329176562900045C892 /* CustomPeopleCell.m in Sources */,
 				771D3D51177BE02A00026892 /* MyProfileViewController.m in Sources */,
 			);
@@ -440,6 +544,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		0F4FDD2D18EA2BEB008D7783 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0F4FDD2E18EA2BEB008D7783 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0F4FDD2F18EA2BEB008D7783 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0F4FDD3018EA2BEB008D7783 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
 		77C1FF0F16E6EB4D00B3015E /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
