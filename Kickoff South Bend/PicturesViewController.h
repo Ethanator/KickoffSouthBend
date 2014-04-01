@@ -13,7 +13,7 @@
 #import <Parse/Parse.h>
 #import "ProfileData.h"
 
-@interface PicturesViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate,MBProgressHUDDelegate> {
+@interface PicturesViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate,MBProgressHUDDelegate,UIActionSheetDelegate> {
     
     UIImagePickerController *picker;
     MBProgressHUD *HUD;
@@ -32,6 +32,9 @@
     int filterType; // 0 = my pictures; 1 = friends' pictures; 2 = all pictures
     UILabel *nameLabel;
     UILabel *dateLabel;
+    int shareMode;
+    UIImage *photoToSave;
+    UIButton *downloadButton;
     
 }
 

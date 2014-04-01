@@ -7,6 +7,7 @@
 //
 
 #import "PicturesViewController.h"
+#import "QuartzCore/QuartzCore.h"
 
 @interface PicturesViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, FDTakeDelegate, UIGestureRecognizerDelegate>
 
@@ -27,10 +28,48 @@
     NSLog(@"cancel");
 }
 
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == [actionSheet cancelButtonIndex])
+    {
+        // cancelled, nothing happen
+        return;
+    }
+    
+    // obtain a human-readable option string
+    NSString *option = [actionSheet buttonTitleAtIndex:buttonIndex];
+    if ([option isEqualToString:@"Nobody"])
+    {
+        shareMode = 0;
+    } else if ([option isEqualToString:@"My Friends"])
+    {
+        shareMode = 1;
+    } else if ([option isEqualToString:@"Everybody"])
+    {
+        shareMode = 2;
+    }
+}
+
+- (void)willPresentActionSheet:(UIActionSheet *)actionSheet {
+    [[actionSheet layer] setBackgroundColor:[UIColor blackColor].CGColor];
+}
+
 - (void)uploadImage:(UIImage *)image
 {
     userProfileData = [ProfileData sharedInstance];
 
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:@"Share Photo With"
+                                  delegate:self
+                                  cancelButtonTitle:nil
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles: @"Nobody", @"My Friends", @"Everybody", nil];
+    
+    actionSheet.delegate = self;
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    
+    actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
+    [actionSheet showInView:[[[[UIApplication sharedApplication] keyWindow] subviews] lastObject]];
     
     CGSize oldSizeI = image.size;
     CGSize newSizeI;
@@ -62,7 +101,7 @@
     PFUser *user = [PFUser currentUser];
     [userPhoto setObject:user forKey:@"userLink"];
     [userPhoto setObject:[userProfileData getUserName] forKey:@"userName"];
-    [userPhoto setObject:[NSNumber numberWithInt:0] forKey:@"shareMode"];
+    [userPhoto setObject:[NSNumber numberWithInt:shareMode] forKey:@"shareMode"];
     [userPhoto save];
 }
 
@@ -80,6 +119,9 @@
 
 - (void)downloadAllImages
 {
+    
+    userProfileData = [ProfileData sharedInstance];
+
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
     PFUser *user = [PFUser currentUser];
     if (filterType == 0) {
@@ -103,8 +145,9 @@
             [myFriends addObject:username];
         }
         [query whereKey:@"userName" containedIn:myFriends];
+        [query whereKey:@"shareMode" greaterThan:[NSNumber numberWithInt:0]];
     } else if (filterType == 2) {
-        // all images
+        [query whereKey:@"shareMode" greaterThan:[NSNumber numberWithInt:1]];
     }
     [query orderByAscending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -119,7 +162,6 @@
                 [thumbnails addObject:thisImage];
             }
             [self.collectionView reloadData];
-            NSLog(@"Done getting pics (%d)", [photosFound count]);
 
         }
     }];
@@ -136,8 +178,6 @@
 
 - (void)takeController:(FDTakeController *)controller gotPhoto:(UIImage *)photo withInfo:(NSDictionary *)info
 {
-    NSLog(@"got photo");
-
     CGSize oldSizeI = photo.size;
     CGSize newSizeI;
     UIImage *smallImage = photo;
@@ -152,11 +192,7 @@
     //UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
     //UIGraphicsEndImageContext();
     
-    NSLog(@"Start upload");
-    
     [self uploadImage:smallImage];
-
-    NSLog(@"End upload");
 
     [self downloadAllImages];
 
@@ -235,6 +271,7 @@
     [bgView removeFromSuperview];
     [nameLabel removeFromSuperview];
     [dateLabel removeFromSuperview];
+    [downloadButton removeFromSuperview];
 }
 
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -364,6 +401,27 @@
     [keyWindow addSubview:currentView];
     [keyWindow addSubview:nameLabel];
     [keyWindow addSubview:dateLabel];
+
+    if (![userName isEqualToString:[userProfileData getUserName]]) {
+        downloadButton = [[UIButton alloc] init];
+        [downloadButton setBackgroundImage:[UIImage imageNamed:@"download2.png"] forState:UIControlStateNormal];
+        downloadButton.frame = CGRectMake(280.0, 20.0, 30.0, 30.0);
+        [downloadButton addTarget:self action:@selector(savePhoto:) forControlEvents:UIControlEventTouchUpInside];
+        photoToSave = qImage;
+        [keyWindow addSubview:downloadButton];
+    }
+}
+
+- (void) savePhoto:(id)sender
+{
+    UIImageWriteToSavedPhotosAlbum(photoToSave, nil, nil, nil);
+    
+    [[[UIAlertView alloc] initWithTitle:@"Image Saved"
+                                message:@"The image has been saved to your photo roll."
+                               delegate:nil
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil] show];
+
 }
 
 - (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -372,8 +430,6 @@
     
     //ALAsset *asset = self.assets[indexPath.row];
     //cell.asset = asset;
-    
-    NSLog(@"count=%d, index=%d", [thumbnails count], indexPath.row);
     
     UIImageView *thisThumbNail = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 77.0, 77.0)];
     thisThumbNail.contentMode = UIViewContentModeScaleAspectFill;
@@ -413,16 +469,12 @@
 
 - (IBAction)takePhotoButtonTapped:(id)sender
 {
-    NSLog(@"Take photo button pressed");
-    
     picker = [[UIImagePickerController alloc] init];
     picker.mediaTypes = @[(NSString *) kUTTypeImage];
     picker.allowsEditing = NO;
     
     self.takeController.imagePicker.allowsEditing = NO;
     [self.takeController takePhotoOrChooseFromLibrary];
-    
-    NSLog(@"Take photo button pressed2");
 
 
 /*
