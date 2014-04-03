@@ -195,7 +195,7 @@
     messagesLabel.textColor = [UIColor whiteColor];
     messagesLabel.backgroundColor = [UIColor clearColor];
     messagesLabel.font = [UIFont fontWithName:@FONT size:FONT_SIZE];
-    messagesLabel.text = @"My Messages";
+    messagesLabel.text = @"My Chats";
     
     UIButton *pictureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     pictureBtn.frame = CGRectMake(BTN_X+BTN_X_DIFF*2, BTN_Y, BTN_SIZE, BTN_SIZE);
