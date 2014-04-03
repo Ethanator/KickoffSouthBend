@@ -8,15 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "ProfileData.h"
 
 @interface ChatRoomViewController : UIViewController <UITextFieldDelegate>
 {
     
-    UITextField             *tfEntry;
-    IBOutlet UITableView    *chatTable;
-    NSMutableArray          *chatData;
+    IBOutlet UITextField *tfEntry;
+    IBOutlet UITableView *chatTable;
+    NSArray *chatData;
     PF_EGORefreshTableHeaderView *_refreshHeaderView;
     BOOL _reloading;
+    NSString *className;
+    NSString *userName;
+    NSArray *myFriends;
+    ProfileData *userProfileData;
     
 }
 
@@ -28,5 +33,7 @@
 -(void) freeKeyboardNotifications;
 -(void) keyboardWasShown:(NSNotification*)aNotification;
 -(void) keyboardWillHide:(NSNotification*)aNotification;
+-(void)loadLocalChat;
+- (IBAction)newChat;
 
 @end

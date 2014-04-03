@@ -281,7 +281,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" rowHeight="70" id="V0T-SQ-Bts" customClass="ChatCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCellID" rowHeight="70" id="V0T-SQ-Bts" customClass="ChatCell">
                                         <rect key="frame" x="0.0" y="86" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V0T-SQ-Bts" id="RjJ-az-Q2Y">
@@ -323,12 +323,25 @@
                                     <outlet property="delegate" destination="c7f-NX-jyz" id="Nme-rP-tes"/>
                                 </connections>
                             </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" background="textfield_background.png" id="IVH-UP-IiI">
+                                <rect key="frame" x="20" y="400" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="RY3-JQ-65u"/>
+                    <navigationItem key="navigationItem" id="RY3-JQ-65u">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mgF-EH-em2">
+                            <connections>
+                                <action selector="newChat" destination="c7f-NX-jyz" id="i4K-rN-yaC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="chatTable" destination="moh-4d-nMa" id="0fN-9m-1Ms"/>
+                        <outlet property="tfEntry" destination="IVH-UP-IiI" id="AbW-Z0-U1V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QNJ-nC-LnY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -634,6 +647,9 @@
             <point key="canvasLocation" x="127" y="39"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="textfield_background.png" width="320" height="49"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
