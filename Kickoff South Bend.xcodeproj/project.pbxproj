@@ -15,7 +15,7 @@
 		770816F118E7B64500084BC4 /* BlackBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 770816F018E7B64500084BC4 /* BlackBG.png */; };
 		770816F518EA64C900084BC4 /* download2.png in Resources */ = {isa = PBXBuildFile; fileRef = 770816F418EA64C900084BC4 /* download2.png */; };
 		770816FE18ED919F00084BC4 /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770816FD18ED919F00084BC4 /* ChatCell.m */; };
-		7708170118ED929800084BC4 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7708170018ED929800084BC4 /* ChatViewController.m */; };
+		7708170418ED952300084BC4 /* ChatRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7708170318ED952300084BC4 /* ChatRoomViewController.m */; };
 		771D3D51177BE02A00026892 /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D3D50177BE02A00026892 /* MyProfileViewController.m */; };
 		7747C38417664630004089CA /* profile_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 7747C38317664630004089CA /* profile_placeholder.png */; };
 		7751DFFC1896047A00F43614 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7751DFFB1896047A00F43614 /* libz.dylib */; };
@@ -86,8 +86,8 @@
 		770816F418EA64C900084BC4 /* download2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download2.png; sourceTree = "<group>"; };
 		770816FC18ED919F00084BC4 /* ChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
 		770816FD18ED919F00084BC4 /* ChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
-		770816FF18ED929800084BC4 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
-		7708170018ED929800084BC4 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		7708170218ED952300084BC4 /* ChatRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatRoomViewController.h; sourceTree = "<group>"; };
+		7708170318ED952300084BC4 /* ChatRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatRoomViewController.m; sourceTree = "<group>"; };
 		771D3D4F177BE02A00026892 /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyProfileViewController.h; path = ../MyProfileViewController.h; sourceTree = "<group>"; };
 		771D3D50177BE02A00026892 /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyProfileViewController.m; path = ../MyProfileViewController.m; sourceTree = "<group>"; };
 		7747C38317664630004089CA /* profile_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_placeholder.png; sourceTree = "<group>"; };
@@ -271,8 +271,8 @@
 				77B54319176228740045C892 /* FriendsViewController.m */,
 				77B5431E176230B50045C892 /* FindFriendViewController.h */,
 				77B5431F176230B50045C892 /* FindFriendViewController.m */,
-				770816FF18ED929800084BC4 /* ChatViewController.h */,
-				7708170018ED929800084BC4 /* ChatViewController.m */,
+				7708170218ED952300084BC4 /* ChatRoomViewController.h */,
+				7708170318ED952300084BC4 /* ChatRoomViewController.m */,
 				770816FC18ED919F00084BC4 /* ChatCell.h */,
 				770816FD18ED919F00084BC4 /* ChatCell.m */,
 				7775E67716E92D9900080247 /* MapViewController.h */,
@@ -442,13 +442,13 @@
 				7775E68316E93E5F00080247 /* PicturesViewController.m in Sources */,
 				0FFB82C018EA2D720083876C /* EventsViewController.m in Sources */,
 				770816EF18E76BAC00084BC4 /* MBProgressHUD.m in Sources */,
+				7708170418ED952300084BC4 /* ChatRoomViewController.m in Sources */,
 				77B54317175BD44D0045C892 /* MapPoint.m in Sources */,
 				77B5431A176228740045C892 /* FriendsViewController.m in Sources */,
 				77B5431D176229490045C892 /* ProfileData.m in Sources */,
 				77B54320176230B50045C892 /* FindFriendViewController.m in Sources */,
 				77B54329176562900045C892 /* CustomPeopleCell.m in Sources */,
 				770816FE18ED919F00084BC4 /* ChatCell.m in Sources */,
-				7708170118ED929800084BC4 /* ChatViewController.m in Sources */,
 				771D3D51177BE02A00026892 /* MyProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
