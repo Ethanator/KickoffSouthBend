@@ -171,6 +171,7 @@
         [newMessage setObject:userName forKey:@"userName"];
         [newMessage setObject:[NSDate date] forKey:@"date"];
         [newMessage setObject:[NSNumber numberWithInt:0] forKey:@"response"];
+        [newMessage setObject:[NSNumber numberWithInt:0] forKey:@"responses"];
         [newMessage save];
         NSLog(@"So far so good 2");
 
@@ -277,7 +278,7 @@
 
     //  model should call this when its done loading
     _reloading = NO;
-    [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:chatTable];
+    //[_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:chatTable];
     
 }
 
@@ -388,13 +389,25 @@
     //ChatCell *cell = (ChatCell *)[tableView dequeueReusableCellWithIdentifier: @"ChatCellID"];
     //NSUInteger row = [chatData count]-[indexPath row]-1;
     
-    
+    /*
     NSString *CellIdentifier = [NSString stringWithFormat:@"ChatCellID"];
     ChatCell *cell = (ChatCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[ChatCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    */
     
+    static NSString *CellIdentifier = @"ChatCellID";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+
+    
+    for(UIView* subview in [cell.contentView subviews]) {
+        [subview removeFromSuperview];
+    }
+
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     cell.backgroundColor = [UIColor clearColor];
@@ -463,11 +476,39 @@
     dateLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0];
     dateLabel.frame = CGRectMake(200.0, 7.0, 110.0, 15.0);
     dateLabel.textAlignment = NSTextAlignmentRight;
-    NSDate *theDate = [chatObject objectForKey:@"date"];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"HH:mm a"];
-    NSString *timeString = [formatter stringFromDate:theDate];
-    dateLabel.text = timeString;
+    NSDate *createdAt = [chatObject objectForKey:@"date"];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"yyy-MM-dd"];
+    NSDate *thisDate = [NSDate date];
+    NSTimeInterval secondsBetween = [thisDate timeIntervalSinceDate:createdAt];
+    NSInteger minutesPassed = secondsBetween/60;
+    if (minutesPassed <= 0) minutesPassed = 1;
+    NSString *dateString = @"";
+    if (minutesPassed < 60)
+        dateString = [NSString stringWithFormat:@"%ldm", (long)minutesPassed];
+    else {
+        NSInteger hoursPassed = minutesPassed/60;
+        if (hoursPassed <= 0) hoursPassed = 1;
+        if (hoursPassed < 24)
+            dateString = [NSString stringWithFormat:@"%ldh", (long)hoursPassed];
+        else {
+            NSInteger daysPassed = hoursPassed/24;
+            if (daysPassed <= 0) daysPassed = 1;
+            if (daysPassed < 7)
+                dateString = [NSString stringWithFormat:@"%ldd", (long)daysPassed];
+            else {
+                NSInteger weeksPassed = daysPassed/7;
+                if (weeksPassed <= 0) weeksPassed = 1;
+                if (weeksPassed < 52)
+                    dateString = [NSString stringWithFormat:@"%ldw", (long)weeksPassed];
+                else {
+                    NSInteger yearsPassed = weeksPassed/52;
+                    dateString = [NSString stringWithFormat:@"%ldy", (long)yearsPassed];
+                }
+            }
+        }
+    }
+    dateLabel.text = dateString;
     dateLabel.textColor = [UIColor whiteColor];
     dateLabel.backgroundColor = [UIColor clearColor];
     [cell addSubview:dateLabel];
@@ -481,41 +522,33 @@
     textString.frame = CGRectMake(45, 20, size.width + 30, size.height + 20);
     textString.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0];
     textString.text = chatText;
-    textString.textColor = [UIColor whiteColor];
+    textString.textColor = [UIColor yellowColor];
     textString.backgroundColor = [UIColor clearColor];
     textString.editable = NO;
     [textString sizeToFit];
     [cell addSubview:textString];
     
-    /*
-    NSString *chatText = [[chatData objectAtIndex:row] objectForKey:@"text"];
-    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    UIFont *font = [UIFont systemFontOfSize:14];
-    //CGSize size = [chatText sizeWithFont:font constrainedToSize:CGSizeMake(225.0f, 1000.0f) lineBreakMode:NSLineBreakByCharWrapping];
-    
-    CGSize size = [self frameForText:chatText sizeWithFont:font constrainedToSize:CGSizeMake(225.0f, 1000.0f)];
-    
-    cell.textString.frame = CGRectMake(75, 14, size.width +20, size.height + 20);
-    cell.textString.font = [UIFont fontWithName:@"Helvetica" size:14.0];
-    cell.textString.text = chatText;
-    [cell.textString sizeToFit];
-    
-    NSDate *theDate = [[chatData objectAtIndex:row] objectForKey:@"date"];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"HH:mm a"];
-    NSString *timeString = [formatter stringFromDate:theDate];
-    cell.timeLabel.text = timeString;
-    
-    cell.userLabel.text = [[chatData objectAtIndex:row] objectForKey:@"userName"];
-    */
+    UILabel *responseLabel = [[UILabel alloc] init];
+    int numResponses = [[chatObject objectForKey:@"responses"] integerValue];
+    if (numResponses == 0)
+        responseLabel.text = @"No responses";
+    else if (numResponses == 1)
+        responseLabel.text = @"1 response";
+    else
+        responseLabel.text = [NSString stringWithFormat:@"%d responses", numResponses];
+    responseLabel.textColor = [UIColor whiteColor];
+    responseLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:9.0];
+    responseLabel.textAlignment = NSTextAlignmentCenter;
+    responseLabel.frame = CGRectMake(20.0, textString.frame.origin.y + textString.frame.size.height - 5.0, 280.0, 15.0);
+    [cell addSubview:responseLabel];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ((indexPath.row == 0) && (noChats == TRUE))
-        return 60.0;
+    //if ((indexPath.row == 0) && (noChats == TRUE))
+    //    return 60.0;
     
     //NSString *cellText = [[chatData objectAtIndex:chatData.count-indexPath.row-1] objectForKey:@"text"];
     NSString *cellText = [[chatData objectAtIndex:indexPath.row] objectForKey:@"text"];
@@ -524,7 +557,7 @@
     //CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:NSLineBreakByWordWrapping];
     CGSize labelSize = [self frameForText:cellText sizeWithFont:cellFont constrainedToSize:constraintSize];
     
-    return labelSize.height + 40;
+    return labelSize.height + 50;
 }
 
 #pragma mark - Parse
@@ -565,8 +598,14 @@
     PFQuery *query = [PFQuery queryWithClassName:className];
     [query whereKey:@"response" equalTo:[NSNumber numberWithInt:0]];
     [query whereKey:@"userName" containedIn:myFriends];
-    [query orderByAscending:@"createdAt"];
+    [query orderByDescending:@"createdAt"];
     chatData = [query findObjects];
+    
+    if ([chatData count] > 0)
+        noChats = FALSE;
+    else
+        noChats = TRUE;
+    
     [chatTable reloadData];
     [chatTable scrollsToTop];
     
@@ -575,11 +614,6 @@
     [fquery orderByAscending:@"lastname"];
     fquery.limit = 1000;
     myFriends = [fquery findObjects];
-
-    if ([chatData count] > 0)
-        noChats = FALSE;
-    else
-        noChats = TRUE;
     
     NSLog(@"Got %d chats", [chatData count]);
     
