@@ -21,7 +21,11 @@
     NSString *className;
     NSString *userName;
     NSArray *myFriends;
+    NSArray *myFriendsObjects;
     ProfileData *userProfileData;
+    BOOL noChats;
+    BOOL textFieldActive;
+    IBOutlet UIImageView *backgroundText;
     
 }
 

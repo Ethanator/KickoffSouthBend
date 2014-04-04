@@ -35,8 +35,10 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    userProfileData = [ProfileData sharedInstance];
+
     className = @"ChatRoom";
-    userName = @"John Appleseed";
+    userName = [userProfileData getUserName];
     
     chatData  = [[NSArray alloc] init];
     [self loadLocalChat];
@@ -44,7 +46,13 @@
 
 - (IBAction)newChat
 {
+    NSLog(@"here now");
     [tfEntry becomeFirstResponder];
+}
+
+-(void)hideKeyBoard {
+    NSLog(@"dismiss");
+    [tfEntry resignFirstResponder];
 }
 
 - (void)viewDidLoad
@@ -55,12 +63,29 @@
     
     //CGRect screenBound = [[UIScreen mainScreen] bounds];
     //CGSize screenSize = screenBound.size;
+
+    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc]
+                                           initWithTarget:self
+                                           action:@selector(hideKeyBoard)];
+    
+    [self.view addGestureRecognizer:tapGesture];
+    
+    [chatTable setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
+    chatTable.opaque = NO;
+    chatTable.backgroundView = nil;
+    
+    noChats = TRUE;
+    
+    textFieldActive = FALSE;
     
     tfEntry.delegate = self;
     tfEntry.clearButtonMode = UITextFieldViewModeWhileEditing;
-    
     tfEntry.hidden = TRUE;
 
+    //backgroundText = [[UIImageView alloc] init];
+    //backgroundText.image = [UIImage imageNamed:@"squared_metal.png"];
+    backgroundText.hidden = TRUE;
+    
     //tfEntry.frame = CGRectMake(20.0, screenSize.height-30.0, 280.0, 30.0);
     
     [self registerForKeyboardNotifications];
@@ -100,10 +125,13 @@
     NSLog(@"the text content%@",tfEntry.text);
     [sender resignFirstResponder];
     [tfEntry resignFirstResponder];
+    
+    textFieldActive = FALSE;
 }
 
 -(IBAction) backgroundTap:(id) sender
 {
+    NSLog(@"background tap");
     [self.tfEntry resignFirstResponder];
 }
 
@@ -111,6 +139,8 @@
 {
     NSLog(@"the text content: %@",tfEntry.text);
     [textField resignFirstResponder];
+    
+    textFieldActive = FALSE;
     
     if (tfEntry.text.length>0) {
         /*
@@ -140,7 +170,7 @@
         [newMessage setObject:tfEntry.text forKey:@"text"];
         [newMessage setObject:userName forKey:@"userName"];
         [newMessage setObject:[NSDate date] forKey:@"date"];
-        [newMessage setObject:[NSNumber numberWithBool:FALSE] forKey:@"response"];
+        [newMessage setObject:[NSNumber numberWithInt:0] forKey:@"response"];
         [newMessage save];
         NSLog(@"So far so good 2");
 
@@ -173,6 +203,8 @@
     NSLog(@"Keyboard was shown");
     NSDictionary* info = [aNotification userInfo];
     
+    textFieldActive = TRUE;
+    
     NSTimeInterval animationDuration;
     UIViewAnimationCurve animationCurve;
     CGRect keyboardFrame;
@@ -188,7 +220,10 @@
     
     [tfEntry setFrame:CGRectMake(tfEntry.frame.origin.x, self.view.frame.origin.y + self.view.frame.size.height - keyboardFrame.size.height - tfEntry.frame.size.height, tfEntry.frame.size.width, tfEntry.frame.size.height)];
 
+    [backgroundText setFrame:CGRectMake(tfEntry.frame.origin.x-20.0, self.view.frame.origin.y + self.view.frame.size.height - keyboardFrame.size.height - tfEntry.frame.size.height-10.0, tfEntry.frame.size.width+40.0, tfEntry.frame.size.height+20.0)];
+
     tfEntry.hidden = FALSE;
+    backgroundText.hidden = FALSE;
 
     
     //[UIView commitAnimations];
@@ -216,6 +251,7 @@
     //[self.view setFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + keyboardFrame.size.height-TABBAR_HEIGHT, self.view.frame.size.width, self.view.frame.size.height)];
     
     tfEntry.hidden = TRUE;
+    backgroundText.hidden = TRUE;
 
     
     [UIView commitAnimations];
@@ -226,6 +262,8 @@
 
 - (void)reloadTableViewDataSource{
     
+    NSLog(@"reload");
+
     //  should be calling your tableviews data source model to reload
     //  put here just for demo
     _reloading = YES;
@@ -235,6 +273,8 @@
 
 - (void)doneLoadingTableViewData{
     
+    NSLog(@"done loading");
+
     //  model should call this when its done loading
     _reloading = NO;
     [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:chatTable];
@@ -247,12 +287,16 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
+    NSLog(@"scroll1");
+
     [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
     
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     
+    NSLog(@"scroll2");
+
     [_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
     
 }
@@ -263,6 +307,8 @@
 
 - (void)egoRefreshTableHeaderDidTriggerRefresh:(PF_EGORefreshTableHeaderView*)view{
     
+    NSLog(@"scroll3");
+
     [self reloadTableViewDataSource];
     [self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3.0];
     
@@ -270,12 +316,16 @@
 
 - (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(PF_EGORefreshTableHeaderView*)view{
     
+    NSLog(@"scroll4");
+
     return _reloading; // should return if data source model is reloading
     
 }
 
 - (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(PF_EGORefreshTableHeaderView*)view{
     
+    NSLog(@"scroll5");
+
     return [NSDate date]; // should return date data source was last changed
     
 }
@@ -284,7 +334,11 @@
 #pragma mark - Table view delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [chatData count];
+    
+    if ([chatData count] > 0)
+        return [chatData count];
+    else
+        return 1;
 }
 
 /*
@@ -317,48 +371,156 @@
     return frame.size;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    NSLog(@"Clicked (%d)", textFieldActive);
+    
+    if (textFieldActive) {
+        textFieldActive = FALSE;
+        [tfEntry resignFirstResponder];
+        return;
+    }
+    
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ChatCell *cell = (ChatCell *)[tableView dequeueReusableCellWithIdentifier: @"ChatCellID"];
+    //ChatCell *cell = (ChatCell *)[tableView dequeueReusableCellWithIdentifier: @"ChatCellID"];
     //NSUInteger row = [chatData count]-[indexPath row]-1;
-    NSUInteger row = indexPath.row;
     
-    NSLog(@"Load row %d", row);
     
-    if (row < chatData.count){
-        NSString *chatText = [[chatData objectAtIndex:row] objectForKey:@"text"];
-        cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        UIFont *font = [UIFont systemFontOfSize:14];
-        //CGSize size = [chatText sizeWithFont:font constrainedToSize:CGSizeMake(225.0f, 1000.0f) lineBreakMode:NSLineBreakByCharWrapping];
-        
-        CGSize size = [self frameForText:chatText sizeWithFont:font constrainedToSize:CGSizeMake(225.0f, 1000.0f)];
-
-        cell.textString.frame = CGRectMake(75, 14, size.width +20, size.height + 20);
-        cell.textString.font = [UIFont fontWithName:@"Helvetica" size:14.0];
-        cell.textString.text = chatText;
-        [cell.textString sizeToFit];
-        
-        NSDate *theDate = [[chatData objectAtIndex:row] objectForKey:@"date"];
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"HH:mm a"];
-        NSString *timeString = [formatter stringFromDate:theDate];
-        cell.timeLabel.text = timeString;
-        
-        cell.userLabel.text = [[chatData objectAtIndex:row] objectForKey:@"userName"];
+    NSString *CellIdentifier = [NSString stringWithFormat:@"ChatCellID"];
+    ChatCell *cell = (ChatCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[ChatCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    NSLog(@"Load row %d done", row);
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    cell.backgroundColor = [UIColor clearColor];
+    
+    if (noChats) {
+        
+        UILabel *noFriendsLabel = [[UILabel alloc] init];
+        noFriendsLabel.text = @"No messages yet. Click the plus sign above to send a message to your friends.";
+        noFriendsLabel.frame = CGRectMake(50.0, 0.0, self.view.frame.size.width - 100.0, 80.0f);
+        noFriendsLabel.textAlignment = NSTextAlignmentCenter;
+        noFriendsLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:11.0];
+        noFriendsLabel.textColor = [UIColor whiteColor];
+        noFriendsLabel.backgroundColor = [UIColor clearColor];
+        noFriendsLabel.numberOfLines = 0;
+        [cell addSubview:noFriendsLabel];
+        
+        return cell;
+    }
 
+    PFObject *thisObject;
+    PFObject *chatObject = [chatData objectAtIndex:indexPath.row];
+    NSString *currentUserName = [[chatData objectAtIndex:indexPath.row] objectForKey:@"userName"];
+    int count;
+    for (int i = 0; i < [chatData count]; i++) {
+        count = i;
+        if ([currentUserName isEqualToString:[[myFriendsObjects objectAtIndex:i] objectForKey:@"username"]]) {
+            thisObject = [myFriendsObjects objectAtIndex:i];
+            break;
+        }
+    }
+    
+    if (count >= [chatData count]) {
+        return cell;
+    }
+    
+    NSString *firstname = [thisObject objectForKey:@"firstname"];
+    NSString *lastname = [thisObject objectForKey:@"lastname"];
+    NSString *username = [thisObject objectForKey:@"username"];
+    NSString *fullName;
+    if (([firstname length] > 0) && ([lastname length] > 0))
+        fullName = [NSString stringWithFormat:@"%@ %@", firstname, lastname];
+    else if ([lastname length] > 0)
+        fullName = [NSString stringWithFormat:@"%@", lastname];
+    else
+        fullName = [NSString stringWithFormat:@"%@", username];
+    
+    PFFile *myImageFile = [thisObject objectForKey:@"profileimage"];
+    NSData *imageData = [myImageFile getData];
+    UIImage *thisProfileImage = [UIImage imageWithData:imageData];
+    if (thisProfileImage == nil)
+        thisProfileImage = [UIImage imageNamed:@"profile_placeholder.png"];
+    UIImageView *profileImage = [[UIImageView alloc] initWithImage:thisProfileImage];
+    profileImage.frame = CGRectMake(10.0, 7.0, 30.0, 30.0);
+    [cell addSubview:profileImage];
+
+    UILabel *nameLabel = [[UILabel alloc] init];
+    nameLabel.text = currentUserName;
+    nameLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:12.0];
+    nameLabel.frame = CGRectMake(48.0, 7.0, 150.0, 15.0);
+    nameLabel.textAlignment = NSTextAlignmentLeft;
+    nameLabel.textColor = [UIColor whiteColor];
+    nameLabel.backgroundColor = [UIColor clearColor];
+    [cell addSubview:nameLabel];
+    
+    UILabel *dateLabel = [[UILabel alloc] init];
+    dateLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0];
+    dateLabel.frame = CGRectMake(200.0, 7.0, 110.0, 15.0);
+    dateLabel.textAlignment = NSTextAlignmentRight;
+    NSDate *theDate = [chatObject objectForKey:@"date"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH:mm a"];
+    NSString *timeString = [formatter stringFromDate:theDate];
+    dateLabel.text = timeString;
+    dateLabel.textColor = [UIColor whiteColor];
+    dateLabel.backgroundColor = [UIColor clearColor];
+    [cell addSubview:dateLabel];
+    
+    NSString *chatText = [chatObject objectForKey:@"text"];
+    //cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0];
+    CGSize size = [self frameForText:chatText sizeWithFont:font constrainedToSize:CGSizeMake(260.0f, 1000.0f)];
+    
+    UITextView *textString = [[UITextView alloc] init];
+    textString.frame = CGRectMake(45, 20, size.width + 30, size.height + 20);
+    textString.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0];
+    textString.text = chatText;
+    textString.textColor = [UIColor whiteColor];
+    textString.backgroundColor = [UIColor clearColor];
+    textString.editable = NO;
+    [textString sizeToFit];
+    [cell addSubview:textString];
+    
+    /*
+    NSString *chatText = [[chatData objectAtIndex:row] objectForKey:@"text"];
+    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    UIFont *font = [UIFont systemFontOfSize:14];
+    //CGSize size = [chatText sizeWithFont:font constrainedToSize:CGSizeMake(225.0f, 1000.0f) lineBreakMode:NSLineBreakByCharWrapping];
+    
+    CGSize size = [self frameForText:chatText sizeWithFont:font constrainedToSize:CGSizeMake(225.0f, 1000.0f)];
+    
+    cell.textString.frame = CGRectMake(75, 14, size.width +20, size.height + 20);
+    cell.textString.font = [UIFont fontWithName:@"Helvetica" size:14.0];
+    cell.textString.text = chatText;
+    [cell.textString sizeToFit];
+    
+    NSDate *theDate = [[chatData objectAtIndex:row] objectForKey:@"date"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH:mm a"];
+    NSString *timeString = [formatter stringFromDate:theDate];
+    cell.timeLabel.text = timeString;
+    
+    cell.userLabel.text = [[chatData objectAtIndex:row] objectForKey:@"userName"];
+    */
+    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ((indexPath.row == 0) && (noChats == TRUE))
+        return 60.0;
+    
     //NSString *cellText = [[chatData objectAtIndex:chatData.count-indexPath.row-1] objectForKey:@"text"];
     NSString *cellText = [[chatData objectAtIndex:indexPath.row] objectForKey:@"text"];
-    UIFont *cellFont = [UIFont fontWithName:@"Helvetica" size:14.0];
-    CGSize constraintSize = CGSizeMake(225.0f, MAXFLOAT);
+    UIFont *cellFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0];
+    CGSize constraintSize = CGSizeMake(260.0f, MAXFLOAT);
     //CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:NSLineBreakByWordWrapping];
     CGSize labelSize = [self frameForText:cellText sizeWithFont:cellFont constrainedToSize:constraintSize];
     
@@ -370,6 +532,8 @@
 - (void)loadLocalChat
 {
     
+    NSLog(@"load");
+
     userProfileData = [ProfileData sharedInstance];
 
     PFQuery *friendQuery1 = [PFQuery queryWithClassName:@"Friends"];
@@ -394,15 +558,30 @@
             [tempFriendsConfirmed addObject:[[friendList2 objectAtIndex:k] objectForKey:@"invitee"]];
     }
     
+    [tempFriendsConfirmed addObject:[userProfileData getUserName]];
+    
     myFriends = tempFriendsConfirmed;
 
     PFQuery *query = [PFQuery queryWithClassName:className];
-    [query whereKey:@"response" equalTo:[NSNumber numberWithBool:FALSE]];
+    [query whereKey:@"response" equalTo:[NSNumber numberWithInt:0]];
     [query whereKey:@"userName" containedIn:myFriends];
     [query orderByAscending:@"createdAt"];
     chatData = [query findObjects];
     [chatTable reloadData];
     [chatTable scrollsToTop];
+    
+    PFQuery *fquery = [PFQuery queryWithClassName:@"Profile"];
+    [fquery whereKey:@"username" containedIn:myFriends];
+    [fquery orderByAscending:@"lastname"];
+    fquery.limit = 1000;
+    myFriends = [fquery findObjects];
+
+    if ([chatData count] > 0)
+        noChats = FALSE;
+    else
+        noChats = TRUE;
+    
+    NSLog(@"Got %d chats", [chatData count]);
     
     /*
     __block int totalNumberOfEntries = 0;

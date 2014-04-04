@@ -13,11 +13,13 @@
     IBOutlet UILabel *userLabel;
     IBOutlet UITextView *textString;
     IBOutlet UILabel *timeLabel;
+    IBOutlet UIImageView *friendImage;
     
 }
 
 @property (nonatomic,retain) IBOutlet UILabel *userLabel;
 @property (nonatomic,retain) IBOutlet UITextView *textString;
 @property (nonatomic,retain) IBOutlet UILabel *timeLabel;
+@property (nonatomic,retain) IBOutlet UIImageView *friendImage;
 
 @end

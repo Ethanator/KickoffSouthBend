@@ -17,6 +17,8 @@
 		770816FE18ED919F00084BC4 /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770816FD18ED919F00084BC4 /* ChatCell.m */; };
 		7708170418ED952300084BC4 /* ChatRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7708170318ED952300084BC4 /* ChatRoomViewController.m */; };
 		7708170618EDA31900084BC4 /* textfield_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7708170518EDA31900084BC4 /* textfield_background@2x.png */; };
+		7708170818EE497D00084BC4 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7708170718EE497D00084BC4 /* background.png */; };
+		7708170A18EE579600084BC4 /* squared_metal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7708170918EE579600084BC4 /* squared_metal.png */; };
 		771D3D51177BE02A00026892 /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D3D50177BE02A00026892 /* MyProfileViewController.m */; };
 		7747C38417664630004089CA /* profile_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 7747C38317664630004089CA /* profile_placeholder.png */; };
 		7751DFFC1896047A00F43614 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7751DFFB1896047A00F43614 /* libz.dylib */; };
@@ -90,6 +92,8 @@
 		7708170218ED952300084BC4 /* ChatRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatRoomViewController.h; sourceTree = "<group>"; };
 		7708170318ED952300084BC4 /* ChatRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatRoomViewController.m; sourceTree = "<group>"; };
 		7708170518EDA31900084BC4 /* textfield_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textfield_background@2x.png"; sourceTree = "<group>"; };
+		7708170718EE497D00084BC4 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		7708170918EE579600084BC4 /* squared_metal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squared_metal.png; sourceTree = "<group>"; };
 		771D3D4F177BE02A00026892 /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyProfileViewController.h; path = ../MyProfileViewController.h; sourceTree = "<group>"; };
 		771D3D50177BE02A00026892 /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyProfileViewController.m; path = ../MyProfileViewController.m; sourceTree = "<group>"; };
 		7747C38317664630004089CA /* profile_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_placeholder.png; sourceTree = "<group>"; };
@@ -308,6 +312,8 @@
 		77F7737316E6FB5F00C338BA /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				7708170918EE579600084BC4 /* squared_metal.png */,
+				7708170718EE497D00084BC4 /* background.png */,
 				770816F418EA64C900084BC4 /* download2.png */,
 				770816F018E7B64500084BC4 /* BlackBG.png */,
 				7775E68B16E93F6800080247 /* Default-568h@2x.png */,
@@ -402,7 +408,9 @@
 				770816F518EA64C900084BC4 /* download2.png in Resources */,
 				77F7737516E6FB9900C338BA /* AppIcon.png in Resources */,
 				77F7737D16E6FBB100C338BA /* DiningIcon.png in Resources */,
+				7708170818EE497D00084BC4 /* background.png in Resources */,
 				77F7737E16E6FBB100C338BA /* FriendsIcon.png in Resources */,
+				7708170A18EE579600084BC4 /* squared_metal.png in Resources */,
 				77F7737F16E6FBB100C338BA /* LodgingIcon.png in Resources */,
 				77F7738016E6FBB100C338BA /* MapIcon.png in Resources */,
 				77F7738116E6FBB100C338BA /* MessagesIcon.png in Resources */,

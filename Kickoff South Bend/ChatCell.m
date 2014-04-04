@@ -10,7 +10,7 @@
 
 @implementation ChatCell
 
-@synthesize userLabel, timeLabel, textString;
+@synthesize userLabel, timeLabel, textString, friendImage;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
