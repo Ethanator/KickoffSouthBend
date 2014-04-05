@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface ChatDetailTableViewController : UITableViewController
+@interface ChatDetailTableViewController : UITableViewController {
+    
+    PFObject *chatObject;
+    PFObject *askerObject;
+    
+}
+
+- (void)setChatObject:(PFObject *)thisChatObject;
+- (void)setAskerObject:(PFObject *)thisAskerObject;
+- (IBAction)newChat;
 
 @end

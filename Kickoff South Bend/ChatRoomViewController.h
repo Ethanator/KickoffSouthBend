@@ -26,6 +26,8 @@
     BOOL noChats;
     BOOL textFieldActive;
     IBOutlet UIImageView *backgroundText;
+    PFObject *thisObject;
+    PFObject *chatObject;
     
 }
 

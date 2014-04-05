@@ -8,6 +8,7 @@
 
 #import "ChatRoomViewController.h"
 #import "ChatCell.h"
+#import "ChatDetailTableViewController.h"
 
 #define TABBAR_HEIGHT 49.0f
 #define TEXTFIELD_HEIGHT 70.0f
@@ -64,11 +65,11 @@
     //CGRect screenBound = [[UIScreen mainScreen] bounds];
     //CGSize screenSize = screenBound.size;
 
-    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc]
-                                           initWithTarget:self
-                                           action:@selector(hideKeyBoard)];
+    //UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc]
+    //                                       initWithTarget:self
+    //                                       action:@selector(hideKeyBoard)];
     
-    [self.view addGestureRecognizer:tapGesture];
+    //[self.view addGestureRecognizer:tapGesture];
     
     [chatTable setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
     chatTable.opaque = NO;
@@ -372,6 +373,16 @@
     return frame.size;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"ChatDetailSegue"])
+    {
+        ChatDetailTableViewController *cdvc = [segue destinationViewController];
+        [cdvc setChatObject:chatObject];
+        [cdvc setAskerObject:thisObject];
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     NSLog(@"Clicked (%d)", textFieldActive);
@@ -381,6 +392,8 @@
         [tfEntry resignFirstResponder];
         return;
     }
+    
+    [self performSegueWithIdentifier: @"ChatDetailSegue" sender: self];
     
 }
 
@@ -427,8 +440,7 @@
         return cell;
     }
 
-    PFObject *thisObject;
-    PFObject *chatObject = [chatData objectAtIndex:indexPath.row];
+    chatObject = [chatData objectAtIndex:indexPath.row];
     NSString *currentUserName = [[chatData objectAtIndex:indexPath.row] objectForKey:@"userName"];
     int count;
     for (int i = 0; i < [chatData count]; i++) {
@@ -466,7 +478,7 @@
     UILabel *nameLabel = [[UILabel alloc] init];
     nameLabel.text = currentUserName;
     nameLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:12.0];
-    nameLabel.frame = CGRectMake(48.0, 7.0, 150.0, 15.0);
+    nameLabel.frame = CGRectMake(45.0, 7.0, 150.0, 15.0);
     nameLabel.textAlignment = NSTextAlignmentLeft;
     nameLabel.textColor = [UIColor whiteColor];
     nameLabel.backgroundColor = [UIColor clearColor];
@@ -515,16 +527,19 @@
     
     NSString *chatText = [chatObject objectForKey:@"text"];
     //cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0];
+    UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:14.0];
     CGSize size = [self frameForText:chatText sizeWithFont:font constrainedToSize:CGSizeMake(260.0f, 1000.0f)];
     
-    UITextView *textString = [[UITextView alloc] init];
-    textString.frame = CGRectMake(45, 20, size.width + 30, size.height + 20);
-    textString.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0];
+    //UITextView *textString = [[UITextView alloc] init];
+    UILabel *textString = [[UILabel alloc] init];
+    textString.frame = CGRectMake(45, 25, size.width + 30, size.height + 20);
+    textString.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:14.0];
     textString.text = chatText;
-    textString.textColor = [UIColor yellowColor];
+    textString.numberOfLines = 0;
+    textString.textColor = [UIColor colorWithRed:255/255 green:255/255 blue:204/255 alpha:1.0];
+    //textString.textColor = [UIColor whiteColor];
     textString.backgroundColor = [UIColor clearColor];
-    textString.editable = NO;
+    //textString.editable = NO;
     [textString sizeToFit];
     [cell addSubview:textString];
     
@@ -539,8 +554,13 @@
     responseLabel.textColor = [UIColor whiteColor];
     responseLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:9.0];
     responseLabel.textAlignment = NSTextAlignmentCenter;
-    responseLabel.frame = CGRectMake(20.0, textString.frame.origin.y + textString.frame.size.height - 5.0, 280.0, 15.0);
+    responseLabel.frame = CGRectMake(20.0, textString.frame.origin.y + textString.frame.size.height + 5.0, 280.0, 15.0);
     [cell addSubview:responseLabel];
+    
+    for(UIView * cellSubviews in [cell.contentView subviews])
+    {
+        cellSubviews.userInteractionEnabled = NO;
+    }
     
     return cell;
 }
@@ -552,7 +572,7 @@
     
     //NSString *cellText = [[chatData objectAtIndex:chatData.count-indexPath.row-1] objectForKey:@"text"];
     NSString *cellText = [[chatData objectAtIndex:indexPath.row] objectForKey:@"text"];
-    UIFont *cellFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0];
+    UIFont *cellFont = [UIFont fontWithName:@"HelveticaNeue-Medium" size:14.0];
     CGSize constraintSize = CGSizeMake(260.0f, MAXFLOAT);
     //CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:NSLineBreakByWordWrapping];
     CGSize labelSize = [self frameForText:cellText sizeWithFont:cellFont constrainedToSize:constraintSize];

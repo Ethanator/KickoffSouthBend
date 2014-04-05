@@ -319,11 +319,47 @@
                         <outlet property="backgroundText" destination="xyo-4F-t0J" id="vOJ-NH-8gS"/>
                         <outlet property="chatTable" destination="moh-4d-nMa" id="0fN-9m-1Ms"/>
                         <outlet property="tfEntry" destination="IVH-UP-IiI" id="AbW-Z0-U1V"/>
+                        <segue destination="sPF-hh-wXj" kind="push" identifier="ChatDetailSegue" id="iL9-ul-MuN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QNJ-nC-LnY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1478" y="2064"/>
+        </scene>
+        <!--Chat Detail Table View Controller-->
+        <scene sceneID="29f-SB-Ry8">
+            <objects>
+                <tableViewController id="sPF-hh-wXj" customClass="ChatDetailTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Vnm-uX-RN8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChatDetail" id="daL-rH-TcG">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="daL-rH-TcG" id="WVY-sU-YAJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sPF-hh-wXj" id="HPL-3t-w2x"/>
+                            <outlet property="delegate" destination="sPF-hh-wXj" id="T8y-ba-4XO"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="E9b-hg-mfN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="WTA-8e-o0c">
+                            <connections>
+                                <action selector="newChat" destination="sPF-hh-wXj" id="bjy-J3-nSS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jtT-HH-lHu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1884" y="2064"/>
         </scene>
         <!--Pictures View Controller-->
         <scene sceneID="oMm-mR-rDb">

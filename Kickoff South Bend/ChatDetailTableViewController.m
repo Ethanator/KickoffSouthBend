@@ -40,32 +40,69 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)newChat
+{
+
+}
+
+- (void) fetchDataFromParse
+{
+    PFQuery *answers = [PFQuery queryWithClassName:@"ChatRoom"];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    if (section == 0)
+        return 1;
+    else
+        return 0;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"ChatDetail";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
     
-    // Configure the cell...
+    
+    for(UIView* subview in [cell.contentView subviews]) {
+        [subview removeFromSuperview];
+    }
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    cell.backgroundColor = [UIColor clearColor];
+
+    if (indexPath.section == 0) {
+        
+        
+        
+    }
+    
+    
+    cell.textLabel.text = @"Test";
     
     return cell;
 }
-*/
+
+- (void)setChatObject:(PFObject *)thisChatObject
+{
+    chatObject = thisChatObject;
+}
+
+- (void)setAskerObject:(PFObject *)thisAskerObject
+{
+    askerObject = thisAskerObject;
+}
 
 /*
 // Override to support conditional editing of the table view.
