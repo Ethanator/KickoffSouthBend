@@ -7,6 +7,8 @@
 //
 
 #import "NewsViewController.h"
+#import "TFHpple.h"
+#import "Constants.h"
 
 @interface NewsViewController ()
 
@@ -42,16 +44,6 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 30;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"OnCampusCell";
@@ -61,6 +53,22 @@
     cell.textLabel.text = @"News";
     
     return cell;
+}
+
+- (void)loadNewsFromWebsiteWithQuery:(NSString *)link parseQuery:(NSString *)newsXpathQueryString {
+    //NSURL *newsLink  = [NSURL URLWithString:link];
+    //NSData *newsHtml = [NSData dataWithContentsOfURL:newsLink];
+    
+    /*
+    TFHpple *newsParser = [TFHpple hppleWithHTMLData:newsHtml];
+    NSArray *newsNodes = [newsParser searchWithXPathQuery:newsXpathQueryString];
+    
+    NSMutableArray *newsList = [[NSMutableArray alloc] initWithCapacity:0];
+    for (TFHppleElement *item in newsList) {
+        News *news = [[News alloc] init];
+        [newsList addObject:news];
+    }*/
+
 }
 
 /*

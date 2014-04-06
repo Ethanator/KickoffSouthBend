@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F1B985818EB0FCF0092E0C3 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1B985318EB0FCF0092E0C3 /* TFHpple.m */; };
+		0F1B985918EB0FCF0092E0C3 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1B985518EB0FCF0092E0C3 /* TFHppleElement.m */; };
+		0F1B985A18EB0FCF0092E0C3 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1B985718EB0FCF0092E0C3 /* XPathQuery.m */; };
+		0F1B985F18EB15470092E0C3 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1B985E18EB15470092E0C3 /* News.m */; };
+		0F1B986218EB166F0092E0C3 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F1B986118EB166F0092E0C3 /* libxml2.dylib */; };
 		0F23859018EA30510051DA65 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F773A216E78D0300C338BA /* QuartzCore.framework */; };
 		0F23859118EA311A0051DA65 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFB82C218EA2DB80083876C /* Parse.framework */; };
 		0FFB82C018EA2D720083876C /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FFB82BD18EA2D720083876C /* EventsViewController.m */; };
@@ -74,6 +79,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F1B985218EB0FCF0092E0C3 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		0F1B985318EB0FCF0092E0C3 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		0F1B985418EB0FCF0092E0C3 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		0F1B985518EB0FCF0092E0C3 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		0F1B985618EB0FCF0092E0C3 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		0F1B985718EB0FCF0092E0C3 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		0F1B985C18EB103E0092E0C3 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../Constants.h; sourceTree = "<group>"; };
+		0F1B985D18EB15470092E0C3 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = News.h; path = "kickoff south bend/News.h"; sourceTree = SOURCE_ROOT; };
+		0F1B985E18EB15470092E0C3 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = News.m; path = "kickoff south bend/News.m"; sourceTree = SOURCE_ROOT; };
+		0F1B986118EB166F0092E0C3 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		0FFB82BC18EA2D720083876C /* EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventsViewController.h; path = ../EventsViewController.h; sourceTree = "<group>"; };
 		0FFB82BD18EA2D720083876C /* EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventsViewController.m; path = ../EventsViewController.m; sourceTree = "<group>"; };
 		0FFB82BE18EA2D720083876C /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsViewController.h; path = ../NewsViewController.h; sourceTree = "<group>"; };
@@ -169,6 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F1B986218EB166F0092E0C3 /* libxml2.dylib in Frameworks */,
 				0F23859118EA311A0051DA65 /* Parse.framework in Frameworks */,
 				0F23859018EA30510051DA65 /* QuartzCore.framework in Frameworks */,
 				7751DFFC1896047A00F43614 /* libz.dylib in Frameworks */,
@@ -193,13 +209,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F1B985B18EB0FD50092E0C3 /* hpple */ = {
+			isa = PBXGroup;
+			children = (
+				0F1B985218EB0FCF0092E0C3 /* TFHpple.h */,
+				0F1B985318EB0FCF0092E0C3 /* TFHpple.m */,
+				0F1B985418EB0FCF0092E0C3 /* TFHppleElement.h */,
+				0F1B985518EB0FCF0092E0C3 /* TFHppleElement.m */,
+				0F1B985618EB0FCF0092E0C3 /* XPathQuery.h */,
+				0F1B985718EB0FCF0092E0C3 /* XPathQuery.m */,
+			);
+			name = hpple;
+			sourceTree = "<group>";
+		};
+		0F1B986018EB15520092E0C3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0F1B985D18EB15470092E0C3 /* News.h */,
+				0F1B985E18EB15470092E0C3 /* News.m */,
+			);
+			name = Models;
+			path = "Kickoff South Bend";
+			sourceTree = "<group>";
+		};
 		77C1FEFA16E6EB4D00B3015E = {
 			isa = PBXGroup;
 			children = (
 				77C1FF1E16E6EB4D00B3015E /* MainStoryboard.storyboard */,
 				77C1FF1516E6EB4D00B3015E /* AppDelegate.h */,
 				77C1FF1616E6EB4D00B3015E /* AppDelegate.m */,
+				0F1B985B18EB0FD50092E0C3 /* hpple */,
 				77F7737316E6FB5F00C338BA /* Media */,
+				0F1B986018EB15520092E0C3 /* Models */,
 				77C1FF0C16E6EB4D00B3015E /* Kickoff South Bend */,
 				77C1FF0516E6EB4D00B3015E /* Frameworks */,
 				77C1FF0416E6EB4D00B3015E /* Products */,
@@ -217,6 +258,7 @@
 		77C1FF0516E6EB4D00B3015E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F1B986118EB166F0092E0C3 /* libxml2.dylib */,
 				0FFB82C218EA2DB80083876C /* Parse.framework */,
 				7751DFFB1896047A00F43614 /* libz.dylib */,
 				7775E68F16EA6D1000080247 /* MapKit.framework */,
@@ -290,6 +332,7 @@
 		77C1FF0D16E6EB4D00B3015E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0F1B985C18EB103E0092E0C3 /* Constants.h */,
 				77C1FF0E16E6EB4D00B3015E /* Kickoff South Bend-Info.plist */,
 				77C1FF0F16E6EB4D00B3015E /* InfoPlist.strings */,
 				77C1FF1216E6EB4D00B3015E /* main.m */,
@@ -366,7 +409,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 77C1FEFE16E6EB4D00B3015E /* Build configuration list for PBXProject "Kickoff South Bend" */;
+			buildConfigurationList = 77C1FEFE16E6EB4D00B3015E /* Build configuration list for PBXProject "kickoff south bend" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -422,7 +465,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F1B985F18EB15470092E0C3 /* News.m in Sources */,
+				0F1B985918EB0FCF0092E0C3 /* TFHppleElement.m in Sources */,
 				77B543261762743B0045C892 /* FDTakeController.m in Sources */,
+				0F1B985A18EB0FCF0092E0C3 /* XPathQuery.m in Sources */,
 				77C1FF1316E6EB4D00B3015E /* main.m in Sources */,
 				77C1FF1716E6EB4D00B3015E /* AppDelegate.m in Sources */,
 				777CE4A418E7252B0059A33C /* PhotoCell.m in Sources */,
@@ -440,6 +486,7 @@
 				770816EF18E76BAC00084BC4 /* MBProgressHUD.m in Sources */,
 				77B54317175BD44D0045C892 /* MapPoint.m in Sources */,
 				77B5431A176228740045C892 /* FriendsViewController.m in Sources */,
+				0F1B985818EB0FCF0092E0C3 /* TFHpple.m in Sources */,
 				77B5431D176229490045C892 /* ProfileData.m in Sources */,
 				77B54320176230B50045C892 /* FindFriendViewController.m in Sources */,
 				77B54329176562900045C892 /* CustomPeopleCell.m in Sources */,
@@ -534,6 +581,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kickoff South Bend/Kickoff South Bend-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "Kickoff South Bend/Kickoff South Bend-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -561,7 +609,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		77C1FEFE16E6EB4D00B3015E /* Build configuration list for PBXProject "Kickoff South Bend" */ = {
+		77C1FEFE16E6EB4D00B3015E /* Build configuration list for PBXProject "kickoff south bend" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				77C1FF2416E6EB4D00B3015E /* Debug */,
