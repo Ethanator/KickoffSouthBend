@@ -28,6 +28,7 @@
     IBOutlet UIImageView *backgroundText;
     PFObject *thisObject;
     PFObject *chatObject;
+    int currentIndex;
     
 }
 

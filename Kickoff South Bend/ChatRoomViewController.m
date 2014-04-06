@@ -332,6 +332,32 @@
     
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0)
+        return 0.0;
+    else
+        return 20.0;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *sectionName;
+    switch (section)
+    {
+        case 0:
+            sectionName = @"";
+            break;
+        case 1:
+            sectionName = NSLocalizedString(@"Responses", @"Responses");
+            break;
+            // ...
+        default:
+            sectionName = @"";
+            break;
+    }
+    return sectionName;
+}
 
 #pragma mark - Table view delegate
 
@@ -377,6 +403,17 @@
 {
     if ([[segue identifier] isEqualToString:@"ChatDetailSegue"])
     {
+        chatObject = [chatData objectAtIndex:currentIndex];
+        NSString *currentUserName = [[chatData objectAtIndex:currentIndex] objectForKey:@"userName"];
+        int count;
+        for (int i = 0; i < [myFriends count]; i++) {
+            count = i;
+            if ([currentUserName isEqualToString:[[myFriends objectAtIndex:i] objectForKey:@"username"]]) {
+                thisObject = [myFriends objectAtIndex:i];
+                break;
+            }
+        }
+        
         ChatDetailTableViewController *cdvc = [segue destinationViewController];
         [cdvc setChatObject:chatObject];
         [cdvc setAskerObject:thisObject];
@@ -393,6 +430,7 @@
         return;
     }
     
+    currentIndex = indexPath.row;
     [self performSegueWithIdentifier: @"ChatDetailSegue" sender: self];
     
 }
@@ -411,10 +449,10 @@
     */
     
     static NSString *CellIdentifier = @"ChatCellID";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    //if (cell == nil) {
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    //}
 
     
     for(UIView* subview in [cell.contentView subviews]) {
@@ -441,12 +479,14 @@
     }
 
     chatObject = [chatData objectAtIndex:indexPath.row];
-    NSString *currentUserName = [[chatData objectAtIndex:indexPath.row] objectForKey:@"userName"];
+    NSString *currentUserName = [chatObject objectForKey:@"userName"];
+    NSLog(@"currentUsername = %@ (%d)", currentUserName, [myFriends count]);
     int count;
-    for (int i = 0; i < [chatData count]; i++) {
+    for (int i = 0; i < [myFriends count]; i++) {
         count = i;
-        if ([currentUserName isEqualToString:[[myFriendsObjects objectAtIndex:i] objectForKey:@"username"]]) {
-            thisObject = [myFriendsObjects objectAtIndex:i];
+        NSLog(@"N1:%@,N2:%@", currentUserName, [[myFriends objectAtIndex:i] objectForKey:@"username"]);
+        if ([currentUserName isEqualToString:[[myFriends objectAtIndex:i] objectForKey:@"username"]]) {
+            thisObject = [myFriends objectAtIndex:i];
             break;
         }
     }
@@ -468,6 +508,7 @@
     
     PFFile *myImageFile = [thisObject objectForKey:@"profileimage"];
     NSData *imageData = [myImageFile getData];
+    NSLog(@"Row %d: getting image for %@", indexPath.row, [thisObject objectForKey:@"username"]);
     UIImage *thisProfileImage = [UIImage imageWithData:imageData];
     if (thisProfileImage == nil)
         thisProfileImage = [UIImage imageNamed:@"profile_placeholder.png"];
@@ -551,8 +592,11 @@
         responseLabel.text = @"1 response";
     else
         responseLabel.text = [NSString stringWithFormat:@"%d responses", numResponses];
-    responseLabel.textColor = [UIColor whiteColor];
-    responseLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:9.0];
+    if (numResponses > 0)
+        responseLabel.textColor = [UIColor yellowColor];
+    else
+        responseLabel.textColor = [UIColor whiteColor];
+    responseLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:10.0];
     responseLabel.textAlignment = NSTextAlignmentCenter;
     responseLabel.frame = CGRectMake(20.0, textString.frame.origin.y + textString.frame.size.height + 5.0, 280.0, 15.0);
     [cell addSubview:responseLabel];
