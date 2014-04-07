@@ -430,7 +430,7 @@
         return;
     }
     
-    currentIndex = indexPath.row;
+    currentIndex = (int)indexPath.row;
     [self performSegueWithIdentifier: @"ChatDetailSegue" sender: self];
     
 }
@@ -480,7 +480,7 @@
 
     chatObject = [chatData objectAtIndex:indexPath.row];
     NSString *currentUserName = [chatObject objectForKey:@"userName"];
-    NSLog(@"currentUsername = %@ (%d)", currentUserName, [myFriends count]);
+    NSLog(@"currentUsername = %@ (%lu)", currentUserName, (unsigned long)[myFriends count]);
     int count;
     for (int i = 0; i < [myFriends count]; i++) {
         count = i;
@@ -508,7 +508,7 @@
     
     PFFile *myImageFile = [thisObject objectForKey:@"profileimage"];
     NSData *imageData = [myImageFile getData];
-    NSLog(@"Row %d: getting image for %@", indexPath.row, [thisObject objectForKey:@"username"]);
+    NSLog(@"Row %ld: getting image for %@", (long)indexPath.row, [thisObject objectForKey:@"username"]);
     UIImage *thisProfileImage = [UIImage imageWithData:imageData];
     if (thisProfileImage == nil)
         thisProfileImage = [UIImage imageNamed:@"profile_placeholder.png"];
@@ -585,7 +585,7 @@
     [cell addSubview:textString];
     
     UILabel *responseLabel = [[UILabel alloc] init];
-    int numResponses = [[chatObject objectForKey:@"responses"] integerValue];
+    int numResponses = (int)[[chatObject objectForKey:@"responses"] integerValue];
     if (numResponses == 0)
         responseLabel.text = @"No responses";
     else if (numResponses == 1)
@@ -679,7 +679,7 @@
     fquery.limit = 1000;
     myFriends = [fquery findObjects];
     
-    NSLog(@"Got %d chats", [chatData count]);
+    NSLog(@"Got %lu chats", (unsigned long)[chatData count]);
     
     /*
     __block int totalNumberOfEntries = 0;
