@@ -19,7 +19,7 @@
 
 @implementation NewsViewController
 
-- (void)parseNews:(NSMutableArray *)newsArray atURL:(NSString *)webURL withQuery:(NSString *)query
+- (void)parseNews:(NSMutableArray *)newsArray atURL:(NSString *)webURL withQuery:(NSString *)query fromSource:(NSString *)source
 {
     //NSLog(@"The news array originally has:\n%@", newsArray);
     NSURL *newsURL = [NSURL URLWithString:webURL];
@@ -31,6 +31,7 @@
         [newsArray addObject:article];
         [article setTitle:[[element firstChild] content]];
         [article setUrl:[element objectForKey:@"href"]];
+        [article setSource:source];
     }
     //NSLog(@"The news array now has:\n%@", newsArray);
 }
@@ -38,23 +39,26 @@
 - (void)loadNews {
     NSMutableArray *newsArticles = [[NSMutableArray alloc] initWithCapacity:0];
     [self parseNews:newsArticles atURL:[NSString stringWithFormat:@"%s",
+                                        LINK_THE_OBSERVER
+                                        ]
+          withQuery:[NSString stringWithFormat:@"%s",
+                     QUERY_THE_OBSERVER
+                     ]
+            fromSource:@"The Observer"];
+    [self parseNews:newsArticles atURL:[NSString stringWithFormat:@"%s",
                                        LINK_ESPN_ND_BLOG
                                        ]
                              withQuery:[NSString stringWithFormat:@"%s",
                                        QUERY_ESPN_ND_BLOG
-                                       ]];
-    [self parseNews:newsArticles atURL:[NSString stringWithFormat:@"%s",
-                                       LINK_THE_OBSERVER
                                        ]
-                             withQuery:[NSString stringWithFormat:@"%s",
-                                       QUERY_THE_OBSERVER
-                                       ]];
+     fromSource:@"ESPN ND Blog"];
     [self parseNews:newsArticles atURL:[NSString stringWithFormat:@"%s",
                                        LINK_ESPN_NCAAF
                                        ]
                              withQuery:[NSString stringWithFormat:@"%s",
                                        QUERY_ESPN_NCAAF
-                                       ]];
+                                       ]
+     fromSource:@"ESPN NCAAF"];
     self.newsList = newsArticles;
     
     [self.tableView reloadData];
@@ -125,7 +129,7 @@
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.textLabel.text          = currNews.title;
-    cell.detailTextLabel.text    = @"Testing";
+    cell.detailTextLabel.text    = currNews.source;
     cell.url                     = currNews.url;
     
     return cell;
