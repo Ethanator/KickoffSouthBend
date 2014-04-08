@@ -414,10 +414,19 @@
     return cell;
 }
 
-/*
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     NSInteger thisTag = alertView.tag;
+    
+    PFObject *thisObject;
+    
+    if (currentIndex < [myInviters count]) {
+        thisObject = [myInviters objectAtIndex:currentIndex];
+    } else if (currentIndex < ([myInviters count] + [myInvitees count])) {
+        thisObject = [myInvitees objectAtIndex:currentIndex - [myInviters count]];
+    } else {
+        thisObject = [myFriends objectAtIndex:currentIndex - [myInviters count] - [myInvitees count]];
+    }
     
     if (thisTag == 1) { // Disconnect or cancel
         NSLog(@"Disconnect?");
@@ -426,9 +435,9 @@
         else { // Disconnect
             PFQuery *friendQuery1 = [PFQuery queryWithClassName:@"Friends"];
             [friendQuery1 whereKey:@"inviter" equalTo:[userProfileData getUserName]];
-            [friendQuery1 whereKey:@"invitee" equalTo:[[allFound objectAtIndex:currentIndex] objectForKey:@"username"]];
+            [friendQuery1 whereKey:@"invitee" equalTo:[thisObject objectForKey:@"username"]];
             PFQuery *friendQuery2 = [PFQuery queryWithClassName:@"Friends"];
-            [friendQuery2 whereKey:@"inviter" equalTo:[[allFound objectAtIndex:currentIndex] objectForKey:@"username"]];
+            [friendQuery2 whereKey:@"inviter" equalTo:[thisObject objectForKey:@"username"]];
             [friendQuery2 whereKey:@"invitee" equalTo:[userProfileData getUserName]];
             NSArray *objects1 = [friendQuery1 findObjects];
             NSArray *objects2 = [friendQuery2 findObjects];
@@ -448,7 +457,7 @@
     } else if (thisTag == 2) { // Accept/discard invite
         NSLog(@"Accept?");
         PFQuery *friendQuery1 = [PFQuery queryWithClassName:@"Friends"];
-        [friendQuery1 whereKey:@"inviter" equalTo:[[allFound objectAtIndex:currentIndex] objectForKey:@"username"]];
+        [friendQuery1 whereKey:@"inviter" equalTo:[thisObject objectForKey:@"username"]];
         [friendQuery1 whereKey:@"invitee" equalTo:[userProfileData getUserName]];
         NSArray *objects1 = [friendQuery1 findObjects];
         NSInteger counter = [objects1 count];
@@ -475,7 +484,7 @@
         NSLog(@"Cancel?");
         if (buttonIndex == 0) { // Yes
             PFQuery *friendQuery1 = [PFQuery queryWithClassName:@"Friends"];
-            [friendQuery1 whereKey:@"invitee" equalTo:[[allFound objectAtIndex:currentIndex] objectForKey:@"username"]];
+            [friendQuery1 whereKey:@"invitee" equalTo:[thisObject objectForKey:@"username"]];
             [friendQuery1 whereKey:@"inviter" equalTo:[userProfileData getUserName]];
             NSArray *objects1 = [friendQuery1 findObjects];
             NSInteger counter = [objects1 count];
@@ -488,34 +497,44 @@
             return;
         }
     } else if (thisTag == 4) { // Connect
-        NSLog(@"Invite (%ld, %@, %@)?", (long)currentIndex, [userProfileData getUserName], [[allFound objectAtIndex:currentIndex] objectForKey:@"username"]);
+        NSLog(@"Invite (%ld, %@, %@)?", (long)currentIndex, [userProfileData getUserName], [thisObject objectForKey:@"username"]);
         if (buttonIndex == 0) { // Cancel
             return;
         } else { // Yes
             PFObject *newObject = [PFObject objectWithClassName:@"Friends"];
             [newObject setObject:[userProfileData getUserName] forKey:@"inviter"];
-            [newObject setObject:[[allFound objectAtIndex:currentIndex] objectForKey:@"username"] forKey:@"invitee"];
+            [newObject setObject:[thisObject objectForKey:@"username"] forKey:@"invitee"];
             [newObject setObject:[NSNumber numberWithInt:0] forKey:@"confirmed"];
             [newObject setObject:[NSNumber numberWithInt:1] forKey:@"invited"];
             [newObject save];
         }
     }
     
-    float verticalContentOffset = self.peopleView.contentOffset.y;
+    float verticalContentOffset = self.tableView.contentOffset.y;
     [self fetchDataFromParse];
-    [self.peopleView reloadData];
-    [self.peopleView setContentOffset:CGPointMake(0, verticalContentOffset)];
+    [self.tableView reloadData];
+    [self.tableView setContentOffset:CGPointMake(0, verticalContentOffset)];
 }
-*/
 
-/*
 -(void)inviteButton:(id)sender {
     
     UIButton *thisButton = (UIButton *)sender;
     NSInteger index = thisButton.tag;
-    PFObject *thisObject = [allFound objectAtIndex:index];
-    NSNumber *thisNumber = [allFriends objectAtIndex:index];
-    int number = [thisNumber intValue];
+    PFObject *thisObject; // = [allFound objectAtIndex:index];
+    //NSNumber *thisNumber; //= [allFriends objectAtIndex:index];
+    int number;
+    
+    if (index < [myInviters count]) {
+        thisObject = [myInviters objectAtIndex:index];
+        number = 2;
+    } else if (index < ([myInviters count] + [myInvitees count])) {
+        thisObject = [myInvitees objectAtIndex:index - [myInviters count]];
+        number = 1;
+    } else {
+        thisObject = [myFriends objectAtIndex:index - [myInviters count] - [myInvitees count]];
+        number = 3;
+    }
+
     currentIndex = index;
     
     NSString *firstname = [thisObject objectForKey:@"firstname"];
@@ -564,7 +583,6 @@
     }
     
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.
