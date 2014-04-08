@@ -10,4 +10,5 @@
 
 @interface NewsViewController : UITableViewController
 
+@property (strong, nonatomic) NSMutableArray *newsList;
 @end

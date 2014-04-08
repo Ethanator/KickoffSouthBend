@@ -7,7 +7,9 @@
 //
 
 #import "NewsViewController.h"
+#import "NewsTableViewCell.h"
 #import "TFHpple.h"
+#import "News.h"
 #import "Constants.h"
 
 @interface NewsViewController ()
@@ -15,6 +17,47 @@
 @end
 
 @implementation NewsViewController
+
+- (void)parseNews:(NSMutableArray *)newsArray atURL:(NSString *)webURL withQuery:(NSString *)query
+{
+    //NSLog(@"The news array originally has:\n%@", newsArray);
+    NSURL *newsURL = [NSURL URLWithString:webURL];
+    NSData *newsHTML = [NSData dataWithContentsOfURL:newsURL];
+    TFHpple *newsParser = [TFHpple hppleWithHTMLData:newsHTML];
+    NSArray *newsNodes = [newsParser searchWithXPathQuery:query];
+    for (TFHppleElement *element in newsNodes) {
+        News *article = [[News alloc] init];
+        [newsArray addObject:article];
+        [article setTitle:[[element firstChild] content]];
+        [article setUrl:[element objectForKey:@"href"]];
+    }
+    //NSLog(@"The news array now has:\n%@", newsArray);
+}
+
+- (void)loadNews {
+    NSMutableArray *newsArticles = [[NSMutableArray alloc] initWithCapacity:0];
+    [self parseNews:newsArticles atURL:[NSString stringWithFormat:@"%s",
+                                       LINK_ESPN_ND_BLOG
+                                       ]
+                             withQuery:[NSString stringWithFormat:@"%s",
+                                       QUERY_ESPN_ND_BLOG
+                                       ]];
+    [self parseNews:newsArticles atURL:[NSString stringWithFormat:@"%s",
+                                       LINK_THE_OBSERVER
+                                       ]
+                             withQuery:[NSString stringWithFormat:@"%s",
+                                       QUERY_THE_OBSERVER
+                                       ]];
+    [self parseNews:newsArticles atURL:[NSString stringWithFormat:@"%s",
+                                       LINK_ESPN_NCAAF
+                                       ]
+                             withQuery:[NSString stringWithFormat:@"%s",
+                                       QUERY_ESPN_NCAAF
+                                       ]];
+    self.newsList = newsArticles;
+    
+    [self.tableView reloadData];
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -28,6 +71,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    [self loadNews];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -43,10 +89,10 @@
 }
 
 #pragma mark - Table view data source
-
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*
+    
     static NSString *CellIdentifier = @"OnCampusCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
@@ -55,24 +101,33 @@
     
     
     return cell;
-     */
+    
     return nil;
+}*/
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.newsList count];
 }
 
-- (void)loadNewsFromWebsiteWithQuery:(NSString *)link parseQuery:(NSString *)newsXpathQueryString {
-    //NSURL *newsLink  = [NSURL URLWithString:link];
-    //NSData *newsHtml = [NSData dataWithContentsOfURL:newsLink];
-    
-    /*
-    TFHpple *newsParser = [TFHpple hppleWithHTMLData:newsHtml];
-    NSArray *newsNodes = [newsParser searchWithXPathQuery:newsXpathQueryString];
-    
-    NSMutableArray *newsList = [[NSMutableArray alloc] initWithCapacity:0];
-    for (TFHppleElement *item in newsList) {
-        News *news = [[News alloc] init];
-        [newsList addObject:news];
-    }*/
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"NewsCell";
 
+    NewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil) {
+        cell = [[NewsTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    
+    News *currNews = [self.newsList objectAtIndex:indexPath.row];
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    cell.textLabel.text          = currNews.title;
+    cell.detailTextLabel.text    = @"Testing";
+    cell.url                     = currNews.url;
+    
+    return cell;
 }
 
 /*

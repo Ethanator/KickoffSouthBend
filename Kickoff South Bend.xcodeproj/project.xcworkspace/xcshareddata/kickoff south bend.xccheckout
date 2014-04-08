@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>BCC4CA2D-D3CF-41C5-8BC6-3A8A2D9DD142</string>
+	<key>IDESourceControlProjectName</key>
+	<string>kickoff south bend</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>970080EC-C069-4204-BD2F-F3CC00343D9B</key>
+		<string>https://github.com/Ethanator/KickoffSouthBend.git</string>
+	</dict>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>970080EC-C069-4204-BD2F-F3CC00343D9B</key>
+		<string>../../../../../Developer/Technology_Investment/KickoffSouthBend</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Ethanator/KickoffSouthBend.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>970080EC-C069-4204-BD2F-F3CC00343D9B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>970080EC-C069-4204-BD2F-F3CC00343D9B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>KickoffSouthBend</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -11,12 +11,14 @@
 
 /* Links to the news websites */
 
+#define LINK_ESPN_ND_BLOG "http://espn.go.com/blog/notre-dame-football"
 #define LINK_THE_OBSERVER "http://ndsmcobserver.com/tag/football/"
 #define LINK_ESPN_NCAAF   "http://espn.go.com/college-football/"
-#define LINK_GOOGLE_NEWS  "https://news.google.com/"
 
 /* Query command to the corresponding web page */
 
+#define QUERY_ESPN_ND_BLOG "//div[@class='mod-header']/h3/a"
 #define QUERY_THE_OBSERVER "//div[@class='story']/div[@class='text-container']/h3/a"
+#define QUERY_ESPN_NCAAF   "//ul[@class='headlines']/li/a"
 
 #endif

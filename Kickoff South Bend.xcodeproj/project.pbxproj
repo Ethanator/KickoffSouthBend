@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F1B985818EB0FCF0092E0C3 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1B985318EB0FCF0092E0C3 /* TFHpple.m */; };
-		0F1B985918EB0FCF0092E0C3 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1B985518EB0FCF0092E0C3 /* TFHppleElement.m */; };
-		0F1B985A18EB0FCF0092E0C3 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1B985718EB0FCF0092E0C3 /* XPathQuery.m */; };
-		0F1B985F18EB15470092E0C3 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1B985E18EB15470092E0C3 /* News.m */; };
 		0F1B986218EB166F0092E0C3 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F1B986118EB166F0092E0C3 /* libxml2.dylib */; };
 		0F23859018EA30510051DA65 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F773A216E78D0300C338BA /* QuartzCore.framework */; };
 		0F23859118EA311A0051DA65 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFB82C218EA2DB80083876C /* Parse.framework */; };
+		0F24F3B018F378B10077CB45 /* NewsContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F24F3AF18F378B10077CB45 /* NewsContentViewController.m */; };
+		0F24F3BB18F413F20077CB45 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F24F3B618F413F20077CB45 /* TFHpple.m */; };
+		0F24F3BC18F413F20077CB45 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F24F3B818F413F20077CB45 /* TFHppleElement.m */; };
+		0F24F3BD18F413F20077CB45 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F24F3BA18F413F20077CB45 /* XPathQuery.m */; };
+		0F24F3C018F416D20077CB45 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F24F3BF18F416D20077CB45 /* News.m */; };
+		0F24F3C318F422640077CB45 /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F24F3C218F422640077CB45 /* NewsTableViewCell.m */; };
 		0FFB82C018EA2D720083876C /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FFB82BD18EA2D720083876C /* EventsViewController.m */; };
 		0FFB82C118EA2D720083876C /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FFB82BF18EA2D720083876C /* NewsViewController.m */; };
 		770816EF18E76BAC00084BC4 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 770816EE18E76BAC00084BC4 /* MBProgressHUD.m */; };
@@ -84,16 +86,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0F1B985218EB0FCF0092E0C3 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
-		0F1B985318EB0FCF0092E0C3 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
-		0F1B985418EB0FCF0092E0C3 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
-		0F1B985518EB0FCF0092E0C3 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
-		0F1B985618EB0FCF0092E0C3 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
-		0F1B985718EB0FCF0092E0C3 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		0F1B985C18EB103E0092E0C3 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../Constants.h; sourceTree = "<group>"; };
-		0F1B985D18EB15470092E0C3 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = News.h; path = "kickoff south bend/News.h"; sourceTree = SOURCE_ROOT; };
-		0F1B985E18EB15470092E0C3 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = News.m; path = "kickoff south bend/News.m"; sourceTree = SOURCE_ROOT; };
 		0F1B986118EB166F0092E0C3 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		0F24F3AE18F378B10077CB45 /* NewsContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsContentViewController.h; path = ../NewsContentViewController.h; sourceTree = "<group>"; };
+		0F24F3AF18F378B10077CB45 /* NewsContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsContentViewController.m; path = ../NewsContentViewController.m; sourceTree = "<group>"; };
+		0F24F3B518F413F20077CB45 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		0F24F3B618F413F20077CB45 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		0F24F3B718F413F20077CB45 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		0F24F3B818F413F20077CB45 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		0F24F3B918F413F20077CB45 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		0F24F3BA18F413F20077CB45 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		0F24F3BE18F416D20077CB45 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = News.h; path = ../News.h; sourceTree = "<group>"; };
+		0F24F3BF18F416D20077CB45 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = News.m; path = ../News.m; sourceTree = "<group>"; };
+		0F24F3C118F422640077CB45 /* NewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsTableViewCell.h; path = "kickoff south bend/NewsTableViewCell.h"; sourceTree = SOURCE_ROOT; };
+		0F24F3C218F422640077CB45 /* NewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsTableViewCell.m; path = "kickoff south bend/NewsTableViewCell.m"; sourceTree = SOURCE_ROOT; };
 		0FFB82BC18EA2D720083876C /* EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventsViewController.h; path = ../EventsViewController.h; sourceTree = "<group>"; };
 		0FFB82BD18EA2D720083876C /* EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventsViewController.m; path = ../EventsViewController.m; sourceTree = "<group>"; };
 		0FFB82BE18EA2D720083876C /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsViewController.h; path = ../NewsViewController.h; sourceTree = "<group>"; };
@@ -221,27 +227,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0F1B985B18EB0FD50092E0C3 /* hpple */ = {
-			isa = PBXGroup;
-			children = (
-				0F1B985218EB0FCF0092E0C3 /* TFHpple.h */,
-				0F1B985318EB0FCF0092E0C3 /* TFHpple.m */,
-				0F1B985418EB0FCF0092E0C3 /* TFHppleElement.h */,
-				0F1B985518EB0FCF0092E0C3 /* TFHppleElement.m */,
-				0F1B985618EB0FCF0092E0C3 /* XPathQuery.h */,
-				0F1B985718EB0FCF0092E0C3 /* XPathQuery.m */,
-			);
-			name = hpple;
-			sourceTree = "<group>";
-		};
 		0F1B986018EB15520092E0C3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0F1B985D18EB15470092E0C3 /* News.h */,
-				0F1B985E18EB15470092E0C3 /* News.m */,
 			);
 			name = Models;
 			path = "Kickoff South Bend";
+			sourceTree = "<group>";
+		};
+		0F24F3B418F413D10077CB45 /* HTML Parsing */ = {
+			isa = PBXGroup;
+			children = (
+				0F24F3B518F413F20077CB45 /* TFHpple.h */,
+				0F24F3B618F413F20077CB45 /* TFHpple.m */,
+				0F24F3B718F413F20077CB45 /* TFHppleElement.h */,
+				0F24F3B818F413F20077CB45 /* TFHppleElement.m */,
+				0F24F3B918F413F20077CB45 /* XPathQuery.h */,
+				0F24F3BA18F413F20077CB45 /* XPathQuery.m */,
+			);
+			name = "HTML Parsing";
 			sourceTree = "<group>";
 		};
 		77C1FEFA16E6EB4D00B3015E = {
@@ -250,7 +254,7 @@
 				77C1FF1E16E6EB4D00B3015E /* MainStoryboard.storyboard */,
 				77C1FF1516E6EB4D00B3015E /* AppDelegate.h */,
 				77C1FF1616E6EB4D00B3015E /* AppDelegate.m */,
-				0F1B985B18EB0FD50092E0C3 /* hpple */,
+				0F24F3B418F413D10077CB45 /* HTML Parsing */,
 				77F7737316E6FB5F00C338BA /* Media */,
 				0F1B986018EB15520092E0C3 /* Models */,
 				77C1FF0C16E6EB4D00B3015E /* Kickoff South Bend */,
@@ -296,10 +300,16 @@
 		77C1FF0C16E6EB4D00B3015E /* Kickoff South Bend */ = {
 			isa = PBXGroup;
 			children = (
+				0F24F3BE18F416D20077CB45 /* News.h */,
+				0F24F3BF18F416D20077CB45 /* News.m */,
 				0FFB82BC18EA2D720083876C /* EventsViewController.h */,
 				0FFB82BD18EA2D720083876C /* EventsViewController.m */,
+				0F24F3C118F422640077CB45 /* NewsTableViewCell.h */,
+				0F24F3C218F422640077CB45 /* NewsTableViewCell.m */,
 				0FFB82BE18EA2D720083876C /* NewsViewController.h */,
 				0FFB82BF18EA2D720083876C /* NewsViewController.m */,
+				0F24F3AE18F378B10077CB45 /* NewsContentViewController.h */,
+				0F24F3AF18F378B10077CB45 /* NewsContentViewController.m */,
 				77B5431B176229490045C892 /* ProfileData.h */,
 				77B5431C176229490045C892 /* ProfileData.m */,
 				77C1FF2116E6EB4D00B3015E /* ViewController.h */,
@@ -487,13 +497,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F1B985F18EB15470092E0C3 /* News.m in Sources */,
-				0F1B985918EB0FCF0092E0C3 /* TFHppleElement.m in Sources */,
 				77B543261762743B0045C892 /* FDTakeController.m in Sources */,
-				0F1B985A18EB0FCF0092E0C3 /* XPathQuery.m in Sources */,
 				77C1FF1316E6EB4D00B3015E /* main.m in Sources */,
+				0F24F3BB18F413F20077CB45 /* TFHpple.m in Sources */,
 				77C1FF1716E6EB4D00B3015E /* AppDelegate.m in Sources */,
 				777CE4A418E7252B0059A33C /* PhotoCell.m in Sources */,
+				0F24F3BC18F413F20077CB45 /* TFHppleElement.m in Sources */,
 				77C1FF2316E6EB4D00B3015E /* ViewController.m in Sources */,
 				77F773AE16E78FAD00C338BA /* MyLoginViewController.m in Sources */,
 				77F773B116E78FC100C338BA /* MySignUpViewController.m in Sources */,
@@ -503,15 +512,18 @@
 				7775E67316E92D7300080247 /* ParkingViewController.m in Sources */,
 				7775E67916E92D9900080247 /* MapViewController.m in Sources */,
 				7708170D18EF024500084BC4 /* ChatDetailTableViewController.m in Sources */,
+				0F24F3B018F378B10077CB45 /* NewsContentViewController.m in Sources */,
 				7775E68316E93E5F00080247 /* PicturesViewController.m in Sources */,
 				0FFB82C018EA2D720083876C /* EventsViewController.m in Sources */,
 				770816EF18E76BAC00084BC4 /* MBProgressHUD.m in Sources */,
+				0F24F3C018F416D20077CB45 /* News.m in Sources */,
 				7708170418ED952300084BC4 /* ChatRoomViewController.m in Sources */,
 				77B54317175BD44D0045C892 /* MapPoint.m in Sources */,
+				0F24F3BD18F413F20077CB45 /* XPathQuery.m in Sources */,
 				77B5431A176228740045C892 /* FriendsViewController.m in Sources */,
-				0F1B985818EB0FCF0092E0C3 /* TFHpple.m in Sources */,
 				77B5431D176229490045C892 /* ProfileData.m in Sources */,
 				77B54320176230B50045C892 /* FindFriendViewController.m in Sources */,
+				0F24F3C318F422640077CB45 /* NewsTableViewCell.m in Sources */,
 				77B54329176562900045C892 /* CustomPeopleCell.m in Sources */,
 				770816FE18ED919F00084BC4 /* ChatCell.m in Sources */,
 				771D3D51177BE02A00026892 /* MyProfileViewController.m in Sources */,
