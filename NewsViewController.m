@@ -8,6 +8,7 @@
 
 #import "NewsViewController.h"
 #import "NewsTableViewCell.h"
+#import "NewsContentViewController.h"
 #import "TFHpple.h"
 #import "News.h"
 #import "Constants.h"
@@ -166,20 +167,23 @@
 {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
-}
 */
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    NewsTableViewCell *cell = (NewsTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"DisplayNews" sender:cell];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"DisplayNews"]){
+        NewsContentViewController *webBrowser = [segue destinationViewController];
+        NSString *webLink = [(NewsTableViewCell *)sender url];
+        [webBrowser setUrl:webLink];
+    }
 }
 
 @end

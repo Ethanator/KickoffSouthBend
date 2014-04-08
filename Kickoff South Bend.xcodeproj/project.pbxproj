@@ -429,7 +429,7 @@
 				ORGANIZATIONNAME = "Christian Poellabauer";
 				TargetAttributes = {
 					77C1FF0216E6EB4D00B3015E = {
-						DevelopmentTeam = VVW6YR38J7;
+						DevelopmentTeam = NJEN4L6M7E;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 1;
@@ -438,7 +438,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 77C1FEFE16E6EB4D00B3015E /* Build configuration list for PBXProject "kickoff south bend" */;
+			buildConfigurationList = 77C1FEFE16E6EB4D00B3015E /* Build configuration list for PBXProject "Kickoff South Bend" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -645,7 +645,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		77C1FEFE16E6EB4D00B3015E /* Build configuration list for PBXProject "kickoff south bend" */ = {
+		77C1FEFE16E6EB4D00B3015E /* Build configuration list for PBXProject "Kickoff South Bend" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				77C1FF2416E6EB4D00B3015E /* Debug */,

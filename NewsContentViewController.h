@@ -10,4 +10,6 @@
 
 @interface NewsContentViewController : UIViewController
 
+
+@property (strong, nonatomic) NSString *url;
 @end
