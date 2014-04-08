@@ -64,7 +64,32 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LcY-Up-nGL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="484" y="1480"/>
+            <point key="canvasLocation" x="127" y="1408"/>
+        </scene>
+        <!--News Content View Controller-->
+        <scene sceneID="fNf-CR-drx">
+            <objects>
+                <viewController id="QXm-eA-Rin" customClass="NewsContentViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tEt-38-jl7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="bMu-yT-xeO">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="IHE-ng-kKN"/>
+                    <connections>
+                        <outlet property="webView" destination="bMu-yT-xeO" id="Jhs-s5-4ID"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Zs-05-ZWl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="840" y="1408"/>
         </scene>
         <!--News View Controller-->
         <scene sceneID="AJ4-ui-dwv">
@@ -90,10 +115,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="JU2-U7-g4Y"/>
+                    <connections>
+                        <segue destination="QXm-eA-Rin" kind="push" identifier="DisplayNews" id="XFw-Gl-LDZ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qI9-dE-ObJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="127" y="757"/>
+            <point key="canvasLocation" x="484" y="1408"/>
         </scene>
         <!--Dining View Controller-->
         <scene sceneID="SKa-W8-cTN">
@@ -122,7 +150,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NWG-M2-0Wb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="127" y="1480"/>
+            <point key="canvasLocation" x="127" y="757"/>
         </scene>
         <!--Events View Controller-->
         <scene sceneID="ZfO-cY-0if">

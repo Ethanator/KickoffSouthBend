@@ -46,13 +46,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    /*
     static NSString *CellIdentifier = @"OnCampusCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
     cell.textLabel.text = @"News";
     
+    
     return cell;
+     */
+    return nil;
 }
 
 - (void)loadNewsFromWebsiteWithQuery:(NSString *)link parseQuery:(NSString *)newsXpathQueryString {
