@@ -379,10 +379,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ChatDetail";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    //if (cell == nil) {
+    //    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    //}
+    
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+
     
     for(UIView* subview in [cell.contentView subviews]) {
         [subview removeFromSuperview];
@@ -392,8 +395,10 @@
     
     cell.backgroundColor = [UIColor clearColor];
 
+    PFObject *nowChat;
+    
     if (indexPath.section == 0) {
-        
+        nowChat = chatObject;
     } else if (indexPath.section == 1) {
     
         UILabel *responseHeader = [[UILabel alloc] init];
@@ -418,8 +423,8 @@
             [cell addSubview:responseHeader];
             return cell;
         }
-        chatObject = [chatData objectAtIndex:indexPath.row];
-        NSString *thisName = [chatObject objectForKey:@"userName"];
+        nowChat = [chatData objectAtIndex:indexPath.row];
+        NSString *thisName = [nowChat objectForKey:@"userName"];
         NSString *currentName;
         for (int i = 0; i < [myFriends count]; i++) {
             currentName = [[myFriends objectAtIndex:i] objectForKey:@"username"];
@@ -430,7 +435,7 @@
         }
     }
 
-    NSString *currentUserName = [chatObject objectForKey:@"userName"];
+    NSString *currentUserName = [nowChat objectForKey:@"userName"];
     NSString *firstname = [thisObject objectForKey:@"firstname"];
     NSString *lastname = [thisObject objectForKey:@"lastname"];
     NSString *username = [thisObject objectForKey:@"username"];
@@ -464,7 +469,7 @@
     dateLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0];
     dateLabel.frame = CGRectMake(200.0, 7.0, 110.0, 15.0);
     dateLabel.textAlignment = NSTextAlignmentRight;
-    NSDate *createdAt = [chatObject objectForKey:@"date"];
+    NSDate *createdAt = [nowChat objectForKey:@"date"];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"yyy-MM-dd"];
     NSDate *thisDate = [NSDate date];
@@ -501,7 +506,7 @@
     dateLabel.backgroundColor = [UIColor clearColor];
     [cell addSubview:dateLabel];
     
-    NSString *chatText = [chatObject objectForKey:@"text"];
+    NSString *chatText = [nowChat objectForKey:@"text"];
     //cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:14.0];
     CGSize size = [self frameForText:chatText sizeWithFont:font constrainedToSize:CGSizeMake(260.0f, 1000.0f)];
@@ -553,7 +558,7 @@
     else if (indexPath.section == 1)
         return 25.0;
     else
-        cellText = @"...";
+        cellText = [[chatData objectAtIndex:indexPath.row] objectForKey:@"text"];
     UIFont *cellFont = [UIFont fontWithName:@"HelveticaNeue-Medium" size:14.0];
     CGSize constraintSize = CGSizeMake(260.0f, MAXFLOAT);
     CGSize labelSize = [self frameForText:cellText sizeWithFont:cellFont constrainedToSize:constraintSize];

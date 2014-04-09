@@ -448,6 +448,8 @@
     }
     */
     
+    NSLog(@"index=%d (%d)", indexPath.row, noChats);
+    
     static NSString *CellIdentifier = @"ChatCellID";
     //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     //if (cell == nil) {
@@ -490,11 +492,7 @@
             break;
         }
     }
-    
-    if (count >= [chatData count]) {
-        return cell;
-    }
-    
+        
     NSString *firstname = [thisObject objectForKey:@"firstname"];
     NSString *lastname = [thisObject objectForKey:@"lastname"];
     NSString *username = [thisObject objectForKey:@"username"];
@@ -611,6 +609,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    if (noChats) {
+        return 70.0;
+    }
+    
     //if ((indexPath.row == 0) && (noChats == TRUE))
     //    return 60.0;
     
@@ -664,6 +667,7 @@
     [query whereKey:@"userName" containedIn:myFriends];
     [query orderByDescending:@"createdAt"];
     chatData = [query findObjects];
+    
     
     if ([chatData count] > 0)
         noChats = FALSE;

@@ -279,11 +279,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *CellIdentifier = [NSString stringWithFormat:@"FriendsCell"];
-    CustomPeopleCell *cell = (CustomPeopleCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[CustomPeopleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
+    //CustomPeopleCell *cell = (CustomPeopleCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    //if (cell == nil) {
+    //    cell = [[CustomPeopleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+   // }
+
+    CustomPeopleCell *cell = [[CustomPeopleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     if (noFriends) {
