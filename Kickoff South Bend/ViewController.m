@@ -181,7 +181,7 @@
     friendsLabel.textColor = [UIColor whiteColor];
     friendsLabel.backgroundColor = [UIColor clearColor];
     friendsLabel.font = [UIFont fontWithName:@FONT size:FONT_SIZE];
-    friendsLabel.text = @"My Friends";
+    friendsLabel.text = @"Friends";
 
     UIButton *messagesBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     messagesBtn.frame = CGRectMake(BTN_X+BTN_X_DIFF, BTN_Y, BTN_SIZE, BTN_SIZE);
@@ -195,7 +195,7 @@
     messagesLabel.textColor = [UIColor whiteColor];
     messagesLabel.backgroundColor = [UIColor clearColor];
     messagesLabel.font = [UIFont fontWithName:@FONT size:FONT_SIZE];
-    messagesLabel.text = @"My Messages";
+    messagesLabel.text = @"Messages";
     
     UIButton *pictureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     pictureBtn.frame = CGRectMake(BTN_X+BTN_X_DIFF*2, BTN_Y, BTN_SIZE, BTN_SIZE);
@@ -209,7 +209,7 @@
     pictureLabel.textColor = [UIColor whiteColor];
     pictureLabel.backgroundColor = [UIColor clearColor];
     pictureLabel.font = [UIFont fontWithName:@FONT size:FONT_SIZE];
-    pictureLabel.text = @"My Photos";
+    pictureLabel.text = @"Photos";
     
     UIButton *scheduleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     scheduleBtn.frame = CGRectMake(BTN_X, BTN_Y+BTN_Y_DIFF-10, BTN_SIZE, BTN_SIZE);
@@ -238,7 +238,7 @@
     events1Label.backgroundColor = [UIColor clearColor];
     events1Label.font = [UIFont fontWithName:@FONT size:FONT_SIZE];
     events1Label.numberOfLines = 2;
-    events1Label.text = @"News";
+    events1Label.text = @"Sports News";
     
     UIButton *offCampusEventsBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     offCampusEventsBtn.frame = CGRectMake(BTN_X+BTN_X_DIFF*2, BTN_Y+BTN_Y_DIFF-10, BTN_SIZE, BTN_SIZE);
@@ -267,7 +267,8 @@
     diningLabel.textColor = [UIColor whiteColor];
     diningLabel.backgroundColor = [UIColor clearColor];
     diningLabel.font = [UIFont fontWithName:@FONT size:FONT_SIZE];
-    diningLabel.text = @"Eat & Shop";
+    //diningLabel.text = @"Eat & Shop";
+    diningLabel.text = @"Around Town";
     
     UIButton *parkingBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     parkingBtn.frame = CGRectMake(BTN_X+BTN_X_DIFF, BTN_Y+BTN_Y_DIFF*2, BTN_SIZE, BTN_SIZE);
@@ -492,7 +493,7 @@
     if (!titleView) {
         titleView = [[UILabel alloc] initWithFrame:CGRectZero];
         titleView.backgroundColor = [UIColor clearColor];
-        titleView.font = [UIFont boldSystemFontOfSize:16.0];
+        titleView.font = [UIFont boldSystemFontOfSize:18.0];
         titleView.numberOfLines = 2;
         titleView.textAlignment = NSTextAlignmentCenter;
         //titleView.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
@@ -557,7 +558,8 @@
     
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"AppBackground.png"]]];
 
-    [self setTitle:@"Kickoff\nSouth Bend"];
+    //[self setTitle:@"Kickoff\nSouth Bend"];
+    [self setTitle:@"Kickoff App"];
     
     [self addButtons];
     [self addLabels];
@@ -640,6 +642,7 @@
         [query whereKey:@"username" equalTo:[userProfileData getUserName]];
         PFObject *object = [query getFirstObject];
         [userProfileData setOwnObject:object];
+        //[self setTitle:[userProfileData getUserName]];
     }
 }
 
