@@ -16,6 +16,8 @@
 		0F24F3BD18F413F20077CB45 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F24F3BA18F413F20077CB45 /* XPathQuery.m */; };
 		0F24F3C018F416D20077CB45 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F24F3BF18F416D20077CB45 /* News.m */; };
 		0F24F3C318F422640077CB45 /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F24F3C218F422640077CB45 /* NewsTableViewCell.m */; };
+		0FEF5C9D1921A3E0004BFB43 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FEF5C9C1921A3E0004BFB43 /* EventKit.framework */; };
+		0FEF5C9F1921A3E6004BFB43 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FEF5C9E1921A3E6004BFB43 /* EventKitUI.framework */; };
 		0FFB82C018EA2D720083876C /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FFB82BD18EA2D720083876C /* EventsViewController.m */; };
 		0FFB82C118EA2D720083876C /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FFB82BF18EA2D720083876C /* NewsViewController.m */; };
 		770816EF18E76BAC00084BC4 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 770816EE18E76BAC00084BC4 /* MBProgressHUD.m */; };
@@ -100,6 +102,8 @@
 		0F24F3BF18F416D20077CB45 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = News.m; path = ../News.m; sourceTree = "<group>"; };
 		0F24F3C118F422640077CB45 /* NewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsTableViewCell.h; path = "kickoff south bend/NewsTableViewCell.h"; sourceTree = SOURCE_ROOT; };
 		0F24F3C218F422640077CB45 /* NewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsTableViewCell.m; path = "kickoff south bend/NewsTableViewCell.m"; sourceTree = SOURCE_ROOT; };
+		0FEF5C9C1921A3E0004BFB43 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		0FEF5C9E1921A3E6004BFB43 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		0FFB82BC18EA2D720083876C /* EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventsViewController.h; path = ../EventsViewController.h; sourceTree = "<group>"; };
 		0FFB82BD18EA2D720083876C /* EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventsViewController.m; path = ../EventsViewController.m; sourceTree = "<group>"; };
 		0FFB82BE18EA2D720083876C /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsViewController.h; path = ../NewsViewController.h; sourceTree = "<group>"; };
@@ -202,6 +206,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FEF5C9F1921A3E6004BFB43 /* EventKitUI.framework in Frameworks */,
+				0FEF5C9D1921A3E0004BFB43 /* EventKit.framework in Frameworks */,
 				0F1B986218EB166F0092E0C3 /* libxml2.dylib in Frameworks */,
 				0F23859118EA311A0051DA65 /* Parse.framework in Frameworks */,
 				0F23859018EA30510051DA65 /* QuartzCore.framework in Frameworks */,
@@ -274,6 +280,8 @@
 		77C1FF0516E6EB4D00B3015E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0FEF5C9E1921A3E6004BFB43 /* EventKitUI.framework */,
+				0FEF5C9C1921A3E0004BFB43 /* EventKit.framework */,
 				0F1B986118EB166F0092E0C3 /* libxml2.dylib */,
 				0FFB82C218EA2DB80083876C /* Parse.framework */,
 				7751DFFB1896047A00F43614 /* libz.dylib */,

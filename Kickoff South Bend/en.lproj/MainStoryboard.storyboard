@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hGk-8d-DAt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hGk-8d-DAt">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -220,7 +220,12 @@
                             <outlet property="delegate" destination="uwe-Kl-Fks" id="XhH-2N-BEn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="6Ae-0Y-c2L"/>
+                    <navigationItem key="navigationItem" id="6Ae-0Y-c2L">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="VZa-5k-Ngo"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="VZa-5k-Ngo" id="nBb-cF-tCm"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KBH-fX-jOp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
