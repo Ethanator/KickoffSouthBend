@@ -66,6 +66,20 @@
             </objects>
             <point key="canvasLocation" x="127" y="1408"/>
         </scene>
+        <!--Event View Controller-->
+        <scene sceneID="u5I-bh-mIG">
+            <objects>
+                <viewController id="dQE-PI-kwo" customClass="EKEventViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZxU-PG-6Pj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YFO-cK-MUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="127" y="2096"/>
+        </scene>
         <!--News Content View Controller-->
         <scene sceneID="fNf-CR-drx">
             <objects>
@@ -206,7 +220,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyEventCell" id="tFl-na-DZX">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCell" id="tFl-na-DZX">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tFl-na-DZX" id="gMd-9y-gsz">
@@ -221,15 +235,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="6Ae-0Y-c2L">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="VZa-5k-Ngo"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Jyd-AA-Lg5">
+                            <connections>
+                                <action selector="addEvent:" destination="uwe-Kl-Fks" id="bbK-Bj-iQR"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addButton" destination="VZa-5k-Ngo" id="nBb-cF-tCm"/>
+                        <outlet property="addButton" destination="Jyd-AA-Lg5" id="E82-pW-Krd"/>
+                        <segue destination="dQE-PI-kwo" kind="modal" identifier="showEventViewController" id="cQH-3P-KlH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KBH-fX-jOp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="840" y="757"/>
+            <point key="canvasLocation" x="840" y="749"/>
         </scene>
         <!--Friends View Controller - My Friends-->
         <scene sceneID="Ctw-cf-NXe">

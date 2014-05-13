@@ -24,7 +24,6 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
 @end
 
-
 @implementation MyScheduleViewController
 
 #pragma mark -
