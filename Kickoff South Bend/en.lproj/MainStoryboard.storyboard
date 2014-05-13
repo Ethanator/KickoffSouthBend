@@ -75,6 +75,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="itO-XD-VyW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YFO-cK-MUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -220,13 +221,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCell" id="tFl-na-DZX">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCell" id="tFl-na-DZX">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tFl-na-DZX" id="gMd-9y-gsz">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="dQE-PI-kwo" kind="push" identifier="showEventViewController" id="1Ng-JV-kQ7"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -243,7 +247,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="Jyd-AA-Lg5" id="E82-pW-Krd"/>
-                        <segue destination="dQE-PI-kwo" kind="modal" identifier="showEventViewController" id="cQH-3P-KlH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KBH-fX-jOp" userLabel="First Responder" sceneMemberID="firstResponder"/>
