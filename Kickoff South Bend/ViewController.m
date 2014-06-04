@@ -664,10 +664,28 @@
                 trackingLabel.textColor = [UIColor whiteColor];
                 trackingLabel.backgroundColor = [UIColor clearColor];
                 
+                UIButton *goBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+                [goBtn addTarget:self action:@selector(goMethod:) forControlEvents:UIControlEventTouchUpInside];
+                goBtn.frame = CGRectMake(self.view.frame.size.width - 150.0, countDownLabel.frame.origin.y + countDownLabel.frame.size.height
+                                                                             + 10.0, 50.0, 25.0);
+                 
+                [goBtn setTitle:@"No" forState:UIControlStateNormal];
+                [goBtn setTitle:@"Yes" forState:UIControlStateSelected];
+
+                [goBtn setBackgroundImage:[UIImage imageNamed:@"nostate"] forState:UIControlStateNormal];
+                [goBtn setBackgroundImage:[UIImage imageNamed:@"yesstate"] forState:UIControlStateSelected];
+                
+                [goBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                [goBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+                
+                goBtn.selected = NO;
+
                 [self.view addSubview:goingLabel];
-                [self.view addSubview:goingToGameSwitch];
+                [self.view addSubview:goBtn];
+
+                //[self.view addSubview:goingToGameSwitch];
                 [self.view addSubview:trackingLabel];
-                [self.view addSubview:trackingSwitch];
+                //[self.view addSubview:trackingSwitch];
             }
             
         }

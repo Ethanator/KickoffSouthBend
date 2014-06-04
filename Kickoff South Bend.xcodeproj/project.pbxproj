@@ -43,6 +43,8 @@
 		7775E68E16EA497200080247 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7775E68B16E93F6800080247 /* Default-568h@2x.png */; };
 		7775E69016EA6D1000080247 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7775E68F16EA6D1000080247 /* MapKit.framework */; };
 		777CE4A418E7252B0059A33C /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 777CE4A318E7252B0059A33C /* PhotoCell.m */; };
+		77AF0111193F46DA005CCDD1 /* yesstate.png in Resources */ = {isa = PBXBuildFile; fileRef = 77AF0110193F46DA005CCDD1 /* yesstate.png */; };
+		77AF0113193F46E5005CCDD1 /* nostate.png in Resources */ = {isa = PBXBuildFile; fileRef = 77AF0112193F46E5005CCDD1 /* nostate.png */; };
 		77B54317175BD44D0045C892 /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B54316175BD44D0045C892 /* MapPoint.m */; };
 		77B5431A176228740045C892 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B54319176228740045C892 /* FriendsViewController.m */; };
 		77B5431D176229490045C892 /* ProfileData.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B5431C176229490045C892 /* ProfileData.m */; };
@@ -141,6 +143,8 @@
 		7775E68F16EA6D1000080247 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		777CE4A218E7252B0059A33C /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoCell.h; path = ../PhotoCell.h; sourceTree = "<group>"; };
 		777CE4A318E7252B0059A33C /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoCell.m; path = ../PhotoCell.m; sourceTree = "<group>"; };
+		77AF0110193F46DA005CCDD1 /* yesstate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yesstate.png; sourceTree = "<group>"; };
+		77AF0112193F46E5005CCDD1 /* nostate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nostate.png; sourceTree = "<group>"; };
 		77B54315175BD44D0045C892 /* MapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapPoint.h; path = ../MapPoint.h; sourceTree = "<group>"; };
 		77B54316175BD44D0045C892 /* MapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapPoint.m; path = ../MapPoint.m; sourceTree = "<group>"; };
 		77B54318176228740045C892 /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendsViewController.h; path = ../FriendsViewController.h; sourceTree = "<group>"; };
@@ -399,6 +403,8 @@
 				77F7737C16E6FBB100C338BA /* OnCampusIcon.png */,
 				77F7737416E6FB9900C338BA /* AppIcon.png */,
 				77F7738E16E78BE700C338BA /* AppBackground.png */,
+				77AF0110193F46DA005CCDD1 /* yesstate.png */,
+				77AF0112193F46E5005CCDD1 /* nostate.png */,
 			);
 			name = Media;
 			sourceTree = "<group>";
@@ -465,6 +471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7708170618EDA31900084BC4 /* textfield_background@2x.png in Resources */,
+				77AF0111193F46DA005CCDD1 /* yesstate.png in Resources */,
 				77C1FF1116E6EB4D00B3015E /* InfoPlist.strings in Resources */,
 				77C1FF2016E6EB4D00B3015E /* MainStoryboard.storyboard in Resources */,
 				770816F518EA64C900084BC4 /* download2.png in Resources */,
@@ -491,6 +498,7 @@
 				7775E68A16E93F6100080247 /* Default@2x.png in Resources */,
 				7775E68E16EA497200080247 /* Default-568h@2x.png in Resources */,
 				7747C38417664630004089CA /* profile_placeholder.png in Resources */,
+				77AF0113193F46E5005CCDD1 /* nostate.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
