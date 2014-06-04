@@ -136,7 +136,8 @@
 - (void)addLabels
 {
     //gameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 300, 130)];
-    gameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 90, 300, 30)];
+//    gameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 90, 300, 30)];
+    gameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 75, 300, 30)];
     gameLabel.textAlignment = NSTextAlignmentCenter;
     gameLabel.backgroundColor = [UIColor clearColor];
     gameLabel.textColor = [UIColor whiteColor];
@@ -145,7 +146,7 @@
     gameLabel.numberOfLines = 3;
     gameLabel.text = @"";
 
-    countDownLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 120, 300, 40)];
+    countDownLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 100, 300, 40)];
     countDownLabel.textAlignment = NSTextAlignmentCenter;
     countDownLabel.backgroundColor = [UIColor clearColor];
     //countDownLabel.textColor = [UIColor whiteColor];
@@ -159,6 +160,7 @@
 
 - (void)addButtons
 {
+    /*
 #define BTN_X 20
 #define BTN_Y 185
 #define BTN_X_DIFF 105
@@ -166,6 +168,17 @@
 #define BTN_SIZE 70
 #define LABEL_DISTANCE_Y -5
 #define LABEL_Y 12
+     */
+
+#define BTN_X 20
+#define BTN_Y 230
+#define BTN_X_DIFF 105
+#define BTN_Y_DIFF 85
+#define BTN_SIZE 70
+#define LABEL_DISTANCE_Y -10
+#define LABEL_Y 12
+
+
 #define FONT_SIZE 12.0
 #define FONT "ArialRoundedMTBold"
     
@@ -610,9 +623,12 @@
  
             NSLog(@"gamedate=%@", gameDate);
             
+            BOOL gameScheduled = TRUE;
+            
             if (secondsBetween < 0) {
                 gameLabel.text = [NSString stringWithFormat:@"No game scheduled"];
                 countDownLabel.text = @"";
+                gameScheduled = FALSE;
             } else {
                 if (daysBetween < 0) {
                     if ([[gameObject objectForKey:@"kickoffTime"] isEqual: @"TBA"]) {
@@ -627,6 +643,33 @@
                     countDownLabel.text = [NSString stringWithFormat:@"Kickoff in %d days", daysBetween];
                 }
             }
+            
+            if (gameScheduled) {
+                
+                UISwitch *goingToGameSwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
+                UISwitch *trackingSwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
+                
+                goingToGameSwitch.frame = CGRectMake(self.view.frame.size.width - goingToGameSwitch.frame.size.width - 20.0, countDownLabel.frame.origin.y + countDownLabel.frame.size.height + 8.0, 0.0, 0.0);
+                trackingSwitch.frame = CGRectMake(self.view.frame.size.width - trackingSwitch.frame.size.width - 20.0, countDownLabel.frame.origin.y + countDownLabel.frame.size.height + 43.0, 0.0, 0.0);
+                
+                UILabel *goingLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0, countDownLabel.frame.origin.y + countDownLabel.frame.size.height + 10.0, 200.0, goingToGameSwitch.frame.size.height)];
+                goingLabel.text = @"Going to this game?";
+                goingLabel.font = [UIFont fontWithName:@"Arial" size:12.0];
+                goingLabel.textColor = [UIColor whiteColor];
+                goingLabel.backgroundColor = [UIColor clearColor];
+                
+                UILabel *trackingLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0, countDownLabel.frame.origin.y + countDownLabel.frame.size.height + 45.0, 200.0, goingToGameSwitch.frame.size.height)];
+                trackingLabel.text = @"Allow tracking while on campus?";
+                trackingLabel.font = [UIFont fontWithName:@"Arial" size:12.0];
+                trackingLabel.textColor = [UIColor whiteColor];
+                trackingLabel.backgroundColor = [UIColor clearColor];
+                
+                [self.view addSubview:goingLabel];
+                [self.view addSubview:goingToGameSwitch];
+                [self.view addSubview:trackingLabel];
+                [self.view addSubview:trackingSwitch];
+            }
+            
         }
     //}];
     [self reloadInputViews];
