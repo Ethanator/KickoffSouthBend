@@ -80,7 +80,6 @@
 		77F773A116E78CFE00C338BA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F773A016E78CFE00C338BA /* MobileCoreServices.framework */; };
 		77F773A516E78D0B00C338BA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F773A416E78D0B00C338BA /* Security.framework */; };
 		77F773A716E78D1000C338BA /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F773A616E78D1000C338BA /* Social.framework */; };
-		77F773A916E78D1400C338BA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F773A816E78D1400C338BA /* StoreKit.framework */; };
 		77F773AB16E78D1D00C338BA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F773AA16E78D1D00C338BA /* SystemConfiguration.framework */; };
 		77F773AE16E78FAD00C338BA /* MyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F773AD16E78FAD00C338BA /* MyLoginViewController.m */; };
 		77F773B116E78FC100C338BA /* MySignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F773B016E78FC100C338BA /* MySignUpViewController.m */; };
@@ -191,7 +190,6 @@
 		77F773A216E78D0300C338BA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		77F773A416E78D0B00C338BA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		77F773A616E78D1000C338BA /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		77F773A816E78D1400C338BA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		77F773AA16E78D1D00C338BA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		77F773AC16E78FAD00C338BA /* MyLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyLoginViewController.h; path = ../MyLoginViewController.h; sourceTree = "<group>"; };
 		77F773AD16E78FAD00C338BA /* MyLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyLoginViewController.m; path = ../MyLoginViewController.m; sourceTree = "<group>"; };
@@ -214,7 +212,6 @@
 				7751DFFC1896047A00F43614 /* libz.dylib in Frameworks */,
 				7775E69016EA6D1000080247 /* MapKit.framework in Frameworks */,
 				77F773AB16E78D1D00C338BA /* SystemConfiguration.framework in Frameworks */,
-				77F773A916E78D1400C338BA /* StoreKit.framework in Frameworks */,
 				77F773A716E78D1000C338BA /* Social.framework in Frameworks */,
 				77F773A516E78D0B00C338BA /* Security.framework in Frameworks */,
 				77F773A116E78CFE00C338BA /* MobileCoreServices.framework in Frameworks */,
@@ -287,7 +284,6 @@
 				7751DFFB1896047A00F43614 /* libz.dylib */,
 				7775E68F16EA6D1000080247 /* MapKit.framework */,
 				77F773AA16E78D1D00C338BA /* SystemConfiguration.framework */,
-				77F773A816E78D1400C338BA /* StoreKit.framework */,
 				77F773A616E78D1000C338BA /* Social.framework */,
 				77F773A416E78D0B00C338BA /* Security.framework */,
 				77F773A216E78D0300C338BA /* QuartzCore.framework */,
@@ -437,10 +433,10 @@
 				ORGANIZATIONNAME = "Christian Poellabauer";
 				TargetAttributes = {
 					77C1FF0216E6EB4D00B3015E = {
-						DevelopmentTeam = NJEN4L6M7E;
+						DevelopmentTeam = VVW6YR38J7;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
