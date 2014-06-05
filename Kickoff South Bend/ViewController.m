@@ -737,12 +737,12 @@
 
 -(void)goMethod
 {
-    NSLog(@"button clicked");
+    NSLog(@"button clicked!");
 }
 
 -(void)trackMethod
 {
-    NSLog(@"button clicked");
+    NSLog(@"button clicked!");
 }
 
 
