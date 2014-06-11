@@ -670,25 +670,29 @@
                 trackingLabel.textColor = [UIColor whiteColor];
                 trackingLabel.backgroundColor = [UIColor clearColor];
                 
-                UIButton *goBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-                [goBtn addTarget:self action:@selector(goMethod) forControlEvents:UIControlEventTouchUpInside];
+                goBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+                [goBtn addTarget:self action:@selector(goMethod:) forControlEvents:UIControlEventTouchUpInside];
                 goBtn.frame = CGRectMake(self.view.frame.size.width - 90.0, countDownLabel.frame.origin.y + countDownLabel.frame.size.height
                                                                              + 10.0, 50.0, 25.0);
                  
                 [goBtn setTitle:@"No" forState:UIControlStateNormal];
                 [goBtn setTitle:@"Yes" forState:UIControlStateSelected];
+                goBtn.titleLabel.font = [UIFont fontWithName:@"Arial" size:14.0f];
 
                 [goBtn setBackgroundImage:[UIImage imageNamed:@"nostate"] forState:UIControlStateNormal];
                 [goBtn setBackgroundImage:[UIImage imageNamed:@"yesstate"] forState:UIControlStateSelected];
                 
                 [goBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
                 [goBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+                [goBtn setTitleShadowColor:[UIColor clearColor] forState:UIControlStateNormal];
+                [goBtn setTitleShadowColor:[UIColor clearColor] forState:UIControlStateSelected];
+                
+                [goBtn setTitleEdgeInsets:UIEdgeInsetsMake(2.0f, 0.0f, 0.0f, 0.0f)];
                 
                 goBtn.selected = NO;
 
-                
-                UIButton *trackBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-                [trackBtn addTarget:self action:@selector(trackMethod) forControlEvents:UIControlEventTouchUpInside];
+                trackBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+                [trackBtn addTarget:self action:@selector(trackMethod:) forControlEvents:UIControlEventTouchUpInside];
                 trackBtn.frame = CGRectMake(self.view.frame.size.width - 90.0, countDownLabel.frame.origin.y + countDownLabel.frame.size.height
                                          + 40.0, 50.0, 25.0);
                 
@@ -701,9 +705,11 @@
                 [trackBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
                 [trackBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
                 
-                trackBtn.selected = NO;
+                trackBtn.titleLabel.font = [UIFont fontWithName:@"Arial" size:14.0f];
 
-                
+                [trackBtn setTitleEdgeInsets:UIEdgeInsetsMake(2.0f, 0.0f, 0.0f, 0.0f)];
+
+                trackBtn.selected = NO;
                 
                 
                 [self.view addSubview:goingLabel];
@@ -735,14 +741,29 @@
 }
 
 
--(void)goMethod
+-(void)goMethod:(id)sender
 {
-    NSLog(@"button clicked!");
+    UIButton *thisButton = (UIButton *)sender;
+    
+    if (thisButton.selected == TRUE) {
+        thisButton.selected = FALSE;
+        trackBtn.selected = FALSE;
+    } else {
+        thisButton.selected = TRUE;
+    }
 }
 
--(void)trackMethod
+-(void)trackMethod:(id)sender
 {
-    NSLog(@"button clicked!");
+    UIButton *thisButton = (UIButton *)sender;
+
+    if (thisButton.selected == TRUE) {
+        thisButton.selected = FALSE;
+    } else {
+        if (goBtn.selected == TRUE)
+            thisButton.selected = TRUE;
+    }
+
 }
 
 

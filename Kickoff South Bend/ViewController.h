@@ -16,6 +16,9 @@
     UILabel *countDownLabel;
     PFObject *gameObject;
     ProfileData *userProfileData;
+    UIButton *goBtn;
+    UIButton *trackBtn;
+    
 }
 
 @end
