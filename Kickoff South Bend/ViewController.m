@@ -604,10 +604,16 @@
     self.navigationItem.rightBarButtonItem = profileButton;
 
     gameReceived = 0;
+    
+    NSDate *nowDate = [NSDate date];
+    NSTimeInterval secondsInThirtySixHours = 36 * 60 * 60;
+    NSDate *dateAhead = [nowDate dateByAddingTimeInterval:secondsInThirtySixHours];
+    
     PFQuery *query = [PFQuery queryWithClassName:@"FootballSchedule"];
     [query orderByAscending:@"gameDate"];
-    [query whereKey:@"gameDate" greaterThan:[NSDate date]];
+    [query whereKey:@"gameDate" greaterThan:dateAhead];
     PFObject *object = [query getFirstObject];
+    
     //[query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!object) {
             NSLog(@"query failed");
@@ -636,9 +642,9 @@
             NSLog(@"gamedate=%@", gameDate);
             
             BOOL gameScheduled = TRUE;
-            
+
             if (secondsBetween < 0) {
-                gameLabel.text = [NSString stringWithFormat:@"No game scheduled"];
+                //gameLabel.text = [NSString stringWithFormat:@"No game scheduled"];
                 countDownLabel.text = @"";
                 gameScheduled = FALSE;
             } else {
