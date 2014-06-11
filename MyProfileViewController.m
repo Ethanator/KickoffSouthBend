@@ -119,6 +119,70 @@
     return newImage;
 }
 
+- (UIImage *)imageCrop:(UIImage *)imageToCrop newSize:(CGSize)newSize
+{
+    UIGraphicsBeginImageContext(newSize);
+    CGContextRef currentContext = UIGraphicsGetCurrentContext();
+    
+    CGRect clippedRect = CGRectMake(0, 0, newSize.width, newSize.height);
+    CGContextClipToRect( currentContext, clippedRect);
+    
+    CGRect drawRect = CGRectMake(0, 0, newSize.width, newSize.height);
+    CGContextDrawImage(currentContext, drawRect, imageToCrop.CGImage);
+    UIImage *cropped = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return cropped;
+}
+
+- (UIImage *)imageByScalingAndCroppingForSize:(UIImage*)image targetSize:(CGSize)targetSize {
+    
+    UIImage *sourceImage = image;
+    UIImage *newImage = nil;
+    CGSize imageSize = sourceImage.size;
+    CGFloat width = imageSize.width;
+    CGFloat height = imageSize.height;
+    CGFloat targetWidth = targetSize.width;
+    CGFloat targetHeight = targetSize.height;
+    CGFloat scaleFactor = 0.0;
+    CGFloat scaledWidth = targetWidth;
+    CGFloat scaledHeight = targetHeight;
+    CGPoint thumbnailPoint = CGPointMake(0.0,0.0);
+    if (CGSizeEqualToSize(imageSize, targetSize) == NO)
+    {
+        CGFloat widthFactor = targetWidth / width;
+        CGFloat heightFactor = targetHeight / height;
+        if (widthFactor > heightFactor)
+            scaleFactor = widthFactor; // scale to fit height
+        else
+            scaleFactor = heightFactor; // scale to fit width
+        scaledWidth = width * scaleFactor;
+        scaledHeight = height * scaleFactor;
+        // center the image
+        if (widthFactor > heightFactor)
+        {
+            thumbnailPoint.y = (targetHeight - scaledHeight) * 0.5;
+        }
+        else
+            if (widthFactor < heightFactor)
+            {
+                thumbnailPoint.x = (targetWidth - scaledWidth) * 0.5;
+            }
+    }
+    UIGraphicsBeginImageContext(targetSize); // this will crop
+    CGRect thumbnailRect = CGRectZero;
+    thumbnailRect.origin = thumbnailPoint;
+    thumbnailRect.size.width = scaledWidth;
+    thumbnailRect.size.height = scaledHeight;
+    [sourceImage drawInRect:thumbnailRect];
+    newImage = UIGraphicsGetImageFromCurrentImageContext();
+    if(newImage == nil)
+        NSLog(@"could not scale image");
+    //pop the context to get back to the default
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
 - (void)takeController:(FDTakeController *)controller gotPhoto:(UIImage *)photo withInfo:(NSDictionary *)info
 {
     [[imageButton imageView] setContentMode: UIViewContentModeScaleAspectFit];
@@ -129,7 +193,9 @@
     CGSize newSizeI;
     newSizeI.width = 120;
     newSizeI.height = 120;
-    UIImage *newImage = [self resizeImage:profileImage newSize:newSizeI];;
+    //UIImage *newImage = [self resizeImage:profileImage newSize:newSizeI];;
+    //UIImage *newImage = [self imageCrop:profileImage newSize:newSizeI];
+    UIImage *newImage = [self imageByScalingAndCroppingForSize:profileImage targetSize:newSizeI];
     
     NSData *data = UIImageJPEGRepresentation(newImage, 0.0);
     PFFile *file = [PFFile fileWithName:@"snapshot.jpg" data:data];

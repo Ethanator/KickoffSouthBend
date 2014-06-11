@@ -88,15 +88,15 @@
     self.buttonTitles = nil;
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         [self.sources addObject:[NSNumber numberWithInteger:UIImagePickerControllerSourceTypeCamera]];
-        [self.buttonTitles addObject:NSLocalizedStringFromTable(@"takePhoto", @"FDTake", @"Option to take photo using camera")];
+        [self.buttonTitles addObject:NSLocalizedStringFromTable(@"Take Photo", @"FDTake", @"Option to take photo using camera")];
     }
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
         [self.sources addObject:[NSNumber numberWithInteger:UIImagePickerControllerSourceTypePhotoLibrary]];
-        [self.buttonTitles addObject:NSLocalizedStringFromTable(@"chooseFromLibrary", @"FDTake", @"Option to select photo/video from library")];
+        [self.buttonTitles addObject:NSLocalizedStringFromTable(@"Choose From Library", @"FDTake", @"Option to select photo/video from library")];
     }
     else if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
         [self.sources addObject:[NSNumber numberWithInteger:UIImagePickerControllerSourceTypeSavedPhotosAlbum]];
-        [self.buttonTitles addObject:NSLocalizedStringFromTable(@"chooseFromPhotoRoll", @"FDTake", @"Option to select photo from photo roll")];
+        [self.buttonTitles addObject:NSLocalizedStringFromTable(@"Choose From Photo Roll", @"FDTake", @"Option to select photo from photo roll")];
     }
     [self _setUpActionSheet];
     [self.actionSheet setTag:kPhotosActionSheetTag];
@@ -108,15 +108,15 @@
     self.buttonTitles = nil;
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         [self.sources addObject:[NSNumber numberWithInteger:UIImagePickerControllerSourceTypeCamera]];
-        [self.buttonTitles addObject:NSLocalizedStringFromTable(@"takeVideo", @"FDTake", @"Option to take video using camera")];
+        [self.buttonTitles addObject:NSLocalizedStringFromTable(@"Take Video", @"FDTake", @"Option to take video using camera")];
     }
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
         [self.sources addObject:[NSNumber numberWithInteger:UIImagePickerControllerSourceTypePhotoLibrary]];
-        [self.buttonTitles addObject:NSLocalizedStringFromTable(@"chooseFromLibrary", @"FDTake", @"Option to select photo/video from library")];
+        [self.buttonTitles addObject:NSLocalizedStringFromTable(@"Choose From Library", @"FDTake", @"Option to select photo/video from library")];
     }
     else if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
         [self.sources addObject:[NSNumber numberWithInteger:UIImagePickerControllerSourceTypeSavedPhotosAlbum]];
-        [self.buttonTitles addObject:NSLocalizedStringFromTable(@"chooseFromPhotoRoll", @"FDTake", @"Option to select photo from photo roll")];
+        [self.buttonTitles addObject:NSLocalizedStringFromTable(@"Choose From Photo Roll", @"FDTake", @"Option to select photo from photo roll")];
     }
     [self _setUpActionSheet];
     [self.actionSheet setTag:kVideosActionSheetTag];
@@ -128,19 +128,19 @@
     self.buttonTitles = nil;
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         [self.sources addObject:[NSNumber numberWithInteger:UIImagePickerControllerSourceTypeCamera]];
-        [self.buttonTitles addObject:NSLocalizedStringFromTable(@"takePhoto", @"FDTake", @"Option to take photo using camera")];
+        [self.buttonTitles addObject:NSLocalizedStringFromTable(@"Take Photo", @"FDTake", @"Option to take photo using camera")];
     }
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         [self.sources addObject:[NSNumber numberWithInteger:UIImagePickerControllerSourceTypeCamera]];
-        [self.buttonTitles addObject:NSLocalizedStringFromTable(@"takeVideo", @"FDTake", @"Option to take video using camera")];
+        [self.buttonTitles addObject:NSLocalizedStringFromTable(@"Take Video", @"FDTake", @"Option to take video using camera")];
     }
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
         [self.sources addObject:[NSNumber numberWithInteger:UIImagePickerControllerSourceTypePhotoLibrary]];
-        [self.buttonTitles addObject:NSLocalizedStringFromTable(@"chooseFromLibrary", @"FDTake", @"Option to select photo/video from library")];
+        [self.buttonTitles addObject:NSLocalizedStringFromTable(@"Choose From Library", @"FDTake", @"Option to select photo/video from library")];
     }
     else if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
         [self.sources addObject:[NSNumber numberWithInteger:UIImagePickerControllerSourceTypeSavedPhotosAlbum]];
-        [self.buttonTitles addObject:NSLocalizedStringFromTable(@"chooseFromPhotoRoll", @"FDTake", @"Option to select photo from photo roll")];
+        [self.buttonTitles addObject:NSLocalizedStringFromTable(@"Choose From Photo Roll", @"FDTake", @"Option to select photo from photo roll")];
     }
     [self _setUpActionSheet];
     [self.actionSheet setTag:kPhotosActionSheetTag];
@@ -265,7 +265,7 @@
                                               otherButtonTitles:nil];
         for (NSString *title in self.buttonTitles)
             [self.actionSheet addButtonWithTitle:title];
-        [self.actionSheet addButtonWithTitle:NSLocalizedStringFromTable(@"cancel", @"FDTake", @"Decline to proceed with operation")];
+        [self.actionSheet addButtonWithTitle:NSLocalizedStringFromTable(@"Cancel", @"FDTake", @"Decline to proceed with operation")];
         self.actionSheet.cancelButtonIndex = self.sources.count;
         
         // If on iPad use the present rect and pop over style.
@@ -280,7 +280,7 @@
             [self.actionSheet showInView:[self presentingViewController].view];
         }
     } else {
-        NSString *str = NSLocalizedStringFromTable(@"noSources", @"FDTake", @"There are no sources available to select a photo");
+        NSString *str = NSLocalizedStringFromTable(@"No Sources", @"FDTake", @"There are no sources available to select a photo");
         [[[UIAlertView alloc] initWithTitle:nil
                                     message:str
                                    delegate:self

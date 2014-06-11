@@ -136,21 +136,22 @@
 - (void)addLabels
 {
     //gameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 300, 130)];
-    gameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 90, 300, 30)];
+//    gameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 90, 300, 30)];
+    gameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 75, 300, 30)];
     gameLabel.textAlignment = NSTextAlignmentCenter;
     gameLabel.backgroundColor = [UIColor clearColor];
     gameLabel.textColor = [UIColor whiteColor];
     gameLabel.font = [UIFont boldSystemFontOfSize:24.0f];
-    gameLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:24.0];
+    gameLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:26.0];
     gameLabel.numberOfLines = 3;
     gameLabel.text = @"";
 
-    countDownLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 120, 300, 40)];
+    countDownLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 100, 300, 40)];
     countDownLabel.textAlignment = NSTextAlignmentCenter;
     countDownLabel.backgroundColor = [UIColor clearColor];
     //countDownLabel.textColor = [UIColor whiteColor];
     countDownLabel.textColor = [UIColor colorWithRed:222.0f/255.0f green:182.0f/255.0f blue:89.0f/255.0f alpha:1.0f];
-    countDownLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:22.0];
+    countDownLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:18.0];
     countDownLabel.text = @"";
     
     [self.view addSubview:gameLabel];
@@ -159,6 +160,7 @@
 
 - (void)addButtons
 {
+    /*
 #define BTN_X 20
 #define BTN_Y 185
 #define BTN_X_DIFF 105
@@ -166,17 +168,40 @@
 #define BTN_SIZE 70
 #define LABEL_DISTANCE_Y -5
 #define LABEL_Y 12
+     */
+
+#define BTN_X 20
+#define BTN_Y 210
+#define BTN_X_DIFF 105
+#define BTN_Y_DIFF 90
+#define BTN_SIZE 70
+#define LABEL_DISTANCE_Y -10
+#define LABEL_Y 12
+
+
 #define FONT_SIZE 12.0
 #define FONT "ArialRoundedMTBold"
     
+    int y_offset;
+    int y_dist;
+    if ((int)[[UIScreen mainScreen] bounds].size.height == 568) {
+        // This is iPhone 5 screen
+        y_offset = 25;
+        y_dist = 10;
+    } else {
+        // This is iPhone 4/4s screen
+        y_offset = 0;
+        y_dist = 0;
+    }
+
     UIButton *friendsBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    friendsBtn.frame = CGRectMake(BTN_X, BTN_Y, BTN_SIZE, BTN_SIZE);
+    friendsBtn.frame = CGRectMake(BTN_X, BTN_Y + y_offset, BTN_SIZE, BTN_SIZE);
     UIImage *friendsImage = [UIImage imageNamed:@"FriendsIcon.png"];
     [friendsBtn setBackgroundImage:friendsImage forState:UIControlStateNormal];
     [friendsBtn addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     friendsBtn.tag = 0;
     UILabel *friendsLabel = [[UILabel alloc] init];
-    friendsLabel.frame = CGRectMake(BTN_X-BTN_SIZE/2, BTN_Y+BTN_SIZE+LABEL_DISTANCE_Y, BTN_SIZE*2, LABEL_Y);
+    friendsLabel.frame = CGRectMake(BTN_X-BTN_SIZE/2, BTN_Y+y_offset+BTN_SIZE+LABEL_DISTANCE_Y, BTN_SIZE*2, LABEL_Y);
     friendsLabel.textAlignment = NSTextAlignmentCenter;
     friendsLabel.textColor = [UIColor whiteColor];
     friendsLabel.backgroundColor = [UIColor clearColor];
@@ -184,13 +209,13 @@
     friendsLabel.text = @"Friends";
 
     UIButton *messagesBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    messagesBtn.frame = CGRectMake(BTN_X+BTN_X_DIFF, BTN_Y, BTN_SIZE, BTN_SIZE);
+    messagesBtn.frame = CGRectMake(BTN_X+BTN_X_DIFF, BTN_Y+y_offset, BTN_SIZE, BTN_SIZE);
     UIImage *messagesImage = [UIImage imageNamed:@"MessagesIcon.png"];
     [messagesBtn setBackgroundImage:messagesImage forState:UIControlStateNormal];
     [messagesBtn addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     messagesBtn.tag = 1;
     UILabel *messagesLabel = [[UILabel alloc] init];
-    messagesLabel.frame = CGRectMake(BTN_X-BTN_SIZE/2+BTN_X_DIFF, BTN_Y+BTN_SIZE+LABEL_DISTANCE_Y, BTN_SIZE*2, LABEL_Y);
+    messagesLabel.frame = CGRectMake(BTN_X-BTN_SIZE/2+BTN_X_DIFF, BTN_Y+y_offset+BTN_SIZE+LABEL_DISTANCE_Y, BTN_SIZE*2, LABEL_Y);
     messagesLabel.textAlignment = NSTextAlignmentCenter;
     messagesLabel.textColor = [UIColor whiteColor];
     messagesLabel.backgroundColor = [UIColor clearColor];
@@ -198,13 +223,13 @@
     messagesLabel.text = @"Messages";
     
     UIButton *pictureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    pictureBtn.frame = CGRectMake(BTN_X+BTN_X_DIFF*2, BTN_Y, BTN_SIZE, BTN_SIZE);
+    pictureBtn.frame = CGRectMake(BTN_X+BTN_X_DIFF*2, BTN_Y+y_offset, BTN_SIZE, BTN_SIZE);
     UIImage *pictureImage = [UIImage imageNamed:@"PictureIcon.png"];
     [pictureBtn setBackgroundImage:pictureImage forState:UIControlStateNormal];
     [pictureBtn addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     pictureBtn.tag = 2;
     UILabel *pictureLabel = [[UILabel alloc] init];
-    pictureLabel.frame = CGRectMake(BTN_X-BTN_SIZE/2+BTN_X_DIFF*2, BTN_Y+BTN_SIZE+LABEL_DISTANCE_Y, BTN_SIZE*2, LABEL_Y);
+    pictureLabel.frame = CGRectMake(BTN_X-BTN_SIZE/2+BTN_X_DIFF*2, BTN_Y+y_offset+BTN_SIZE+LABEL_DISTANCE_Y, BTN_SIZE*2, LABEL_Y);
     pictureLabel.textAlignment = NSTextAlignmentCenter;
     pictureLabel.textColor = [UIColor whiteColor];
     pictureLabel.backgroundColor = [UIColor clearColor];
@@ -212,13 +237,13 @@
     pictureLabel.text = @"Photos";
     
     UIButton *scheduleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    scheduleBtn.frame = CGRectMake(BTN_X, BTN_Y+BTN_Y_DIFF-10, BTN_SIZE, BTN_SIZE);
+    scheduleBtn.frame = CGRectMake(BTN_X, BTN_Y+y_offset+BTN_Y_DIFF+y_dist-10, BTN_SIZE, BTN_SIZE);
     UIImage *scheduleImage = [UIImage imageNamed:@"ScheduleIcon.png"];
     [scheduleBtn setBackgroundImage:scheduleImage forState:UIControlStateNormal];
     [scheduleBtn addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     scheduleBtn.tag = 3;
     UILabel *scheduleLabel = [[UILabel alloc] init];
-    scheduleLabel.frame = CGRectMake(BTN_X-BTN_SIZE/2, BTN_Y+BTN_SIZE+LABEL_DISTANCE_Y+BTN_Y_DIFF, BTN_SIZE*2, LABEL_Y);
+    scheduleLabel.frame = CGRectMake(BTN_X-BTN_SIZE/2, BTN_Y+y_offset+BTN_SIZE+LABEL_DISTANCE_Y+BTN_Y_DIFF+y_dist, BTN_SIZE*2, LABEL_Y);
     scheduleLabel.textAlignment = NSTextAlignmentCenter;
     scheduleLabel.textColor = [UIColor whiteColor];
     scheduleLabel.backgroundColor = [UIColor clearColor];
@@ -226,13 +251,13 @@
     scheduleLabel.text = @"Schedule";
     
     UIButton *onCampusEventsBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    onCampusEventsBtn.frame = CGRectMake(BTN_X+BTN_X_DIFF, BTN_Y+BTN_Y_DIFF-10, BTN_SIZE, BTN_SIZE);
+    onCampusEventsBtn.frame = CGRectMake(BTN_X+BTN_X_DIFF, BTN_Y+y_offset+BTN_Y_DIFF+y_dist-10, BTN_SIZE, BTN_SIZE);
     UIImage *onCampusEventsImage = [UIImage imageNamed:@"OnCampusIcon.png"];
     [onCampusEventsBtn setBackgroundImage:onCampusEventsImage forState:UIControlStateNormal];
     [onCampusEventsBtn addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     onCampusEventsBtn.tag = 4;
     UILabel *events1Label = [[UILabel alloc] init];
-    events1Label.frame = CGRectMake(BTN_X-BTN_SIZE/2+BTN_X_DIFF, BTN_Y+BTN_SIZE+LABEL_DISTANCE_Y+BTN_Y_DIFF-LABEL_Y, BTN_SIZE*2, LABEL_Y*3);
+    events1Label.frame = CGRectMake(BTN_X-BTN_SIZE/2+BTN_X_DIFF, BTN_Y+y_offset+BTN_SIZE+LABEL_DISTANCE_Y+BTN_Y_DIFF+y_dist-LABEL_Y, BTN_SIZE*2, LABEL_Y*3);
     events1Label.textAlignment = NSTextAlignmentCenter;
     events1Label.textColor = [UIColor whiteColor];
     events1Label.backgroundColor = [UIColor clearColor];
@@ -241,13 +266,13 @@
     events1Label.text = @"Sports News";
     
     UIButton *offCampusEventsBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    offCampusEventsBtn.frame = CGRectMake(BTN_X+BTN_X_DIFF*2, BTN_Y+BTN_Y_DIFF-10, BTN_SIZE, BTN_SIZE);
+    offCampusEventsBtn.frame = CGRectMake(BTN_X+BTN_X_DIFF*2, BTN_Y+y_offset+BTN_Y_DIFF+y_dist-10, BTN_SIZE, BTN_SIZE);
     UIImage *offCampusEventsImage = [UIImage imageNamed:@"OffCampusIcon.png"];
     [offCampusEventsBtn setBackgroundImage:offCampusEventsImage forState:UIControlStateNormal];
     [offCampusEventsBtn addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     offCampusEventsBtn.tag = 5;
     UILabel *events2Label = [[UILabel alloc] init];
-    events2Label.frame = CGRectMake(BTN_X-BTN_SIZE/2+BTN_X_DIFF*2, BTN_Y+BTN_SIZE+LABEL_DISTANCE_Y+BTN_Y_DIFF-LABEL_Y, BTN_SIZE*2, LABEL_Y*3);
+    events2Label.frame = CGRectMake(BTN_X-BTN_SIZE/2+BTN_X_DIFF*2, BTN_Y+y_offset+BTN_SIZE+LABEL_DISTANCE_Y+BTN_Y_DIFF+y_dist-LABEL_Y, BTN_SIZE*2, LABEL_Y*3);
     events2Label.textAlignment = NSTextAlignmentCenter;
     events2Label.textColor = [UIColor whiteColor];
     events2Label.backgroundColor = [UIColor clearColor];
@@ -256,13 +281,13 @@
     events2Label.text = @"Events";
     
     UIButton *diningBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    diningBtn.frame = CGRectMake(BTN_X, BTN_Y+BTN_Y_DIFF*2, BTN_SIZE, BTN_SIZE);
+    diningBtn.frame = CGRectMake(BTN_X, BTN_Y+y_offset+(BTN_Y_DIFF+y_dist)*2, BTN_SIZE, BTN_SIZE);
     UIImage *diningImage = [UIImage imageNamed:@"DiningIcon.png"];
     [diningBtn setBackgroundImage:diningImage forState:UIControlStateNormal];
     [diningBtn addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     diningBtn.tag = 6;
     UILabel *diningLabel = [[UILabel alloc] init];
-    diningLabel.frame = CGRectMake(BTN_X-BTN_SIZE/2, BTN_Y+BTN_SIZE+LABEL_DISTANCE_Y+BTN_Y_DIFF*2, BTN_SIZE*2, LABEL_Y*2);
+    diningLabel.frame = CGRectMake(BTN_X-BTN_SIZE/2, BTN_Y+y_offset+BTN_SIZE+LABEL_DISTANCE_Y+(BTN_Y_DIFF+y_dist)*2, BTN_SIZE*2, LABEL_Y*2);
     diningLabel.textAlignment = NSTextAlignmentCenter;
     diningLabel.textColor = [UIColor whiteColor];
     diningLabel.backgroundColor = [UIColor clearColor];
@@ -271,13 +296,13 @@
     diningLabel.text = @"Around Town";
     
     UIButton *parkingBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    parkingBtn.frame = CGRectMake(BTN_X+BTN_X_DIFF, BTN_Y+BTN_Y_DIFF*2, BTN_SIZE, BTN_SIZE);
+    parkingBtn.frame = CGRectMake(BTN_X+BTN_X_DIFF, BTN_Y+y_offset+(BTN_Y_DIFF+y_dist)*2, BTN_SIZE, BTN_SIZE);
     UIImage *parkingImage = [UIImage imageNamed:@"ParkingIcon.png"];
     [parkingBtn setBackgroundImage:parkingImage forState:UIControlStateNormal];
     [parkingBtn addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     parkingBtn.tag = 7;
     UILabel *parkingLabel = [[UILabel alloc] init];
-    parkingLabel.frame = CGRectMake(BTN_X-BTN_SIZE/2+BTN_X_DIFF, BTN_Y+BTN_SIZE+LABEL_DISTANCE_Y+BTN_Y_DIFF*2, BTN_SIZE*2, LABEL_Y*3);
+    parkingLabel.frame = CGRectMake(BTN_X-BTN_SIZE/2+BTN_X_DIFF, BTN_Y+y_offset+BTN_SIZE+LABEL_DISTANCE_Y+(BTN_Y_DIFF+y_dist)*2, BTN_SIZE*2, LABEL_Y*3);
     parkingLabel.textAlignment = NSTextAlignmentCenter;
     parkingLabel.textColor = [UIColor whiteColor];
     parkingLabel.backgroundColor = [UIColor clearColor];
@@ -286,13 +311,13 @@
     parkingLabel.text = @"Parking & \rTransportation";
     
     UIButton *mapBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    mapBtn.frame = CGRectMake(BTN_X+BTN_X_DIFF*2, BTN_Y+BTN_Y_DIFF*2, BTN_SIZE, BTN_SIZE);
+    mapBtn.frame = CGRectMake(BTN_X+BTN_X_DIFF*2, BTN_Y+y_offset+(BTN_Y_DIFF+y_dist)*2, BTN_SIZE, BTN_SIZE);
     UIImage *mapImage = [UIImage imageNamed:@"MapIcon.png"];
     [mapBtn setBackgroundImage:mapImage forState:UIControlStateNormal];
     [mapBtn addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     mapBtn.tag = 8;
     UILabel *mapLabel = [[UILabel alloc] init];
-    mapLabel.frame = CGRectMake(BTN_X-BTN_SIZE/2+BTN_X_DIFF*2, BTN_Y+BTN_SIZE+LABEL_DISTANCE_Y+BTN_Y_DIFF*2, BTN_SIZE*2, LABEL_Y*2);
+    mapLabel.frame = CGRectMake(BTN_X-BTN_SIZE/2+BTN_X_DIFF*2, BTN_Y+y_offset+BTN_SIZE+LABEL_DISTANCE_Y+(BTN_Y_DIFF+y_dist)*2, BTN_SIZE*2, LABEL_Y*2);
     mapLabel.textAlignment = NSTextAlignmentCenter;
     mapLabel.textColor = [UIColor whiteColor];
     mapLabel.backgroundColor = [UIColor clearColor];
@@ -610,9 +635,12 @@
  
             NSLog(@"gamedate=%@", gameDate);
             
+            BOOL gameScheduled = TRUE;
+            
             if (secondsBetween < 0) {
                 gameLabel.text = [NSString stringWithFormat:@"No game scheduled"];
                 countDownLabel.text = @"";
+                gameScheduled = FALSE;
             } else {
                 if (daysBetween < 0) {
                     if ([[gameObject objectForKey:@"kickoffTime"] isEqual: @"TBA"]) {
@@ -627,6 +655,66 @@
                     countDownLabel.text = [NSString stringWithFormat:@"Kickoff in %d days", daysBetween];
                 }
             }
+            
+            if (gameScheduled) {
+                
+                UILabel *goingLabel = [[UILabel alloc] initWithFrame:CGRectMake(40.0, countDownLabel.frame.origin.y + countDownLabel.frame.size.height + 10.0, 200.0, 25.0)];
+                goingLabel.text = @"Going to this game?";
+                goingLabel.font = [UIFont fontWithName:@"Arial" size:12.0];
+                goingLabel.textColor = [UIColor whiteColor];
+                goingLabel.backgroundColor = [UIColor clearColor];
+                
+                UILabel *trackingLabel = [[UILabel alloc] initWithFrame:CGRectMake(40.0, countDownLabel.frame.origin.y + countDownLabel.frame.size.height + 40.0, 200.0, 25.0)];
+                trackingLabel.text = @"Allow tracking while on campus?";
+                trackingLabel.font = [UIFont fontWithName:@"Arial" size:12.0];
+                trackingLabel.textColor = [UIColor whiteColor];
+                trackingLabel.backgroundColor = [UIColor clearColor];
+                
+                UIButton *goBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+                [goBtn addTarget:self action:@selector(goMethod) forControlEvents:UIControlEventTouchUpInside];
+                goBtn.frame = CGRectMake(self.view.frame.size.width - 90.0, countDownLabel.frame.origin.y + countDownLabel.frame.size.height
+                                                                             + 10.0, 50.0, 25.0);
+                 
+                [goBtn setTitle:@"No" forState:UIControlStateNormal];
+                [goBtn setTitle:@"Yes" forState:UIControlStateSelected];
+
+                [goBtn setBackgroundImage:[UIImage imageNamed:@"nostate"] forState:UIControlStateNormal];
+                [goBtn setBackgroundImage:[UIImage imageNamed:@"yesstate"] forState:UIControlStateSelected];
+                
+                [goBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                [goBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+                
+                goBtn.selected = NO;
+
+                
+                UIButton *trackBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+                [trackBtn addTarget:self action:@selector(trackMethod) forControlEvents:UIControlEventTouchUpInside];
+                trackBtn.frame = CGRectMake(self.view.frame.size.width - 90.0, countDownLabel.frame.origin.y + countDownLabel.frame.size.height
+                                         + 40.0, 50.0, 25.0);
+                
+                [trackBtn setTitle:@"No" forState:UIControlStateNormal];
+                [trackBtn setTitle:@"Yes" forState:UIControlStateSelected];
+                
+                [trackBtn setBackgroundImage:[UIImage imageNamed:@"nostate"] forState:UIControlStateNormal];
+                [trackBtn setBackgroundImage:[UIImage imageNamed:@"yesstate"] forState:UIControlStateSelected];
+                
+                [trackBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                [trackBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+                
+                trackBtn.selected = NO;
+
+                
+                
+                
+                [self.view addSubview:goingLabel];
+                [self.view addSubview:goBtn];
+                [self.view addSubview:trackBtn];
+
+                //[self.view addSubview:goingToGameSwitch];
+                [self.view addSubview:trackingLabel];
+                //[self.view addSubview:trackingSwitch];
+            }
+            
         }
     //}];
     [self reloadInputViews];
@@ -645,6 +733,18 @@
         //[self setTitle:[userProfileData getUserName]];
     }
 }
+
+
+-(void)goMethod
+{
+    NSLog(@"button clicked!");
+}
+
+-(void)trackMethod
+{
+    NSLog(@"button clicked!");
+}
+
 
 - (void)didReceiveMemoryWarning
 {
