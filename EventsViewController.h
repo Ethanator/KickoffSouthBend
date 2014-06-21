@@ -10,4 +10,5 @@
 
 @interface EventsViewController : UITableViewController
 
+@property (strong, nonatomic) NSMutableArray *eventList;
 @end

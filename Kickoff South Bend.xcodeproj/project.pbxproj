@@ -16,6 +16,7 @@
 		0F24F3BD18F413F20077CB45 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F24F3BA18F413F20077CB45 /* XPathQuery.m */; };
 		0F24F3C018F416D20077CB45 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F24F3BF18F416D20077CB45 /* News.m */; };
 		0F24F3C318F422640077CB45 /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F24F3C218F422640077CB45 /* NewsTableViewCell.m */; };
+		0FD2DBA31955FDAF005CE984 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77C1FF0816E6EB4D00B3015E /* Foundation.framework */; };
 		0FEF5C9D1921A3E0004BFB43 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FEF5C9C1921A3E0004BFB43 /* EventKit.framework */; };
 		0FEF5C9F1921A3E6004BFB43 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FEF5C9E1921A3E6004BFB43 /* EventKitUI.framework */; };
 		0FFB82C018EA2D720083876C /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FFB82BD18EA2D720083876C /* EventsViewController.m */; };
@@ -52,7 +53,6 @@
 		77B543261762743B0045C892 /* FDTakeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B54325176273AE0045C892 /* FDTakeController.m */; };
 		77B54329176562900045C892 /* CustomPeopleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B543281765628F0045C892 /* CustomPeopleCell.m */; };
 		77C1FF0716E6EB4D00B3015E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77C1FF0616E6EB4D00B3015E /* UIKit.framework */; };
-		77C1FF0916E6EB4D00B3015E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77C1FF0816E6EB4D00B3015E /* Foundation.framework */; };
 		77C1FF0B16E6EB4D00B3015E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77C1FF0A16E6EB4D00B3015E /* CoreGraphics.framework */; };
 		77C1FF1116E6EB4D00B3015E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77C1FF0F16E6EB4D00B3015E /* InfoPlist.strings */; };
 		77C1FF1316E6EB4D00B3015E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C1FF1216E6EB4D00B3015E /* main.m */; };
@@ -208,6 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FD2DBA31955FDAF005CE984 /* Foundation.framework in Frameworks */,
 				0FEF5C9F1921A3E6004BFB43 /* EventKitUI.framework in Frameworks */,
 				0FEF5C9D1921A3E0004BFB43 /* EventKit.framework in Frameworks */,
 				0F1B986218EB166F0092E0C3 /* libxml2.dylib in Frameworks */,
@@ -227,7 +228,6 @@
 				77F7739516E78CB600C338BA /* Accounts.framework in Frameworks */,
 				77F7739316E78CAB00C338BA /* AudioToolbox.framework in Frameworks */,
 				77C1FF0716E6EB4D00B3015E /* UIKit.framework in Frameworks */,
-				77C1FF0916E6EB4D00B3015E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,7 +439,7 @@
 				ORGANIZATIONNAME = "Christian Poellabauer";
 				TargetAttributes = {
 					77C1FF0216E6EB4D00B3015E = {
-						DevelopmentTeam = VVW6YR38J7;
+						DevelopmentTeam = NJEN4L6M7E;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 0;

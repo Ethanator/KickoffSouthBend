@@ -7,6 +7,7 @@
 //
 
 #import "EventsViewController.h"
+#import <Parse/Parse.h>
 
 @interface EventsViewController ()
 
@@ -26,7 +27,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    [self updateEventList];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -49,18 +54,57 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return [self.eventList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"OffCampusCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *cellIdentifier = @"EventCell";
     
-    // Configure the cell...
-    cell.textLabel.text = @"Off Campus Event";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
     
+    PFObject *event = [self.eventList objectAtIndex:indexPath.row];
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    cell.textLabel.text = event[@"Title"];
+    cell.detailTextLabel.numberOfLines = 0;
+    cell.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    NSDateFormatter *dfer = [[NSDateFormatter alloc] init];
+    [dfer setDateFormat:@"EEE, MMM d, yyyy h:mm a"];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@\n%@", [dfer stringFromDate:event[@"StartTime"]], event[@"LocationName"]];
+    
+    //cell.textLabel.numberOfLines = 0;
+    //cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    //cell.textLabel.text          = currNews.title;
+    //cell.detailTextLabel.text    = currNews.source;
+    //cell.url                     = currNews.url;
+    
+
     return cell;
+}
+
+#pragma Customized functions
+
+- (void)updateEventList
+{
+    // Fetch all Event objects and store it in the model
+    self.eventList = [NSMutableArray array];
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded. Show the first 100 objects
+            [self.eventList addObjectsFromArray:objects];
+            
+            [self.tableView reloadData];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
 }
 
 /*

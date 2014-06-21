@@ -448,7 +448,7 @@
     }
     */
     
-    NSLog(@"index=%d (%d)", indexPath.row, noChats);
+    NSLog(@"index=%ld (%d)", (long)indexPath.row, noChats);
     
     static NSString *CellIdentifier = @"ChatCellID";
     //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
