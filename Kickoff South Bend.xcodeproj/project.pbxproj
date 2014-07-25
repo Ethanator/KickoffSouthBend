@@ -59,6 +59,22 @@
 		77C1FF1716E6EB4D00B3015E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C1FF1616E6EB4D00B3015E /* AppDelegate.m */; };
 		77C1FF2016E6EB4D00B3015E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77C1FF1E16E6EB4D00B3015E /* MainStoryboard.storyboard */; };
 		77C1FF2316E6EB4D00B3015E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C1FF2216E6EB4D00B3015E /* ViewController.m */; };
+		77D27BD41982843F008AEFA5 /* 35-shopping.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D27BC71982843F008AEFA5 /* 35-shopping.png */; };
+		77D27BD51982843F008AEFA5 /* 47-fuel.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D27BC81982843F008AEFA5 /* 47-fuel.png */; };
+		77D27BD61982843F008AEFA5 /* 48-fork-and-knife.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D27BC91982843F008AEFA5 /* 48-fork-and-knife.png */; };
+		77D27BD71982843F008AEFA5 /* 53-house.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D27BCA1982843F008AEFA5 /* 53-house.png */; };
+		77D27BD81982843F008AEFA5 /* 72-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D27BCB1982843F008AEFA5 /* 72-pin.png */; };
+		77D27BD91982843F008AEFA5 /* 73-radar.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D27BCC1982843F008AEFA5 /* 73-radar.png */; };
+		77D27BDA1982843F008AEFA5 /* 74-location.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D27BCD1982843F008AEFA5 /* 74-location.png */; };
+		77D27BDB1982843F008AEFA5 /* 79-medical-bag.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D27BCE1982843F008AEFA5 /* 79-medical-bag.png */; };
+		77D27BDC1982843F008AEFA5 /* 80-shopping-cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D27BCF1982843F008AEFA5 /* 80-shopping-cart.png */; };
+		77D27BDD1982843F008AEFA5 /* 101-gameplan.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D27BD01982843F008AEFA5 /* 101-gameplan.png */; };
+		77D27BDE1982843F008AEFA5 /* 111-user.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D27BD11982843F008AEFA5 /* 111-user.png */; };
+		77D27BDF1982843F008AEFA5 /* 112-group.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D27BD21982843F008AEFA5 /* 112-group.png */; };
+		77D27BE01982843F008AEFA5 /* 125-food.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D27BD31982843F008AEFA5 /* 125-food.png */; };
+		77D27BE21982853F008AEFA5 /* 83-calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D27BE11982853F008AEFA5 /* 83-calendar.png */; };
+		77D27BE419828548008AEFA5 /* 117-todo.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D27BE319828548008AEFA5 /* 117-todo.png */; };
+		77D27BE71982AE53008AEFA5 /* UIColor+HEX.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D27BE61982AE53008AEFA5 /* UIColor+HEX.m */; };
 		77F7737516E6FB9900C338BA /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77F7737416E6FB9900C338BA /* AppIcon.png */; };
 		77F7737D16E6FBB100C338BA /* DiningIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77F7737616E6FBB100C338BA /* DiningIcon.png */; };
 		77F7737E16E6FBB100C338BA /* FriendsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77F7737716E6FBB100C338BA /* FriendsIcon.png */; };
@@ -170,6 +186,23 @@
 		77C1FF1F16E6EB4D00B3015E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		77C1FF2116E6EB4D00B3015E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		77C1FF2216E6EB4D00B3015E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		77D27BC71982843F008AEFA5 /* 35-shopping.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "35-shopping.png"; sourceTree = "<group>"; };
+		77D27BC81982843F008AEFA5 /* 47-fuel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "47-fuel.png"; sourceTree = "<group>"; };
+		77D27BC91982843F008AEFA5 /* 48-fork-and-knife.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "48-fork-and-knife.png"; sourceTree = "<group>"; };
+		77D27BCA1982843F008AEFA5 /* 53-house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "53-house.png"; sourceTree = "<group>"; };
+		77D27BCB1982843F008AEFA5 /* 72-pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "72-pin.png"; sourceTree = "<group>"; };
+		77D27BCC1982843F008AEFA5 /* 73-radar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "73-radar.png"; sourceTree = "<group>"; };
+		77D27BCD1982843F008AEFA5 /* 74-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "74-location.png"; sourceTree = "<group>"; };
+		77D27BCE1982843F008AEFA5 /* 79-medical-bag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "79-medical-bag.png"; sourceTree = "<group>"; };
+		77D27BCF1982843F008AEFA5 /* 80-shopping-cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "80-shopping-cart.png"; sourceTree = "<group>"; };
+		77D27BD01982843F008AEFA5 /* 101-gameplan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "101-gameplan.png"; sourceTree = "<group>"; };
+		77D27BD11982843F008AEFA5 /* 111-user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "111-user.png"; sourceTree = "<group>"; };
+		77D27BD21982843F008AEFA5 /* 112-group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "112-group.png"; sourceTree = "<group>"; };
+		77D27BD31982843F008AEFA5 /* 125-food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "125-food.png"; sourceTree = "<group>"; };
+		77D27BE11982853F008AEFA5 /* 83-calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "83-calendar.png"; sourceTree = "<group>"; };
+		77D27BE319828548008AEFA5 /* 117-todo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "117-todo.png"; sourceTree = "<group>"; };
+		77D27BE51982AE53008AEFA5 /* UIColor+HEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HEX.h"; sourceTree = "<group>"; };
+		77D27BE61982AE53008AEFA5 /* UIColor+HEX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HEX.m"; sourceTree = "<group>"; };
 		77F7737416E6FB9900C338BA /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		77F7737616E6FBB100C338BA /* DiningIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DiningIcon.png; sourceTree = "<group>"; };
 		77F7737716E6FBB100C338BA /* FriendsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FriendsIcon.png; sourceTree = "<group>"; };
@@ -371,6 +404,8 @@
 				77C1FF0F16E6EB4D00B3015E /* InfoPlist.strings */,
 				77C1FF1216E6EB4D00B3015E /* main.m */,
 				77C1FF1416E6EB4D00B3015E /* Kickoff South Bend-Prefix.pch */,
+				77D27BE51982AE53008AEFA5 /* UIColor+HEX.h */,
+				77D27BE61982AE53008AEFA5 /* UIColor+HEX.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -378,6 +413,21 @@
 		77F7737316E6FB5F00C338BA /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				77D27BE319828548008AEFA5 /* 117-todo.png */,
+				77D27BE11982853F008AEFA5 /* 83-calendar.png */,
+				77D27BC71982843F008AEFA5 /* 35-shopping.png */,
+				77D27BC81982843F008AEFA5 /* 47-fuel.png */,
+				77D27BC91982843F008AEFA5 /* 48-fork-and-knife.png */,
+				77D27BCA1982843F008AEFA5 /* 53-house.png */,
+				77D27BCB1982843F008AEFA5 /* 72-pin.png */,
+				77D27BCC1982843F008AEFA5 /* 73-radar.png */,
+				77D27BCD1982843F008AEFA5 /* 74-location.png */,
+				77D27BCE1982843F008AEFA5 /* 79-medical-bag.png */,
+				77D27BCF1982843F008AEFA5 /* 80-shopping-cart.png */,
+				77D27BD01982843F008AEFA5 /* 101-gameplan.png */,
+				77D27BD11982843F008AEFA5 /* 111-user.png */,
+				77D27BD21982843F008AEFA5 /* 112-group.png */,
+				77D27BD31982843F008AEFA5 /* 125-food.png */,
 				7708170918EE579600084BC4 /* squared_metal.png */,
 				7708170718EE497D00084BC4 /* background.png */,
 				770816F418EA64C900084BC4 /* download2.png */,
@@ -439,7 +489,7 @@
 				ORGANIZATIONNAME = "Christian Poellabauer";
 				TargetAttributes = {
 					77C1FF0216E6EB4D00B3015E = {
-						DevelopmentTeam = NJEN4L6M7E;
+						DevelopmentTeam = VVW6YR38J7;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 0;
@@ -475,18 +525,31 @@
 				77C1FF1116E6EB4D00B3015E /* InfoPlist.strings in Resources */,
 				77C1FF2016E6EB4D00B3015E /* MainStoryboard.storyboard in Resources */,
 				770816F518EA64C900084BC4 /* download2.png in Resources */,
+				77D27BE21982853F008AEFA5 /* 83-calendar.png in Resources */,
 				77F7737516E6FB9900C338BA /* AppIcon.png in Resources */,
+				77D27BDE1982843F008AEFA5 /* 111-user.png in Resources */,
+				77D27BD91982843F008AEFA5 /* 73-radar.png in Resources */,
 				77F7737D16E6FBB100C338BA /* DiningIcon.png in Resources */,
 				7708170818EE497D00084BC4 /* background.png in Resources */,
 				77F7737E16E6FBB100C338BA /* FriendsIcon.png in Resources */,
+				77D27BDD1982843F008AEFA5 /* 101-gameplan.png in Resources */,
+				77D27BE01982843F008AEFA5 /* 125-food.png in Resources */,
 				7708170A18EE579600084BC4 /* squared_metal.png in Resources */,
+				77D27BDB1982843F008AEFA5 /* 79-medical-bag.png in Resources */,
 				77F7737F16E6FBB100C338BA /* LodgingIcon.png in Resources */,
 				77F7738016E6FBB100C338BA /* MapIcon.png in Resources */,
 				77F7738116E6FBB100C338BA /* MessagesIcon.png in Resources */,
+				77D27BD61982843F008AEFA5 /* 48-fork-and-knife.png in Resources */,
+				77D27BD41982843F008AEFA5 /* 35-shopping.png in Resources */,
 				77F7738216E6FBB100C338BA /* OffCampusIcon.png in Resources */,
 				77F7738316E6FBB100C338BA /* OnCampusIcon.png in Resources */,
+				77D27BDF1982843F008AEFA5 /* 112-group.png in Resources */,
 				77F7738916E6FBB900C338BA /* ParkingIcon.png in Resources */,
+				77D27BDA1982843F008AEFA5 /* 74-location.png in Resources */,
+				77D27BD81982843F008AEFA5 /* 72-pin.png in Resources */,
+				77D27BE419828548008AEFA5 /* 117-todo.png in Resources */,
 				77F7738A16E6FBB900C338BA /* PictureIcon.png in Resources */,
+				77D27BDC1982843F008AEFA5 /* 80-shopping-cart.png in Resources */,
 				77F7738B16E6FBB900C338BA /* ScheduleIcon.png in Resources */,
 				77F7738C16E6FBB900C338BA /* ShoppingIcon.png in Resources */,
 				77F7738D16E6FBB900C338BA /* TransportationIcon.png in Resources */,
@@ -494,6 +557,8 @@
 				7775E67B16E9336A00080247 /* App Icon FINAL3.png in Resources */,
 				770816F118E7B64500084BC4 /* BlackBG.png in Resources */,
 				7775E67D16E93CB200080247 /* App Icon FINAL2.png in Resources */,
+				77D27BD51982843F008AEFA5 /* 47-fuel.png in Resources */,
+				77D27BD71982843F008AEFA5 /* 53-house.png in Resources */,
 				7775E68816E93F4800080247 /* Default.png in Resources */,
 				7775E68A16E93F6100080247 /* Default@2x.png in Resources */,
 				7775E68E16EA497200080247 /* Default-568h@2x.png in Resources */,
@@ -515,6 +580,7 @@
 				77C1FF1716E6EB4D00B3015E /* AppDelegate.m in Sources */,
 				777CE4A418E7252B0059A33C /* PhotoCell.m in Sources */,
 				0F24F3BC18F413F20077CB45 /* TFHppleElement.m in Sources */,
+				77D27BE71982AE53008AEFA5 /* UIColor+HEX.m in Sources */,
 				77C1FF2316E6EB4D00B3015E /* ViewController.m in Sources */,
 				77F773AE16E78FAD00C338BA /* MyLoginViewController.m in Sources */,
 				77F773B116E78FC100C338BA /* MySignUpViewController.m in Sources */,

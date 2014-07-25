@@ -7,6 +7,7 @@
 //
 
 #import "MapViewController.h"
+#import "UIColor+HEX.h"
 
 #define METERS_PER_MILE 1609.344
 
@@ -63,6 +64,15 @@
     [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
     
     firstLaunch=YES;
+    
+    activityView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    activityView.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
+    //activityView.color = [UIColor colorWithHexString:@"5bc6e3"];
+    activityView.color = [UIColor colorWithHexString:@"0c64e8"];
+    activityView.center = self.view.center;
+    [self.view addSubview: activityView];
+    spinWheel = FALSE;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -104,7 +114,6 @@
     NSError* error;
     NSDictionary* json = [NSJSONSerialization
                           JSONObjectWithData:responseData
-                          
                           options:kNilOptions
                           error:&error];
     
@@ -114,27 +123,84 @@
     //Write out the data to the console.
     NSLog(@"Google Data: %@", places);
     
+    [activityView stopAnimating];
+    spinWheel = FALSE;
+
     [self plotPositions:places];
 }
 
 - (IBAction)dineButtonPressed:(id)sender {
+    self.title = @"Dining";
+    [activityView startAnimating];
+    spinWheel = TRUE;
     [self queryGooglePlaces:@"restaurant"];
 }
 
 - (IBAction)shopButtonPressed:(id)sender {
+    self.title = @"Shopping";
+    [activityView startAnimating];
+    spinWheel = TRUE;
     [self queryGooglePlaces:@"store"];
 }
 
 - (IBAction)stayButtonPressed:(id)sender {
+    self.title = @"Hotels";
+    [activityView startAnimating];
+    spinWheel = TRUE;
     [self queryGooglePlaces:@"lodging"];
 }
 
 - (IBAction)friendsButtonPressed:(id)sender {
+    self.title = @"Friends";
     //[self queryGooglePlaces:@"restaurant"];
+    [self showFriends];
 }
 
 - (IBAction)eventsButtonPressed:(id)sender {
+    self.title = @"Events";
     //[self queryGooglePlaces:@"restaurant"];
+    [self showEvents];
+}
+
+- (IBAction)stadiumButtonPressed:(id)sender {
+    self.title = @"Stadium";
+    [activityView startAnimating];
+    spinWheel = TRUE;
+    [self queryGooglePlaces:@"stadium"];
+    //[self showStadium];
+}
+
+- (IBAction)medicalButtonPressed:(id)sender {
+    self.title = @"Medical";
+    [activityView startAnimating];
+    spinWheel = TRUE;
+    [self queryGooglePlaces:@"health"];
+    //[self showMedical];
+}
+
+- (IBAction)meButtonPressed:(id)sender {
+    self.title = @"My Location";
+    [activityView startAnimating];
+    spinWheel = TRUE;
+    [self showMe];
+}
+
+- (void)showMe {
+    self.mapView.centerCoordinate = self.mapView.userLocation.location.coordinate;
+    [activityView stopAnimating];
+    spinWheel = FALSE;
+}
+
+- (void)showStadium {
+}
+
+- (void)showMedical {
+}
+
+- (void)showFriends {
+}
+
+- (void)showEvents {
 }
 
 -(void)plotPositions:(NSArray *)data {

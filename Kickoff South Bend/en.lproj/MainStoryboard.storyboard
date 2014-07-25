@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="14A261i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hGk-8d-DAt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hGk-8d-DAt">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -199,12 +199,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vzB-L5-n4m">
+                                            <rect key="frame" x="15" y="14" width="91" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TNQ-21-GaC">
+                                            <rect key="frame" x="112" y="14" width="32" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -572,32 +574,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="NvP-Jg-wJC">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" id="NvP-Jg-wJC">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem title="Dine" id="owo-kw-ycq">
+                                    <barButtonItem image="125-food.png" id="owo-kw-ycq">
                                         <connections>
                                             <action selector="dineButtonPressed:" destination="uUg-GI-Gf2" id="LV7-zf-RDJ"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Shop" id="PyD-r0-APH">
+                                    <barButtonItem image="80-shopping-cart.png" id="PyD-r0-APH">
+                                        <inset key="imageInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <action selector="shopButtonPressed:" destination="uUg-GI-Gf2" id="FWU-OT-Ow2"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Stay" id="g4e-Ug-ChE">
+                                    <barButtonItem image="53-house.png" id="g4e-Ug-ChE">
+                                        <inset key="imageInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <action selector="stayButtonPressed:" destination="uUg-GI-Gf2" id="vu2-jm-bXL"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Friends" id="ftR-sR-oyy">
+                                    <barButtonItem image="112-group.png" id="ftR-sR-oyy">
+                                        <inset key="imageInsets" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <action selector="friendsButtonPressed:" destination="uUg-GI-Gf2" id="2yY-4O-UQq"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Events" id="yNh-x2-xt4">
+                                    <barButtonItem image="83-calendar.png" id="yNh-x2-xt4">
+                                        <inset key="imageInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <action selector="eventsButtonPressed:" destination="uUg-GI-Gf2" id="ALV-fE-9PC"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="101-gameplan.png" id="zVV-eB-i1O">
+                                        <inset key="imageInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <action selector="stadiumButtonPressed:" destination="uUg-GI-Gf2" id="iqD-FN-bOZ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="79-medical-bag.png" id="lxd-hI-BoM">
+                                        <inset key="imageInsets" minX="18" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <action selector="medicalButtonPressed:" destination="uUg-GI-Gf2" id="nc1-4p-Lmb"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="111-user.png" id="tDi-Ps-Rpt">
+                                        <inset key="imageInsets" minX="21" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <action selector="meButtonPressed:" destination="uUg-GI-Gf2" id="T8r-Bh-PdL"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -767,6 +791,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="101-gameplan.png" width="28" height="28"/>
+        <image name="111-user.png" width="24" height="21"/>
+        <image name="112-group.png" width="32" height="21"/>
+        <image name="125-food.png" width="29" height="23"/>
+        <image name="53-house.png" width="22" height="22"/>
+        <image name="79-medical-bag.png" width="24" height="20"/>
+        <image name="80-shopping-cart.png" width="26" height="19"/>
+        <image name="83-calendar.png" width="23" height="25"/>
         <image name="squared_metal.png" width="132" height="132"/>
         <image name="textfield_background.png" width="320" height="49"/>
     </resources>

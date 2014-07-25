@@ -20,6 +20,8 @@
     CLLocationCoordinate2D currentCentre;
     int currenDist;
     BOOL firstLaunch;
+    UIActivityIndicatorView *activityView;
+    BOOL spinWheel;
     
 }
 
