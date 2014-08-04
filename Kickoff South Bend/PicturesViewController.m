@@ -8,6 +8,7 @@
 
 #import "PicturesViewController.h"
 #import "QuartzCore/QuartzCore.h"
+#import "UIColor+HEX.h"
 
 @interface PicturesViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, FDTakeDelegate, UIGestureRecognizerDelegate>
 
@@ -61,7 +62,7 @@
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:@"Share Photo With"
                                   delegate:self
-                                  cancelButtonTitle:nil
+                                  cancelButtonTitle:@""
                                   destructiveButtonTitle:nil
                                   otherButtonTitles: @"Nobody", @"My Friends", @"Everybody", nil];
     
@@ -71,6 +72,9 @@
     actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
     [actionSheet showInView:[[[[UIApplication sharedApplication] keyWindow] subviews] lastObject]];
     
+    [activityView startAnimating];
+    spinWheel = TRUE;
+
     CGSize oldSizeI = image.size;
     CGSize newSizeI;
     UIImage *newImage = image;
@@ -103,6 +107,10 @@
     [userPhoto setObject:[userProfileData getUserName] forKey:@"userName"];
     [userPhoto setObject:[NSNumber numberWithInt:shareMode] forKey:@"shareMode"];
     [userPhoto save];
+    
+    [activityView stopAnimating];
+    spinWheel = FALSE;
+
 }
 
 - (IBAction)refresh:(id)sender
@@ -121,6 +129,9 @@
 {
     
     userProfileData = [ProfileData sharedInstance];
+
+    [activityView startAnimating];
+    spinWheel = TRUE;
 
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
     PFUser *user = [PFUser currentUser];
@@ -149,7 +160,7 @@
     } else if (filterType == 2) {
         [query whereKey:@"shareMode" greaterThan:[NSNumber numberWithInt:1]];
     }
-    [query orderByAscending:@"createdAt"];
+    [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             [photosFound removeAllObjects];
@@ -162,6 +173,9 @@
                 [thumbnails addObject:thisImage];
             }
             [self.collectionView reloadData];
+
+            [activityView stopAnimating];
+            spinWheel = FALSE;
 
         }
     }];
@@ -227,6 +241,8 @@
 	// Do any additional setup after loading the view.
     
     self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.scrollsToTop = true;
+
     
     self.takeController = [[FDTakeController alloc] init];
     self.takeController.delegate = self;
@@ -251,6 +267,14 @@
     dateLabel = [[UILabel alloc] init];
     nameLabel = [[UILabel alloc] init];
 
+    activityView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    activityView.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
+    //activityView.color = [UIColor colorWithHexString:@"5bc6e3"];
+    activityView.color = [UIColor colorWithHexString:@"0c64e8"];
+    activityView.center = self.view.center;
+    [self.view addSubview: activityView];
+    spinWheel = FALSE;
+    
     [self downloadAllImages];
 }
 

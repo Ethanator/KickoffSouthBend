@@ -8,6 +8,7 @@
 
 #import "FriendsViewController.h"
 #import "CustomPeopleCell.h"
+#import "SeeFriendViewController.h"
 
 @interface FriendsViewController ()
 
@@ -218,6 +219,9 @@
     fquery1.limit = 1000;
     myFriends = [fquery1 findObjects];
     
+    //[userProfileData setFriendList:myFriends];
+    [userProfileData setFriendList:(NSArray *)tempFriendsConfirmed2];
+    
     PFQuery *fquery2 = [PFQuery queryWithClassName:@"Profile"];
     [fquery2 whereKey:@"username" containedIn:tempFriendsInvitedMe2];
     [fquery2 orderByAscending:@"lastname"];
@@ -343,7 +347,8 @@
     if (thisProfileImage == nil)
         thisProfileImage = [UIImage imageNamed:@"profile_placeholder.png"];
     UIImageView *profileImage = [[UIImageView alloc] initWithImage:thisProfileImage];
-    profileImage.frame = CGRectMake(10.0, 7.0, 30.0, 30.0);
+    //profileImage.frame = CGRectMake(10.0, 7.0, 30.0, 30.0);
+    profileImage.frame = CGRectMake(0.0, 0.0, 44.0, 44.0);
     [cell addSubview:profileImage];
     
     UILabel *nameLabel = [[UILabel alloc] init];
@@ -627,15 +632,39 @@
 
 #pragma mark - Table view delegate
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSInteger index = clickedIndex;
+    PFObject *thisObject;
+
+    if ([[segue identifier] isEqualToString:@"SeeFriendSegue"])
+    {
+        if (index < [myInviters count]) {
+            thisObject = [myInviters objectAtIndex:index];
+        } else if (index < ([myInviters count] + [myInvitees count])) {
+            thisObject = [myInvitees objectAtIndex:index - [myInviters count]];
+        } else {
+            thisObject = [myFriends objectAtIndex:index - [myInviters count] - [myInvitees count]];
+        }
+
+        SeeFriendViewController *sfvc = [segue destinationViewController];
+        [sfvc setFriendObject:thisObject];
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
     /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     DetailViewController *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    clickedIndex = indexPath.row;
+    [self performSegueWithIdentifier: @"SeeFriendSegue" sender: self];
+
 }
 
 @end

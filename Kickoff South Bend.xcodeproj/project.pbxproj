@@ -33,6 +33,8 @@
 		771D3D51177BE02A00026892 /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D3D50177BE02A00026892 /* MyProfileViewController.m */; };
 		7747C38417664630004089CA /* profile_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 7747C38317664630004089CA /* profile_placeholder.png */; };
 		7751DFFC1896047A00F43614 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7751DFFB1896047A00F43614 /* libz.dylib */; };
+		777082C7198FAF03005B8B04 /* SeeFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777082C6198FAF03005B8B04 /* SeeFriendViewController.m */; };
+		777082C9198FE412005B8B04 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777082C8198FE412005B8B04 /* MessageUI.framework */; };
 		7775E66D16E92B7500080247 /* DiningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7775E66C16E92B7500080247 /* DiningViewController.m */; };
 		7775E67316E92D7300080247 /* ParkingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7775E67216E92D7300080247 /* ParkingViewController.m */; };
 		7775E67916E92D9900080247 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7775E67816E92D9900080247 /* MapViewController.m */; };
@@ -143,6 +145,9 @@
 		771D3D50177BE02A00026892 /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyProfileViewController.m; path = ../MyProfileViewController.m; sourceTree = "<group>"; };
 		7747C38317664630004089CA /* profile_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_placeholder.png; sourceTree = "<group>"; };
 		7751DFFB1896047A00F43614 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		777082C5198FAF03005B8B04 /* SeeFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeeFriendViewController.h; sourceTree = "<group>"; };
+		777082C6198FAF03005B8B04 /* SeeFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeeFriendViewController.m; sourceTree = "<group>"; };
+		777082C8198FE412005B8B04 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		7775E66B16E92B7500080247 /* DiningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiningViewController.h; sourceTree = "<group>"; };
 		7775E66C16E92B7500080247 /* DiningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiningViewController.m; sourceTree = "<group>"; };
 		7775E67116E92D7300080247 /* ParkingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParkingViewController.h; sourceTree = "<group>"; };
@@ -241,6 +246,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				777082C9198FE412005B8B04 /* MessageUI.framework in Frameworks */,
 				0FD2DBA31955FDAF005CE984 /* Foundation.framework in Frameworks */,
 				0FEF5C9F1921A3E6004BFB43 /* EventKitUI.framework in Frameworks */,
 				0FEF5C9D1921A3E0004BFB43 /* EventKit.framework in Frameworks */,
@@ -314,6 +320,7 @@
 		77C1FF0516E6EB4D00B3015E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				777082C8198FE412005B8B04 /* MessageUI.framework */,
 				0FEF5C9E1921A3E6004BFB43 /* EventKitUI.framework */,
 				0FEF5C9C1921A3E0004BFB43 /* EventKit.framework */,
 				0F1B986118EB166F0092E0C3 /* libxml2.dylib */,
@@ -373,6 +380,8 @@
 				77B54319176228740045C892 /* FriendsViewController.m */,
 				77B5431E176230B50045C892 /* FindFriendViewController.h */,
 				77B5431F176230B50045C892 /* FindFriendViewController.m */,
+				777082C5198FAF03005B8B04 /* SeeFriendViewController.h */,
+				777082C6198FAF03005B8B04 /* SeeFriendViewController.m */,
 				7708170218ED952300084BC4 /* ChatRoomViewController.h */,
 				7708170318ED952300084BC4 /* ChatRoomViewController.m */,
 				7708170B18EF024500084BC4 /* ChatDetailTableViewController.h */,
@@ -582,6 +591,7 @@
 				0F24F3BC18F413F20077CB45 /* TFHppleElement.m in Sources */,
 				77D27BE71982AE53008AEFA5 /* UIColor+HEX.m in Sources */,
 				77C1FF2316E6EB4D00B3015E /* ViewController.m in Sources */,
+				777082C7198FAF03005B8B04 /* SeeFriendViewController.m in Sources */,
 				77F773AE16E78FAD00C338BA /* MyLoginViewController.m in Sources */,
 				77F773B116E78FC100C338BA /* MySignUpViewController.m in Sources */,
 				0FFB82C118EA2D720083876C /* NewsViewController.m in Sources */,

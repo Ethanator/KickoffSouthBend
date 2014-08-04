@@ -191,13 +191,49 @@
     spinWheel = FALSE;
 }
 
-- (void)showStadium {
-}
-
-- (void)showMedical {
-}
-
 - (void)showFriends {
+    [activityView startAnimating];
+    spinWheel = TRUE;
+
+    userProfileData = [ProfileData sharedInstance];
+
+    NSArray *myFriendsNames = [userProfileData getFriendList];
+    
+    PFQuery *fquery1 = [PFQuery queryWithClassName:@"Profile"];
+    [fquery1 whereKey:@"username" containedIn:myFriendsNames];
+    [fquery1 whereKey:@"attendNextGame" equalTo:[NSNumber numberWithBool:TRUE]];
+    [fquery1 whereKey:@"trackingAllowed" equalTo:[NSNumber numberWithBool:TRUE]];
+    [fquery1 orderByAscending:@"lastname"];
+    fquery1.limit = 1000;
+    NSArray *myFriends = [fquery1 findObjects];
+    int numFriends = (int)[myFriends count];
+    
+    for (id<MKAnnotation> annotation in _mapView.annotations) {
+        if ([annotation isKindOfClass:[MapPoint class]]) {
+            [_mapView removeAnnotation:annotation];
+        }
+    }
+
+    for (int i = 0; i < numFriends; i++) {
+        PFObject *friendObject = [myFriends objectAtIndex:i];
+        PFGeoPoint *geoPoint = [friendObject objectForKey:@"location"];
+        if (geoPoint != nil) {
+            
+            CLLocationCoordinate2D  ctrpoint;
+            ctrpoint.latitude = geoPoint.latitude;
+            ctrpoint.longitude = geoPoint.longitude;
+            
+            MapPoint *placeObject = [[MapPoint alloc] initWithName:[friendObject objectForKey:@"username"] address:@"" coordinate:ctrpoint];
+            
+            [_mapView addAnnotation:placeObject];
+            
+            //AddressAnnotation *addAnnotation = [[AddressAnnotation alloc] initWithCoordinate:ctrpoint];
+            //[mapview addAnnotation:addAnnotation];
+        }
+    }
+    
+    [activityView stopAnimating];
+    spinWheel = FALSE;
 }
 
 - (void)showEvents {

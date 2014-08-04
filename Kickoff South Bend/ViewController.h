@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "ProfileData.h"
+#import<MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface ViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate> {
+@interface ViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, CLLocationManagerDelegate> {
     NSInteger gameReceived;
     UILabel *gameLabel;
     UILabel *countDownLabel;
@@ -18,7 +20,10 @@
     ProfileData *userProfileData;
     UIButton *goBtn;
     UIButton *trackBtn;
+    //CLLocationManager *locationManager;
     
 }
+
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end

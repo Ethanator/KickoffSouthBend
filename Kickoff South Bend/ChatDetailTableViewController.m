@@ -51,7 +51,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [chatTable setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
+    //[chatTable setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
     chatTable.opaque = NO;
     chatTable.backgroundView = nil;
     backgroundText.hidden = TRUE;
@@ -61,6 +61,7 @@
     tfEntry.delegate = self;
     tfEntry.clearButtonMode = UITextFieldViewModeWhileEditing;
     tfEntry.hidden = TRUE;
+    tfEntry.returnKeyType = UIReturnKeyDone;
 
     noChats = TRUE;
     
@@ -397,15 +398,23 @@
 
     PFObject *nowChat;
     
+    NSLog(@"COUNT=%ld", [chatData count]);
+    
     if (indexPath.section == 0) {
         nowChat = chatObject;
     } else if (indexPath.section == 1) {
     
         UILabel *responseHeader = [[UILabel alloc] init];
-        responseHeader.text = @"Responses:";
-        responseHeader.textColor = [UIColor blackColor];
+        if ([chatData count] == 0) {
+            responseHeader.text = @"No responses yet";
+        } else {
+            responseHeader.text = @"Responses:";
+        }
+        responseHeader.textAlignment = NSTextAlignmentCenter;
+        responseHeader.textColor = [UIColor whiteColor];
         responseHeader.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0];
-        responseHeader.frame = CGRectMake(10.0, 3.0, 200.0, 20.0);
+//        responseHeader.frame = CGRectMake(10.0, 3.0, 200.0, 20.0);
+        responseHeader.frame = CGRectMake(0.0, 2.0, self.view.frame.size.width, 20.0);
         [cell addSubview:responseHeader];
         cell.backgroundColor = [UIColor lightGrayColor];
         
@@ -416,9 +425,11 @@
         if ([chatData count] == 0) {
             UILabel *responseHeader = [[UILabel alloc] init];
             responseHeader.text = @"No responses yet";
-            responseHeader.textColor = [UIColor whiteColor];
+            responseHeader.textColor = [UIColor blackColor];
+//            responseHeader.textColor = [UIColor whiteColor];
             responseHeader.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0];
             responseHeader.frame = CGRectMake(10.0, 20.0, 300.0, 20.0);
+            //responseHeader.frame = CGRectMake(0.0, 20.0, self.view.frame.size.width, 20.0);
             responseHeader.textAlignment = NSTextAlignmentCenter;
             [cell addSubview:responseHeader];
             return cell;
@@ -435,7 +446,7 @@
         }
     }
 
-    NSString *currentUserName = [nowChat objectForKey:@"userName"];
+    //NSString *currentUserName = [nowChat objectForKey:@"userName"];
     NSString *firstname = [thisObject objectForKey:@"firstname"];
     NSString *lastname = [thisObject objectForKey:@"lastname"];
     NSString *username = [thisObject objectForKey:@"username"];
@@ -453,15 +464,17 @@
     if (thisProfileImage == nil)
         thisProfileImage = [UIImage imageNamed:@"profile_placeholder.png"];
     UIImageView *profileImage = [[UIImageView alloc] initWithImage:thisProfileImage];
-    profileImage.frame = CGRectMake(10.0, 7.0, 30.0, 30.0);
+    profileImage.frame = CGRectMake(5.0, 7.0, 30.0, 30.0);
     [cell addSubview:profileImage];
     
     UILabel *nameLabel = [[UILabel alloc] init];
-    nameLabel.text = currentUserName;
+    //nameLabel.text = currentUserName;
+    nameLabel.text = fullName;
     nameLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:12.0];
     nameLabel.frame = CGRectMake(45.0, 7.0, 150.0, 15.0);
     nameLabel.textAlignment = NSTextAlignmentLeft;
-    nameLabel.textColor = [UIColor whiteColor];
+//    nameLabel.textColor = [UIColor whiteColor];
+    nameLabel.textColor = [UIColor blackColor];
     nameLabel.backgroundColor = [UIColor clearColor];
     [cell addSubview:nameLabel];
     
@@ -502,7 +515,8 @@
         }
     }
     dateLabel.text = dateString;
-    dateLabel.textColor = [UIColor whiteColor];
+//    dateLabel.textColor = [UIColor whiteColor];
+    dateLabel.textColor = [UIColor blackColor];
     dateLabel.backgroundColor = [UIColor clearColor];
     [cell addSubview:dateLabel];
     
@@ -517,7 +531,8 @@
     textString.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:14.0];
     textString.text = chatText;
     textString.numberOfLines = 0;
-    textString.textColor = [UIColor colorWithRed:255/255 green:255/255 blue:204/255 alpha:1.0];
+    textString.textColor = [UIColor colorWithRed:22.0/255.0 green:47.0/255.0 blue:200.0/255.0 alpha:1.0];
+    //textString.textColor = [UIColor colorWithRed:255/255 green:255/255 blue:204/255 alpha:1.0];
     //textString.textColor = [UIColor whiteColor];
     textString.backgroundColor = [UIColor clearColor];
     //textString.editable = NO;

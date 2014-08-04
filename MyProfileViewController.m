@@ -191,8 +191,8 @@
     profileImage = photo;
     
     CGSize newSizeI;
-    newSizeI.width = 120;
-    newSizeI.height = 120;
+    newSizeI.width = 160;
+    newSizeI.height = 160;
     //UIImage *newImage = [self resizeImage:profileImage newSize:newSizeI];;
     //UIImage *newImage = [self imageCrop:profileImage newSize:newSizeI];
     UIImage *newImage = [self imageByScalingAndCroppingForSize:profileImage targetSize:newSizeI];

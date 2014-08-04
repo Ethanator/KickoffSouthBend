@@ -71,7 +71,7 @@
     
     //[self.view addGestureRecognizer:tapGesture];
     
-    [chatTable setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
+    //[chatTable setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
     chatTable.opaque = NO;
     chatTable.backgroundView = nil;
     
@@ -82,6 +82,7 @@
     tfEntry.delegate = self;
     tfEntry.clearButtonMode = UITextFieldViewModeWhileEditing;
     tfEntry.hidden = TRUE;
+    tfEntry.returnKeyType = UIReturnKeyDone;
 
     //backgroundText = [[UIImageView alloc] init];
     //backgroundText.image = [UIImage imageNamed:@"squared_metal.png"];
@@ -472,7 +473,7 @@
         noFriendsLabel.frame = CGRectMake(50.0, 0.0, self.view.frame.size.width - 100.0, 80.0f);
         noFriendsLabel.textAlignment = NSTextAlignmentCenter;
         noFriendsLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:11.0];
-        noFriendsLabel.textColor = [UIColor whiteColor];
+        noFriendsLabel.textColor = [UIColor blackColor];
         noFriendsLabel.backgroundColor = [UIColor clearColor];
         noFriendsLabel.numberOfLines = 0;
         [cell addSubview:noFriendsLabel];
@@ -511,15 +512,19 @@
     if (thisProfileImage == nil)
         thisProfileImage = [UIImage imageNamed:@"profile_placeholder.png"];
     UIImageView *profileImage = [[UIImageView alloc] initWithImage:thisProfileImage];
-    profileImage.frame = CGRectMake(10.0, 7.0, 30.0, 30.0);
+    //profileImage.frame = CGRectMake(10.0, 7.0, 30.0, 30.0);
+    profileImage.frame = CGRectMake(5.0, 7.0, 30.0, 30.0);
     [cell addSubview:profileImage];
 
     UILabel *nameLabel = [[UILabel alloc] init];
-    nameLabel.text = currentUserName;
+    
+    //nameLabel.text = currentUserName;
+    nameLabel.text = fullName;
     nameLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:12.0];
-    nameLabel.frame = CGRectMake(45.0, 7.0, 150.0, 15.0);
+    //nameLabel.frame = CGRectMake(45.0, 7.0, 150.0, 15.0);
+    nameLabel.frame = CGRectMake(40.0, 7.0, 150.0, 15.0);
     nameLabel.textAlignment = NSTextAlignmentLeft;
-    nameLabel.textColor = [UIColor whiteColor];
+    nameLabel.textColor = [UIColor blackColor];
     nameLabel.backgroundColor = [UIColor clearColor];
     [cell addSubview:nameLabel];
     
@@ -560,7 +565,7 @@
         }
     }
     dateLabel.text = dateString;
-    dateLabel.textColor = [UIColor whiteColor];
+    dateLabel.textColor = [UIColor blackColor];
     dateLabel.backgroundColor = [UIColor clearColor];
     [cell addSubview:dateLabel];
     
@@ -571,11 +576,13 @@
     
     //UITextView *textString = [[UITextView alloc] init];
     UILabel *textString = [[UILabel alloc] init];
-    textString.frame = CGRectMake(45, 25, size.width + 30, size.height + 20);
+    //textString.frame = CGRectMake(45, 25, size.width + 30, size.height + 20);
+    textString.frame = CGRectMake(40, 25, size.width + 30, size.height + 20);
     textString.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:14.0];
     textString.text = chatText;
     textString.numberOfLines = 0;
-    textString.textColor = [UIColor colorWithRed:255/255 green:255/255 blue:204/255 alpha:1.0];
+    //textString.textColor = [UIColor colorWithRed:255/255 green:255/255 blue:204/255 alpha:1.0];
+    textString.textColor = [UIColor colorWithRed:22.0/255.0 green:47.0/255.0 blue:200.0/255.0 alpha:1.0];
     //textString.textColor = [UIColor whiteColor];
     textString.backgroundColor = [UIColor clearColor];
     //textString.editable = NO;
@@ -591,9 +598,10 @@
     else
         responseLabel.text = [NSString stringWithFormat:@"%d responses", numResponses];
     if (numResponses > 0)
-        responseLabel.textColor = [UIColor yellowColor];
+        //responseLabel.textColor = [UIColor yellowColor];
+        responseLabel.textColor = [UIColor colorWithRed:22.0/255.0 green:47.0/255.0 blue:200.0/255.0 alpha:1.0];
     else
-        responseLabel.textColor = [UIColor whiteColor];
+        responseLabel.textColor = [UIColor blackColor];
     responseLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:10.0];
     responseLabel.textAlignment = NSTextAlignmentCenter;
     responseLabel.frame = CGRectMake(20.0, textString.frame.origin.y + textString.frame.size.height + 5.0, 280.0, 15.0);

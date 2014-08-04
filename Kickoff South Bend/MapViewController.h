@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "MapPoint.h"
+#import "ProfileData.h"
 
 #define kGOOGLE_API_KEY @"AIzaSyCajOs_0xjgDyvSxPaug2NdGfUpAFs5qNQ"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
@@ -22,6 +23,7 @@
     BOOL firstLaunch;
     UIActivityIndicatorView *activityView;
     BOOL spinWheel;
+    ProfileData *userProfileData;
     
 }
 

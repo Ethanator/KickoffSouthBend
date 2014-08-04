@@ -24,6 +24,7 @@
     [userProfileData setPhoneNumber1:@""];
     [userProfileData setPhoneNumber2:@""];
     [userProfileData setProfileActive:0];
+    [userProfileData setLocationTracking:false];
 
     [Parse setApplicationId:@"Ig5J9neTZHgB77Yj5P5XqyPJGz74V2NsLo9VNMAm"
                   clientKey:@"9sL4NqgJ192MI8kilhowJCAv96sTUM9EdlCCJ4sD"];
@@ -45,6 +46,15 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    BOOL locTrackingOn = [userProfileData getLocationTracking];
+    
+    NSLog(@"App entered background (%d)", locTrackingOn);
+    
+    if (locTrackingOn) {
+        CLLocationManager *thisLocationManager = [userProfileData getLocationMgr];
+        [thisLocationManager startMonitoringSignificantLocationChanges];
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -55,6 +65,16 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    BOOL locTrackingOn = [userProfileData getLocationTracking];
+    
+    NSLog(@"App entered foreground (%d)", locTrackingOn);
+
+    if (locTrackingOn) {
+        CLLocationManager *thisLocationManager = [userProfileData getLocationMgr];
+        [thisLocationManager stopMonitoringSignificantLocationChanges];
+        [thisLocationManager startUpdatingLocation];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

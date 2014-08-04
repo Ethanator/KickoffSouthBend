@@ -50,6 +50,36 @@ static ProfileData *sharedInstance = nil;
     return nil;
 }
 
+- (void) setLocationTracking:(BOOL)locTracking
+{
+    locationTracking = locTracking;
+}
+
+- (BOOL) getLocationTracking
+{
+    return locationTracking;
+}
+
+- (void) setLocationMgr:(CLLocationManager *)locationManager
+{
+    locationMgr = locationManager;
+}
+
+- (CLLocationManager *) getLocationMgr
+{
+    return locationMgr;
+}
+
+- (void) setFriendList:(NSArray *)newfriendList
+{
+    friendList = newfriendList;
+}
+
+- (NSArray *) getFriendList
+{
+    return friendList;
+}
+
 - (NSString *) getUserName
 {
     return userName;

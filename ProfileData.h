@@ -17,11 +17,20 @@
     NSString *phoneNumber1;
     NSString *phoneNumber2;
     PFObject *ownObject;
+    NSArray *friendList;
     BOOL profileUpdated;
+    BOOL locationTracking;
+    CLLocationManager *locationMgr;
 }
 
 + (ProfileData *)sharedInstance;
 
+- (void) setLocationTracking:(BOOL)locTracking;
+- (BOOL) getLocationTracking;
+- (void) setLocationMgr:(CLLocationManager *)locationManager;
+- (CLLocationManager *) getLocationMgr;
+- (void) setFriendList:(NSArray *)newfriendList;
+- (NSArray *) getFriendList;
 - (void) setUserName:(NSString *)newVal;
 - (NSString *) getUserName;
 - (void) setEmailAddress:(NSString *)newVal;

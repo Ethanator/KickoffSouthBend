@@ -35,6 +35,8 @@
     int shareMode;
     UIImage *photoToSave;
     UIButton *downloadButton;
+    UIActivityIndicatorView *activityView;
+    BOOL spinWheel;
     
 }
 

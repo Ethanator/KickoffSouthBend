@@ -18,6 +18,7 @@
     NSArray *myInvitees;
     BOOL noFriends;
     NSInteger currentIndex;
+    NSInteger clickedIndex;
 }
 
 @end

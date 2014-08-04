@@ -44,6 +44,63 @@
     [query whereKey:@"username" equalTo:[userProfileData getUserName]];
     PFObject *object = [query getFirstObject];
     [userProfileData setOwnObject:object];
+    
+    PFQuery *friendQuery1 = [PFQuery queryWithClassName:@"Friends"];
+    [friendQuery1 whereKey:@"invitee" equalTo:[userProfileData getUserName]];
+    PFQuery *friendQuery2 = [PFQuery queryWithClassName:@"Friends"];
+    [friendQuery2 whereKey:@"inviter" equalTo:[userProfileData getUserName]];
+    NSArray *friendList1 = [friendQuery1 findObjects];
+    NSArray *friendList2 = [friendQuery2 findObjects];
+    
+    NSMutableArray *tempFriendsConfirmed = [[NSMutableArray alloc] init];
+
+    for (int j = 0; j < [friendList1 count]; j++) {
+        NSNumber *isFriend = [[friendList1 objectAtIndex:j] objectForKey:@"confirmed"];
+        BOOL isFriendBool = [isFriend boolValue];
+        if (isFriendBool)
+            [tempFriendsConfirmed addObject:[[friendList1 objectAtIndex:j] objectForKey:@"inviter"]];
+    }
+    for (int k = 0; k < [friendList2 count]; k++) {
+        NSNumber *isFriend = [[friendList2 objectAtIndex:k] objectForKey:@"confirmed"];
+        BOOL isFriendBool = [isFriend boolValue];
+        if (isFriendBool)
+            [tempFriendsConfirmed addObject:[[friendList2 objectAtIndex:k] objectForKey:@"invitee"]];
+    }
+    NSMutableArray *tempFriendsConfirmed2 = [[NSMutableArray alloc] init];
+
+    for (int j = 0; j < [tempFriendsConfirmed count]; j++) {
+        if ([tempFriendsConfirmed2 containsObject:[tempFriendsConfirmed objectAtIndex:j]]) {
+            PFQuery *tempQuery = [PFQuery queryWithClassName:@"Friends"];
+            [tempQuery whereKey:@"inviter" equalTo:[tempFriendsConfirmed objectAtIndex:j]];
+            [tempQuery whereKey:@"invitee" equalTo:[userProfileData getUserName]];
+            PFObject *tempObject = [tempQuery getFirstObject];
+            if (tempObject == nil) {
+                PFQuery *tempQuery2 = [PFQuery queryWithClassName:@"Friends"];
+                [tempQuery2 whereKey:@"invitee" equalTo:[tempFriendsConfirmed objectAtIndex:j]];
+                [tempQuery2 whereKey:@"inviter" equalTo:[userProfileData getUserName]];
+                PFObject *tempObject2 = [tempQuery2 getFirstObject];
+                if (tempObject2 != nil) {
+                    [tempObject2 delete];
+                }
+            } else {
+                [tempObject delete];
+            }
+        } else {
+            [tempFriendsConfirmed2 addObject:[tempFriendsConfirmed objectAtIndex:j]];
+        }
+    }
+
+    /*
+    PFQuery *fquery1 = [PFQuery queryWithClassName:@"Profile"];
+    [fquery1 whereKey:@"username" containedIn:tempFriendsConfirmed2];
+    [fquery1 orderByAscending:@"lastname"];
+    fquery1.limit = 1000;
+    NSArray *myFriends = [fquery1 findObjects];
+    */
+    [userProfileData setFriendList:(NSArray *)tempFriendsConfirmed2];
+    
+
+
 }
 
 // Sent to the delegate when the log in attempt fails.
@@ -220,7 +277,7 @@
     messagesLabel.textColor = [UIColor whiteColor];
     messagesLabel.backgroundColor = [UIColor clearColor];
     messagesLabel.font = [UIFont fontWithName:@FONT size:FONT_SIZE];
-    messagesLabel.text = @"Messages";
+    messagesLabel.text = @"Group Chat";
     
     UIButton *pictureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     pictureBtn.frame = CGRectMake(BTN_X+BTN_X_DIFF*2, BTN_Y+y_offset, BTN_SIZE, BTN_SIZE);
@@ -460,6 +517,8 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    NSLog(@"View did appear");
     
     // Check if user is logged in
     if (![PFUser currentUser]) {
@@ -718,6 +777,19 @@
                 trackBtn.selected = NO;
                 
                 
+                userProfileData = [ProfileData sharedInstance];
+                PFQuery *query = [PFQuery queryWithClassName:@"Profile"];
+                [query whereKey:@"username" equalTo:[userProfileData getUserName]];
+                PFObject *object = [query getFirstObject];
+                [userProfileData setOwnObject:object];
+                
+                if ([object objectForKey:@"attendNextGame"] == [NSNumber numberWithBool:TRUE]) {
+                    goBtn.selected = YES;
+                    if ([object objectForKey:@"trackingAllowed"] == [NSNumber numberWithBool:TRUE]) {
+                        trackBtn.selected = YES;
+                    }
+                }
+                
                 [self.view addSubview:goingLabel];
                 [self.view addSubview:goBtn];
                 [self.view addSubview:trackBtn];
@@ -744,6 +816,23 @@
         [userProfileData setOwnObject:object];
         //[self setTitle:[userProfileData getUserName]];
     }
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    
+    [self.locationManager setDelegate:self];
+    
+    if ([CLLocationManager locationServicesEnabled] == NO) {
+        UIAlertView *servicesDisabledAlert = [[UIAlertView alloc] initWithTitle:@"Location Services Disabled" message:@"You currently have all location services for this device disabled. If you proceed, you will be asked to confirm whether location services should be reenabled." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [servicesDisabledAlert show];
+    }
+    
+    [self.locationManager setDistanceFilter:kCLDistanceFilterNone];
+    [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    
+    //NSLog(@"Start recording locations");
+    //[self.locationManager startUpdatingLocation];
+
+    
 }
 
 
@@ -754,8 +843,94 @@
     if (thisButton.selected == TRUE) {
         thisButton.selected = FALSE;
         trackBtn.selected = FALSE;
+        [self stopTracking];
     } else {
         thisButton.selected = TRUE;
+    }
+    
+    // Update parse with new information
+    
+    userProfileData = [ProfileData sharedInstance];
+
+    PFObject *object = [userProfileData getOwnObject];
+
+    if (object == nil) {
+        PFQuery *myObjectQuery = [PFQuery queryWithClassName:@"Profile"];
+        [myObjectQuery whereKey:@"username" equalTo:[userProfileData getUserName]];
+        PFObject *resultObject = [myObjectQuery getFirstObject];
+        [userProfileData setOwnObject:resultObject];
+        object = resultObject;
+    }
+
+    [object setObject:[NSNumber numberWithBool:thisButton.selected] forKey:@"attendNextGame"];
+    [object setObject:[NSNumber numberWithBool:trackBtn.selected] forKey:@"trackingAllowed"];
+    [object saveInBackground];
+}
+
+- (void)startTracking {
+    NSLog(@"Start tracking");
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        userProfileData = [ProfileData sharedInstance];
+        [userProfileData setLocationTracking:TRUE];
+        [userProfileData setLocationMgr:self.locationManager];
+        [self.locationManager startUpdatingLocation];
+    });
+    
+}
+
+- (void)stopTracking {
+    NSLog(@"Stop tracking");
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        userProfileData = [ProfileData sharedInstance];
+        [userProfileData setLocationTracking:FALSE];
+        [self.locationManager stopUpdatingLocation];
+    });
+
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+     didUpdateLocations:(NSArray *)locations {
+    NSLog(@"GOT NEW LOCATION");
+    
+    CLLocation *location = [locations lastObject];
+    CLLocationCoordinate2D coordinate = [location coordinate];
+    PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:coordinate.latitude
+                                                  longitude:coordinate.longitude];
+    
+    PFObject *myObject = [userProfileData getOwnObject];
+    
+    [myObject setObject:geoPoint forKey:@"location"];
+    
+    [myObject saveInBackground];
+    
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    NSLog(@"GOT LOCATION ERROR");
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        trackBtn.selected = TRUE;
+        [self startTracking];
+        
+        userProfileData = [ProfileData sharedInstance];
+        
+        PFObject *object = [userProfileData getOwnObject];
+        
+        if (object == nil) {
+            PFQuery *myObjectQuery = [PFQuery queryWithClassName:@"Profile"];
+            [myObjectQuery whereKey:@"username" equalTo:[userProfileData getUserName]];
+            PFObject *resultObject = [myObjectQuery getFirstObject];
+            [userProfileData setOwnObject:resultObject];
+            object = resultObject;
+        }
+        [object setObject:[NSNumber numberWithBool:goBtn.selected] forKey:@"attendNextGame"];
+        [object setObject:[NSNumber numberWithBool:trackBtn.selected] forKey:@"trackingAllowed"];
+        [object saveInBackground];
+
     }
 }
 
@@ -765,11 +940,32 @@
 
     if (thisButton.selected == TRUE) {
         thisButton.selected = FALSE;
+        [self stopTracking];
     } else {
-        if (goBtn.selected == TRUE)
-            thisButton.selected = TRUE;
+        if (goBtn.selected == TRUE) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Tracking" message:@"Your location will be recorded and made available to your friends only (tracking will turn off automatically about 24 hours after a game)!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+            [alert addButtonWithTitle:@"Yes"];
+            [alert show];
+            return;
+        }
     }
-
+    
+    userProfileData = [ProfileData sharedInstance];
+    
+    PFObject *object = [userProfileData getOwnObject];
+    
+    if (object == nil) {
+        PFQuery *myObjectQuery = [PFQuery queryWithClassName:@"Profile"];
+        [myObjectQuery whereKey:@"username" equalTo:[userProfileData getUserName]];
+        PFObject *resultObject = [myObjectQuery getFirstObject];
+        [userProfileData setOwnObject:resultObject];
+        object = resultObject;
+    }
+    
+    [object setObject:[NSNumber numberWithBool:goBtn.selected] forKey:@"attendNextGame"];
+    [object setObject:[NSNumber numberWithBool:thisButton.selected] forKey:@"trackingAllowed"];
+    [object saveInBackground];
+    
 }
 
 
