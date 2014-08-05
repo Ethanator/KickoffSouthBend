@@ -498,7 +498,7 @@
 				ORGANIZATIONNAME = "Christian Poellabauer";
 				TargetAttributes = {
 					77C1FF0216E6EB4D00B3015E = {
-						DevelopmentTeam = VVW6YR38J7;
+						DevelopmentTeam = PWD2EAGD4A;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 0;
