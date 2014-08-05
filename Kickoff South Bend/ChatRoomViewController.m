@@ -178,6 +178,24 @@
         NSLog(@"So far so good 2");
 
         tfEntry.text = @"";
+        
+        
+        // Send push notification to friends
+        
+        PFQuery *userQuery = [PFUser query];
+        [userQuery whereKey:@"username" containedIn:myFriends];
+        PFQuery *pushQuery = [PFInstallation query];
+        [pushQuery whereKey:@"user" matchesQuery:userQuery];
+        PFPush *push = [[PFPush alloc] init];
+        [push setQuery:pushQuery];
+        NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
+                              @"You've got a new message", @"alert",
+                              @"Increment", @"badge",
+                              nil];
+        [push setChannels:[NSArray arrayWithObjects:@"global", nil]];
+        [push expireAfterTimeInterval:3600];
+        [push setData:data];
+        [push sendPushInBackground];        
     }
     
     // reload the data

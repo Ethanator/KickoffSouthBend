@@ -302,6 +302,7 @@
     if (firstLaunch) {
         //region = MKCoordinateRegionMakeWithDistance(locationManager.location.coordinate,1000,1000);
         region = MKCoordinateRegionMakeWithDistance(zoomLocation, 2000, 2000);
+        firstLaunch = false;
     } else {
         region = MKCoordinateRegionMakeWithDistance(centre,currenDist,currenDist);
     }

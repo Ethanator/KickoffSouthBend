@@ -95,6 +95,12 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         [thisLocationManager stopMonitoringSignificantLocationChanges];
         [thisLocationManager startUpdatingLocation];
     }
+    
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    if (currentInstallation.badge != 0) {
+        currentInstallation.badge = 0;
+        [currentInstallation saveEventually];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

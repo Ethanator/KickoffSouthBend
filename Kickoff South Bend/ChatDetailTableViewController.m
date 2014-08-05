@@ -147,6 +147,17 @@
         [chatObject save];
         
         tfEntry.text = @"";
+        
+        // Send push notification to friends
+        
+        PFQuery *userQuery = [PFUser query];
+        [userQuery whereKey:@"username" containedIn:myFriends];
+        PFQuery *pushQuery = [PFInstallation query];
+        [pushQuery whereKey:@"user" matchesQuery:userQuery];
+        PFPush *push = [[PFPush alloc] init];
+        [push setQuery:pushQuery];
+        [push setMessage:@"New message!"];
+        [push sendPushInBackground];
     }
     
     // reload the data
