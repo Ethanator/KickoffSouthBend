@@ -63,7 +63,7 @@
     [locationManager setDistanceFilter:kCLDistanceFilterNone];
     [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
     
-    firstLaunch=YES;
+    firstLaunch = YES;
     
     activityView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     activityView.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
@@ -82,6 +82,9 @@
 }
 
 -(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    
+    NSLog(@"REGION DID CHANGE");
+    
     //Get the east and west points on the map so you can calculate the distance (zoom level) of the current map view.
     MKMapRect mRect = self.mapView.visibleMapRect;
     MKMapPoint eastMapPoint = MKMapPointMake(MKMapRectGetMinX(mRect), MKMapRectGetMidY(mRect));
@@ -163,7 +166,7 @@
 }
 
 - (IBAction)stadiumButtonPressed:(id)sender {
-    self.title = @"Stadium";
+    self.title = @"Sports Facilities";
     [activityView startAnimating];
     spinWheel = TRUE;
     [self queryGooglePlaces:@"stadium"];
@@ -171,7 +174,7 @@
 }
 
 - (IBAction)medicalButtonPressed:(id)sender {
-    self.title = @"Medical";
+    self.title = @"Medical Facilities";
     [activityView startAnimating];
     spinWheel = TRUE;
     [self queryGooglePlaces:@"health"];

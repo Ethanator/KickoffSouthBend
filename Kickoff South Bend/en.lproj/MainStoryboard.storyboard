@@ -36,7 +36,7 @@
             </objects>
             <point key="canvasLocation" x="554" y="39"/>
         </scene>
-        <!--Parking View Controller-->
+        <!--Parking View Controller - Parking/Transp.-->
         <scene sceneID="Cej-0h-UoS">
             <objects>
                 <tableViewController id="ntE-Tu-Akr" customClass="ParkingViewController" sceneMemberID="viewController">
@@ -44,9 +44,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <segmentedControl key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" id="15f-XR-bsF">
+                            <rect key="frame" x="0.0" y="64" width="320" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Parking"/>
+                                <segment title="Bus Service"/>
+                                <segment title="Taxis"/>
+                            </segments>
+                            <color key="tintColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </segmentedControl>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ParkingCell" id="S4c-6B-IEs">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="115" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S4c-6B-IEs" id="bse-Cb-etA">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -59,7 +69,7 @@
                             <outlet property="delegate" destination="ntE-Tu-Akr" id="dKZ-Hc-0WP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="44p-9t-IZy"/>
+                    <navigationItem key="navigationItem" title="Parking/Transp." id="44p-9t-IZy"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LcY-Up-nGL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -153,7 +163,7 @@
             </objects>
             <point key="canvasLocation" x="484" y="1408"/>
         </scene>
-        <!--Dining View Controller-->
+        <!--Dining View Controller - Around Town-->
         <scene sceneID="SKa-W8-cTN">
             <objects>
                 <tableViewController id="Wvl-En-IgE" customClass="DiningViewController" sceneMemberID="viewController">
@@ -161,9 +171,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <segmentedControl key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="H0y-1n-A6e">
+                            <rect key="frame" x="0.0" y="64" width="320" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="" image="125-food.png"/>
+                                <segment title="" image="35-shopping.png"/>
+                                <segment title="" image="53-house.png"/>
+                            </segments>
+                        </segmentedControl>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DiningCell" id="46S-4F-i3l">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="115" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="46S-4F-i3l" id="ijn-QE-IND">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -176,7 +195,7 @@
                             <outlet property="delegate" destination="Wvl-En-IgE" id="Fml-XH-9ow"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="f5a-B0-YGc"/>
+                    <navigationItem key="navigationItem" title="Around Town" id="f5a-B0-YGc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NWG-M2-0Wb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -507,11 +526,11 @@
                             </collectionView>
                             <view contentMode="scaleToFill" id="5Ed-Q0-Af9">
                                 <rect key="frame" x="0.0" y="478" width="320" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="93J-VH-qEY">
-                                        <rect key="frame" x="0.0" y="1" width="314" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                         <state key="normal" title="My Photos">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -522,8 +541,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iYZ-ZF-8nZ">
-                                        <rect key="frame" x="0.0" y="31" width="320" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="0.0" y="30" width="320" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                         <state key="normal" title="Friends' Photos">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -534,8 +553,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JZs-fo-u4o">
-                                        <rect key="frame" x="0.0" y="61" width="320" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="0.0" y="60" width="320" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                         <state key="normal" title="All Photos">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -642,6 +661,7 @@
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" id="NvP-Jg-wJC">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem image="125-food.png" id="owo-kw-ycq">
                                         <connections>
@@ -694,6 +714,7 @@
                             </toolbar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="T7M-tf-nM3">
                                 <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -861,6 +882,7 @@
         <image name="111-user.png" width="24" height="21"/>
         <image name="112-group.png" width="32" height="21"/>
         <image name="125-food.png" width="29" height="23"/>
+        <image name="35-shopping.png" width="24" height="22"/>
         <image name="53-house.png" width="22" height="22"/>
         <image name="79-medical-bag.png" width="24" height="20"/>
         <image name="80-shopping-cart.png" width="26" height="19"/>

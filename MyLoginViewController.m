@@ -27,7 +27,7 @@
     [self.logInView.signUpButton setFrame:CGRectMake(35, 385, 250, 40)];
     [self.fieldsBackground setFrame:CGRectMake(80, 145, 160, 160)];
      */
-    [self.logInView.logo setFrame:CGRectMake(80, 70, 160, 160)];
+    [self.logInView.logo setFrame:CGRectMake(self.view.frame.size.width/2-60, 45, 120, 120)];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
