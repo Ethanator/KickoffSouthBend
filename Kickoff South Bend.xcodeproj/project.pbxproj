@@ -48,6 +48,9 @@
 		777CE4A418E7252B0059A33C /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 777CE4A318E7252B0059A33C /* PhotoCell.m */; };
 		77A756A1199A909C00FBF8C5 /* ParkMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A756A0199A909C00FBF8C5 /* ParkMapViewController.m */; };
 		77A756A4199A936A00FBF8C5 /* TranspoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A756A3199A936A00FBF8C5 /* TranspoViewController.m */; };
+		77A756A6199AA8DB00FBF8C5 /* App Icon 58.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A756A5199AA8DB00FBF8C5 /* App Icon 58.png */; };
+		77A756A8199AA8E300FBF8C5 /* App Icon 80.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A756A7199AA8E300FBF8C5 /* App Icon 80.png */; };
+		77A756AA199AA8E900FBF8C5 /* App Icon 120.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A756A9199AA8E900FBF8C5 /* App Icon 120.png */; };
 		77AF0111193F46DA005CCDD1 /* yesstate.png in Resources */ = {isa = PBXBuildFile; fileRef = 77AF0110193F46DA005CCDD1 /* yesstate.png */; };
 		77AF0113193F46E5005CCDD1 /* nostate.png in Resources */ = {isa = PBXBuildFile; fileRef = 77AF0112193F46E5005CCDD1 /* nostate.png */; };
 		77B54317175BD44D0045C892 /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B54316175BD44D0045C892 /* MapPoint.m */; };
@@ -170,6 +173,9 @@
 		77A756A0199A909C00FBF8C5 /* ParkMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParkMapViewController.m; sourceTree = "<group>"; };
 		77A756A2199A936A00FBF8C5 /* TranspoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranspoViewController.h; sourceTree = "<group>"; };
 		77A756A3199A936A00FBF8C5 /* TranspoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranspoViewController.m; sourceTree = "<group>"; };
+		77A756A5199AA8DB00FBF8C5 /* App Icon 58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App Icon 58.png"; sourceTree = "<group>"; };
+		77A756A7199AA8E300FBF8C5 /* App Icon 80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App Icon 80.png"; sourceTree = "<group>"; };
+		77A756A9199AA8E900FBF8C5 /* App Icon 120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App Icon 120.png"; sourceTree = "<group>"; };
 		77AF0110193F46DA005CCDD1 /* yesstate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yesstate.png; sourceTree = "<group>"; };
 		77AF0112193F46E5005CCDD1 /* nostate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nostate.png; sourceTree = "<group>"; };
 		77B54315175BD44D0045C892 /* MapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapPoint.h; path = ../MapPoint.h; sourceTree = "<group>"; };
@@ -432,6 +438,9 @@
 		77F7737316E6FB5F00C338BA /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				77A756A5199AA8DB00FBF8C5 /* App Icon 58.png */,
+				77A756A7199AA8E300FBF8C5 /* App Icon 80.png */,
+				77A756A9199AA8E900FBF8C5 /* App Icon 120.png */,
 				77D27BE319828548008AEFA5 /* 117-todo.png */,
 				77D27BE11982853F008AEFA5 /* 83-calendar.png */,
 				77D27BC71982843F008AEFA5 /* 35-shopping.png */,
@@ -547,6 +556,7 @@
 				77D27BE21982853F008AEFA5 /* 83-calendar.png in Resources */,
 				77F7737516E6FB9900C338BA /* AppIcon.png in Resources */,
 				77D27BDE1982843F008AEFA5 /* 111-user.png in Resources */,
+				77A756A8199AA8E300FBF8C5 /* App Icon 80.png in Resources */,
 				77D27BD91982843F008AEFA5 /* 73-radar.png in Resources */,
 				77F7737D16E6FBB100C338BA /* DiningIcon.png in Resources */,
 				7708170818EE497D00084BC4 /* background.png in Resources */,
@@ -557,10 +567,12 @@
 				77D27BDB1982843F008AEFA5 /* 79-medical-bag.png in Resources */,
 				77F7737F16E6FBB100C338BA /* LodgingIcon.png in Resources */,
 				77F7738016E6FBB100C338BA /* MapIcon.png in Resources */,
+				77A756A6199AA8DB00FBF8C5 /* App Icon 58.png in Resources */,
 				77F7738116E6FBB100C338BA /* MessagesIcon.png in Resources */,
 				77D27BD61982843F008AEFA5 /* 48-fork-and-knife.png in Resources */,
 				77D27BD41982843F008AEFA5 /* 35-shopping.png in Resources */,
 				77F7738216E6FBB100C338BA /* OffCampusIcon.png in Resources */,
+				77A756AA199AA8E900FBF8C5 /* App Icon 120.png in Resources */,
 				77F7738316E6FBB100C338BA /* OnCampusIcon.png in Resources */,
 				77D27BDF1982843F008AEFA5 /* 112-group.png in Resources */,
 				77F7738916E6FBB900C338BA /* ParkingIcon.png in Resources */,
@@ -719,6 +731,11 @@
 				FRAMEWORK_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kickoff South Bend/Kickoff South Bend-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"<Multiple",
+					"values>",
+					"\"$(SDK_DIR)\"/usr/include/libxml2",
+				);
 				"HEADER_SEARCH_PATHS[arch=*]" = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "Kickoff South Bend/Kickoff South Bend-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -736,6 +753,11 @@
 				FRAMEWORK_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Kickoff South Bend/Kickoff South Bend-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"<Multiple",
+					"values>",
+					"\"$(SDK_DIR)\"/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = "Kickoff South Bend/Kickoff South Bend-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>Kickoff SB</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIcons</key>
@@ -14,6 +14,9 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
+				<string>App Icon 58</string>
+				<string>App Icon 80</string>
+				<string>App Icon 120</string>
 				<string>App Icon FINAL3.png</string>
 				<string>App Icon FINAL2.png</string>
 			</array>
