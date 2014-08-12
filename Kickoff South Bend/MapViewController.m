@@ -189,6 +189,12 @@
 }
 
 - (void)showMe {
+    for (id<MKAnnotation> annotation in _mapView.annotations) {
+        if ([annotation isKindOfClass:[MapPoint class]]) {
+            [_mapView removeAnnotation:annotation];
+        }
+    }
+
     self.mapView.centerCoordinate = self.mapView.userLocation.location.coordinate;
     [activityView stopAnimating];
     spinWheel = FALSE;
@@ -202,6 +208,61 @@
 
     NSArray *myFriendsNames = [userProfileData getFriendList];
     
+    if ([myFriendsNames count] == 0) {
+        
+        PFQuery *friendQuery1 = [PFQuery queryWithClassName:@"Friends"];
+        [friendQuery1 whereKey:@"invitee" equalTo:[userProfileData getUserName]];
+        PFQuery *friendQuery2 = [PFQuery queryWithClassName:@"Friends"];
+        [friendQuery2 whereKey:@"inviter" equalTo:[userProfileData getUserName]];
+        NSArray *friendList1 = [friendQuery1 findObjects];
+        NSArray *friendList2 = [friendQuery2 findObjects];
+        
+        NSMutableArray *tempFriendsConfirmed = [[NSMutableArray alloc] init];
+        
+        for (int j = 0; j < [friendList1 count]; j++) {
+            NSNumber *isFriend = [[friendList1 objectAtIndex:j] objectForKey:@"confirmed"];
+            BOOL isFriendBool = [isFriend boolValue];
+            if (isFriendBool)
+                [tempFriendsConfirmed addObject:[[friendList1 objectAtIndex:j] objectForKey:@"inviter"]];
+        }
+        for (int k = 0; k < [friendList2 count]; k++) {
+            NSNumber *isFriend = [[friendList2 objectAtIndex:k] objectForKey:@"confirmed"];
+            BOOL isFriendBool = [isFriend boolValue];
+            if (isFriendBool)
+                [tempFriendsConfirmed addObject:[[friendList2 objectAtIndex:k] objectForKey:@"invitee"]];
+        }
+        
+        NSMutableArray *tempFriendsConfirmed2 = [[NSMutableArray alloc] init];
+        
+        for (int j = 0; j < [tempFriendsConfirmed count]; j++) {
+            if ([tempFriendsConfirmed2 containsObject:[tempFriendsConfirmed objectAtIndex:j]]) {
+                PFQuery *tempQuery = [PFQuery queryWithClassName:@"Friends"];
+                [tempQuery whereKey:@"inviter" equalTo:[tempFriendsConfirmed objectAtIndex:j]];
+                [tempQuery whereKey:@"invitee" equalTo:[userProfileData getUserName]];
+                PFObject *tempObject = [tempQuery getFirstObject];
+                if (tempObject == nil) {
+                    PFQuery *tempQuery2 = [PFQuery queryWithClassName:@"Friends"];
+                    [tempQuery2 whereKey:@"invitee" equalTo:[tempFriendsConfirmed objectAtIndex:j]];
+                    [tempQuery2 whereKey:@"inviter" equalTo:[userProfileData getUserName]];
+                    PFObject *tempObject2 = [tempQuery2 getFirstObject];
+                    if (tempObject2 != nil) {
+                        [tempObject2 delete];
+                    }
+                } else {
+                    [tempObject delete];
+                }
+            } else {
+                [tempFriendsConfirmed2 addObject:[tempFriendsConfirmed objectAtIndex:j]];
+            }
+        }
+        
+        [userProfileData setFriendList:(NSArray *)tempFriendsConfirmed2];
+    }
+    
+    myFriendsNames = [userProfileData getFriendList];
+    
+    NSLog(@"Have %ld FRIENDS", [myFriendsNames count]);
+
     PFQuery *fquery1 = [PFQuery queryWithClassName:@"Profile"];
     [fquery1 whereKey:@"username" containedIn:myFriendsNames];
     [fquery1 whereKey:@"attendNextGame" equalTo:[NSNumber numberWithBool:TRUE]];
@@ -210,6 +271,8 @@
     fquery1.limit = 1000;
     NSArray *myFriends = [fquery1 findObjects];
     int numFriends = (int)[myFriends count];
+    
+    NSLog(@"FOUND %d TRACKABLE FRIENDS", numFriends);
     
     for (id<MKAnnotation> annotation in _mapView.annotations) {
         if ([annotation isKindOfClass:[MapPoint class]]) {
@@ -222,11 +285,24 @@
         PFGeoPoint *geoPoint = [friendObject objectForKey:@"location"];
         if (geoPoint != nil) {
             
+            NSLog(@"GOT LOCATION FOR FRIEND %d (%@)", i, [friendObject objectForKey:@"username"]);
+            
             CLLocationCoordinate2D  ctrpoint;
             ctrpoint.latitude = geoPoint.latitude;
             ctrpoint.longitude = geoPoint.longitude;
             
-            MapPoint *placeObject = [[MapPoint alloc] initWithName:[friendObject objectForKey:@"username"] address:@"" coordinate:ctrpoint];
+            NSString *firstname = [friendObject objectForKey:@"firstname"];
+            NSString *lastname = [friendObject objectForKey:@"lastname"];
+            NSString *username = [friendObject objectForKey:@"username"];
+            NSString *fullName;
+            if (([firstname length] > 0) && ([lastname length] > 0))
+                fullName = [NSString stringWithFormat:@"%@ %@", firstname, lastname];
+            else if ([lastname length] > 0)
+                fullName = [NSString stringWithFormat:@"%@", lastname];
+            else
+                fullName = [NSString stringWithFormat:@"%@", username];
+            
+            MapPoint *placeObject = [[MapPoint alloc] initWithName:fullName address:@"" coordinate:ctrpoint];
             
             [_mapView addAnnotation:placeObject];
             
@@ -240,6 +316,48 @@
 }
 
 - (void)showEvents {
+    for (id<MKAnnotation> annotation in _mapView.annotations) {
+        if ([annotation isKindOfClass:[MapPoint class]]) {
+            [_mapView removeAnnotation:annotation];
+        }
+    }
+
+    NSDate *nowDate = [NSDate date];
+    PFQuery *eQuery = [PFQuery queryWithClassName:@"Event"];
+    [eQuery whereKey:@"EndTime" greaterThan:nowDate];
+    eQuery.limit = 1000;
+    NSArray *allEvents = [eQuery findObjects];
+    int numEvents = (int)[allEvents count];
+
+    for (int i = 0; i < numEvents; i++) {
+        PFObject *eventObject = [allEvents objectAtIndex:i];
+        PFGeoPoint *geoPoint = [eventObject objectForKey:@"Location"];
+        if (geoPoint != nil) {
+            
+            CLLocationCoordinate2D  ctrpoint;
+            ctrpoint.latitude = geoPoint.latitude;
+            ctrpoint.longitude = geoPoint.longitude;
+            
+            NSString *title = [eventObject objectForKey:@"Title"];
+            NSString *location = [eventObject objectForKey:@"LocationName"];
+            NSDate *startDate = [eventObject objectForKey:@"StartTime"];
+            
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            [dateFormat setDateFormat:@"EEE HH:mma"];
+            NSString *dateString = [dateFormat stringFromDate:startDate];
+            
+            NSString *subTitle = [NSString stringWithFormat:@"%@ (%@)", location, dateString];
+            
+            MapPoint *placeObject = [[MapPoint alloc] initWithName:title address:subTitle coordinate:ctrpoint];
+            
+            [_mapView addAnnotation:placeObject];
+            
+            //AddressAnnotation *addAnnotation = [[AddressAnnotation alloc] initWithCoordinate:ctrpoint];
+            //[mapview addAnnotation:addAnnotation];
+        }
+    }
+
+    
 }
 
 -(void)plotPositions:(NSArray *)data {

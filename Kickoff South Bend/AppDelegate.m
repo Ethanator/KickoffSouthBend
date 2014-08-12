@@ -35,9 +35,9 @@
     
     // Register for push notifications
     [application registerForRemoteNotificationTypes:
-     UIRemoteNotificationTypeBadge |
-     UIRemoteNotificationTypeAlert |
-     UIRemoteNotificationTypeSound];
+     UIRemoteNotificationTypeBadge]; // |
+//     UIRemoteNotificationTypeAlert |
+//     UIRemoteNotificationTypeSound];
     
     return YES;
 }

@@ -1011,7 +1011,7 @@
         }
         [object setObject:[NSNumber numberWithBool:goBtn.selected] forKey:@"attendNextGame"];
         [object setObject:[NSNumber numberWithBool:trackBtn.selected] forKey:@"trackingAllowed"];
-        [object saveInBackground];
+        [object save];
 
     }
 }

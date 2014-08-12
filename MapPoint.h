@@ -14,14 +14,12 @@
     
     NSString *_name;
     NSString *_address;
-    //NSString *_phone;
     CLLocationCoordinate2D _coordinate;
     
 }
 
 @property (copy) NSString *name;
 @property (copy) NSString *address;
-//@property (copy) NSString *phone;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 
 
