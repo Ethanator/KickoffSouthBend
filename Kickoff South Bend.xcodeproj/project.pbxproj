@@ -46,6 +46,8 @@
 		7775E68E16EA497200080247 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7775E68B16E93F6800080247 /* Default-568h@2x.png */; };
 		7775E69016EA6D1000080247 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7775E68F16EA6D1000080247 /* MapKit.framework */; };
 		777CE4A418E7252B0059A33C /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 777CE4A318E7252B0059A33C /* PhotoCell.m */; };
+		77A756A1199A909C00FBF8C5 /* ParkMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A756A0199A909C00FBF8C5 /* ParkMapViewController.m */; };
+		77A756A4199A936A00FBF8C5 /* TranspoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A756A3199A936A00FBF8C5 /* TranspoViewController.m */; };
 		77AF0111193F46DA005CCDD1 /* yesstate.png in Resources */ = {isa = PBXBuildFile; fileRef = 77AF0110193F46DA005CCDD1 /* yesstate.png */; };
 		77AF0113193F46E5005CCDD1 /* nostate.png in Resources */ = {isa = PBXBuildFile; fileRef = 77AF0112193F46E5005CCDD1 /* nostate.png */; };
 		77B54317175BD44D0045C892 /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B54316175BD44D0045C892 /* MapPoint.m */; };
@@ -164,6 +166,10 @@
 		7775E68F16EA6D1000080247 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		777CE4A218E7252B0059A33C /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoCell.h; path = ../PhotoCell.h; sourceTree = "<group>"; };
 		777CE4A318E7252B0059A33C /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoCell.m; path = ../PhotoCell.m; sourceTree = "<group>"; };
+		77A7569F199A909C00FBF8C5 /* ParkMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParkMapViewController.h; sourceTree = "<group>"; };
+		77A756A0199A909C00FBF8C5 /* ParkMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParkMapViewController.m; sourceTree = "<group>"; };
+		77A756A2199A936A00FBF8C5 /* TranspoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranspoViewController.h; sourceTree = "<group>"; };
+		77A756A3199A936A00FBF8C5 /* TranspoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranspoViewController.m; sourceTree = "<group>"; };
 		77AF0110193F46DA005CCDD1 /* yesstate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yesstate.png; sourceTree = "<group>"; };
 		77AF0112193F46E5005CCDD1 /* nostate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nostate.png; sourceTree = "<group>"; };
 		77B54315175BD44D0045C892 /* MapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapPoint.h; path = ../MapPoint.h; sourceTree = "<group>"; };
@@ -376,6 +382,10 @@
 				7775E66C16E92B7500080247 /* DiningViewController.m */,
 				7775E67116E92D7300080247 /* ParkingViewController.h */,
 				7775E67216E92D7300080247 /* ParkingViewController.m */,
+				77A7569F199A909C00FBF8C5 /* ParkMapViewController.h */,
+				77A756A0199A909C00FBF8C5 /* ParkMapViewController.m */,
+				77A756A2199A936A00FBF8C5 /* TranspoViewController.h */,
+				77A756A3199A936A00FBF8C5 /* TranspoViewController.m */,
 				77B54318176228740045C892 /* FriendsViewController.h */,
 				77B54319176228740045C892 /* FriendsViewController.m */,
 				77B5431E176230B50045C892 /* FindFriendViewController.h */,
@@ -595,6 +605,7 @@
 				77F773AE16E78FAD00C338BA /* MyLoginViewController.m in Sources */,
 				77F773B116E78FC100C338BA /* MySignUpViewController.m in Sources */,
 				0FFB82C118EA2D720083876C /* NewsViewController.m in Sources */,
+				77A756A4199A936A00FBF8C5 /* TranspoViewController.m in Sources */,
 				77F773BA16E82A9B00C338BA /* MyScheduleViewController.m in Sources */,
 				7775E66D16E92B7500080247 /* DiningViewController.m in Sources */,
 				7775E67316E92D7300080247 /* ParkingViewController.m in Sources */,
@@ -607,6 +618,7 @@
 				0F24F3C018F416D20077CB45 /* News.m in Sources */,
 				7708170418ED952300084BC4 /* ChatRoomViewController.m in Sources */,
 				77B54317175BD44D0045C892 /* MapPoint.m in Sources */,
+				77A756A1199A909C00FBF8C5 /* ParkMapViewController.m in Sources */,
 				0F24F3BD18F413F20077CB45 /* XPathQuery.m in Sources */,
 				77B5431A176228740045C892 /* FriendsViewController.m in Sources */,
 				77B5431D176229490045C892 /* ProfileData.m in Sources */,

@@ -44,22 +44,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <segmentedControl key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" id="15f-XR-bsF">
-                            <rect key="frame" x="0.0" y="64" width="320" height="29"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Parking"/>
-                                <segment title="Bus Service"/>
-                                <segment title="Taxis"/>
-                            </segments>
-                            <color key="tintColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </segmentedControl>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ParkingCell" id="S4c-6B-IEs">
-                                <rect key="frame" x="0.0" y="115" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ParkingCell" id="S4c-6B-IEs">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S4c-6B-IEs" id="bse-Cb-etA">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -70,6 +60,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Parking/Transp." id="44p-9t-IZy"/>
+                    <connections>
+                        <segue destination="7rY-7n-zxL" kind="push" identifier="ParkingMapSegue" id="XzS-hs-RKS"/>
+                        <segue destination="SWg-oq-C3h" kind="push" identifier="TranspoSegue" id="vBa-Iw-1Bf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LcY-Up-nGL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -89,6 +83,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YFO-cK-MUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="127" y="2096"/>
+        </scene>
+        <!--Park Map View Controller - Gameday Parking-->
+        <scene sceneID="Xwl-xx-pR3">
+            <objects>
+                <viewController id="7rY-7n-zxL" customClass="ParkMapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m7x-tp-Pz7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" id="Hgr-T0-vec">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Gameday Parking" id="sqw-OV-ubU"/>
+                    <connections>
+                        <outlet property="parkingView" destination="Hgr-T0-vec" id="5a4-XK-WJy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yHa-Qt-G69" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="505" y="2098"/>
+        </scene>
+        <!--Transpo View Controller - Transpo Routes & Fares-->
+        <scene sceneID="hK9-Pg-KwY">
+            <objects>
+                <viewController id="SWg-oq-C3h" customClass="TranspoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K9k-Xd-5bs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" id="yjk-uJ-bQK">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Transpo Routes &amp; Fares" id="waD-mY-NDF"/>
+                    <connections>
+                        <outlet property="parkingView" destination="yjk-uJ-bQK" id="teB-Xp-ToM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0lr-dq-anL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="855" y="2101"/>
         </scene>
         <!--News Content View Controller-->
         <scene sceneID="fNf-CR-drx">

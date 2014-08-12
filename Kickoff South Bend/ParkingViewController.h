@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ParkingViewController : UITableViewController
+@interface ParkingViewController : UITableViewController {
+    
+    NSInteger clickedIndex;
+
+}
 
 @end

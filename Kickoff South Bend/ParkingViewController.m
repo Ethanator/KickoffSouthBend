@@ -49,7 +49,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -57,8 +57,15 @@
     static NSString *CellIdentifier = @"ParkingCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
-    cell.textLabel.text = @"Parking";
+    if (indexPath.row == 0) {
+        cell.textLabel.text = @"Gameday Parking Map";
+    } else if (indexPath.row == 1) {
+        cell.textLabel.text = @"Transpo Routes & Fares";
+    } else if (indexPath.row == 2) {
+        cell.textLabel.text = @"Taxi Services";
+    } else {
+        cell.textLabel.text = @"Taxi Services";
+    }
 
     return cell;
 }
@@ -113,6 +120,14 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    clickedIndex = indexPath.row;
+    if (indexPath.row == 0)
+        [self performSegueWithIdentifier: @"ParkingMapSegue" sender: self];
+    if (indexPath.row == 1)
+        [self performSegueWithIdentifier: @"TranspoSegue" sender: self];
+
+    
 }
 
 @end
