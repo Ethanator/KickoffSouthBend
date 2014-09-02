@@ -39,6 +39,11 @@
     return self;
 }
 
+- (void)handleTapGesture:(UIGestureRecognizer*)recognizer {
+    NSURL *url = [NSURL URLWithString:@"http://kickoffsb.com/terms.html"];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -55,7 +60,23 @@
     self.logInView.passwordField.backgroundColor = [UIColor colorWithRed:243.0f/255.0f green:243.0f/255.0f blue:243.0f/255.0f alpha:1.0];
     self.logInView.usernameField.textColor = [UIColor blackColor];
     self.logInView.passwordField.textColor = [UIColor blackColor];
+
+    UILabel *termsAndCondition = [[UILabel alloc] initWithFrame:CGRectMake(100.0, 30.0, self.logInView.frame.size.width-100.0, 13.0)];
+    termsAndCondition.textAlignment = NSTextAlignmentRight;
+
+//    UILabel *termsAndCondition = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, self.logInView.signUpButton.frame.origin.y + self.logInView.signUpButton.frame.size.height + 20.0, self.logInView.frame.size.width, 30.0f)];
+    termsAndCondition.text = @"Terms & Conditions";
+    termsAndCondition.font = [UIFont fontWithName:@"Arial" size:11.0];
+    termsAndCondition.textColor = [UIColor grayColor];
+    termsAndCondition.backgroundColor = [UIColor clearColor];
+    [termsAndCondition setHidden:NO];
+    termsAndCondition.numberOfLines = 1;
+    [self.logInView addSubview:termsAndCondition];
     
+    UIGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+    [termsAndCondition setUserInteractionEnabled:YES];
+    [termsAndCondition addGestureRecognizer:tapGesture];
+
     /*
     // Add login field background
     //fieldsBackground = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];

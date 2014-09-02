@@ -39,6 +39,7 @@
     UIButton *flagButton;
     UIActivityIndicatorView *activityView;
     BOOL spinWheel;
+    PFObject *currentPhoto;
     
 }
 

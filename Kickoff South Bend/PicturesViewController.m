@@ -296,6 +296,8 @@
     [nameLabel removeFromSuperview];
     [dateLabel removeFromSuperview];
     [downloadButton removeFromSuperview];
+    [flagButton removeFromSuperview];
+    
 }
 
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -304,6 +306,8 @@
     PFFile *myImageFile = [[photosFound objectAtIndex:indexPath.row] objectForKey:@"imageFileFull"];
     NSData *imageData = [myImageFile getData];
     UIImage *qImage = [UIImage imageWithData:imageData];
+    
+    currentPhoto = [photosFound objectAtIndex:indexPath.row];
     
     currentView = [[UIImageView alloc] initWithImage:qImage];
     
@@ -451,9 +455,13 @@
         
     } else if (alertView.tag == 1) {
         if (buttonIndex != [alertView cancelButtonIndex]) {
-            NSLog(@"not cancel button pressed");
+            //NSLog(@"not cancel button pressed");
+            
+            [currentPhoto setObject:[NSNumber numberWithBool:true] forKey:@"flagged"];
+            [currentPhoto save];
+            
         } else {
-            NSLog(@"cancel button pressed");
+            //NSLog(@"cancel button pressed");
         }
     }
 }
@@ -463,7 +471,7 @@
     UIAlertView* alert2;
     alert2 = [[UIAlertView alloc] initWithTitle:@"Inappropriate Content"
                                 message:@"Do you want to flag this image for inappropriate content? Please note that if found inappropriate, the account for the user posting this image may be closed."
-                               delegate:nil
+                               delegate:self
                       cancelButtonTitle:@"Cancel"
                       otherButtonTitles:@"OK",nil];
     alert2.tag = 1;
@@ -477,7 +485,7 @@
     UIAlertView* alert1;
     alert1 = [[UIAlertView alloc] initWithTitle:@"Image Saved"
                                 message:@"The image has been saved to your photo roll."
-                               delegate:nil
+                               delegate:self
                       cancelButtonTitle:@"OK"
                       otherButtonTitles:nil];
     alert1.tag = 0;
