@@ -31,6 +31,11 @@
 		7708170A18EE579600084BC4 /* squared_metal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7708170918EE579600084BC4 /* squared_metal.png */; };
 		7708170D18EF024500084BC4 /* ChatDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7708170C18EF024500084BC4 /* ChatDetailTableViewController.m */; };
 		771D3D51177BE02A00026892 /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D3D50177BE02A00026892 /* MyProfileViewController.m */; };
+		772F380919A545890071F1EA /* 59-flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 772F380819A545890071F1EA /* 59-flag.png */; };
+		772F380B19A5458E0071F1EA /* 184-warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 772F380A19A5458E0071F1EA /* 184-warning.png */; };
+		772F380D19A547310071F1EA /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 772F380C19A547310071F1EA /* flag.png */; };
+		772F380F19A657DE0071F1EA /* 184-warning2.png in Resources */ = {isa = PBXBuildFile; fileRef = 772F380E19A657DE0071F1EA /* 184-warning2.png */; };
+		772F381119A65A8A0071F1EA /* whiteflag.png in Resources */ = {isa = PBXBuildFile; fileRef = 772F381019A65A8A0071F1EA /* whiteflag.png */; };
 		7747C38417664630004089CA /* profile_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 7747C38317664630004089CA /* profile_placeholder.png */; };
 		7751DFFC1896047A00F43614 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7751DFFB1896047A00F43614 /* libz.dylib */; };
 		777082C7198FAF03005B8B04 /* SeeFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777082C6198FAF03005B8B04 /* SeeFriendViewController.m */; };
@@ -148,6 +153,11 @@
 		7708170C18EF024500084BC4 /* ChatDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatDetailTableViewController.m; sourceTree = "<group>"; };
 		771D3D4F177BE02A00026892 /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyProfileViewController.h; path = ../MyProfileViewController.h; sourceTree = "<group>"; };
 		771D3D50177BE02A00026892 /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyProfileViewController.m; path = ../MyProfileViewController.m; sourceTree = "<group>"; };
+		772F380819A545890071F1EA /* 59-flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "59-flag.png"; sourceTree = "<group>"; };
+		772F380A19A5458E0071F1EA /* 184-warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "184-warning.png"; sourceTree = "<group>"; };
+		772F380C19A547310071F1EA /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag.png; sourceTree = "<group>"; };
+		772F380E19A657DE0071F1EA /* 184-warning2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "184-warning2.png"; sourceTree = "<group>"; };
+		772F381019A65A8A0071F1EA /* whiteflag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteflag.png; sourceTree = "<group>"; };
 		7747C38317664630004089CA /* profile_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_placeholder.png; sourceTree = "<group>"; };
 		7751DFFB1896047A00F43614 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		777082C5198FAF03005B8B04 /* SeeFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeeFriendViewController.h; sourceTree = "<group>"; };
@@ -438,9 +448,14 @@
 		77F7737316E6FB5F00C338BA /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				772F381019A65A8A0071F1EA /* whiteflag.png */,
 				77A756A5199AA8DB00FBF8C5 /* App Icon 58.png */,
+				772F380C19A547310071F1EA /* flag.png */,
 				77A756A7199AA8E300FBF8C5 /* App Icon 80.png */,
+				772F380A19A5458E0071F1EA /* 184-warning.png */,
+				772F380E19A657DE0071F1EA /* 184-warning2.png */,
 				77A756A9199AA8E900FBF8C5 /* App Icon 120.png */,
+				772F380819A545890071F1EA /* 59-flag.png */,
 				77D27BE319828548008AEFA5 /* 117-todo.png */,
 				77D27BE11982853F008AEFA5 /* 83-calendar.png */,
 				77D27BC71982843F008AEFA5 /* 35-shopping.png */,
@@ -563,6 +578,7 @@
 				77F7737E16E6FBB100C338BA /* FriendsIcon.png in Resources */,
 				77D27BDD1982843F008AEFA5 /* 101-gameplan.png in Resources */,
 				77D27BE01982843F008AEFA5 /* 125-food.png in Resources */,
+				772F380F19A657DE0071F1EA /* 184-warning2.png in Resources */,
 				7708170A18EE579600084BC4 /* squared_metal.png in Resources */,
 				77D27BDB1982843F008AEFA5 /* 79-medical-bag.png in Resources */,
 				77F7737F16E6FBB100C338BA /* LodgingIcon.png in Resources */,
@@ -577,16 +593,20 @@
 				77D27BDF1982843F008AEFA5 /* 112-group.png in Resources */,
 				77F7738916E6FBB900C338BA /* ParkingIcon.png in Resources */,
 				77D27BDA1982843F008AEFA5 /* 74-location.png in Resources */,
+				772F380B19A5458E0071F1EA /* 184-warning.png in Resources */,
 				77D27BD81982843F008AEFA5 /* 72-pin.png in Resources */,
 				77D27BE419828548008AEFA5 /* 117-todo.png in Resources */,
 				77F7738A16E6FBB900C338BA /* PictureIcon.png in Resources */,
 				77D27BDC1982843F008AEFA5 /* 80-shopping-cart.png in Resources */,
+				772F381119A65A8A0071F1EA /* whiteflag.png in Resources */,
 				77F7738B16E6FBB900C338BA /* ScheduleIcon.png in Resources */,
 				77F7738C16E6FBB900C338BA /* ShoppingIcon.png in Resources */,
+				772F380919A545890071F1EA /* 59-flag.png in Resources */,
 				77F7738D16E6FBB900C338BA /* TransportationIcon.png in Resources */,
 				77F7738F16E78BE800C338BA /* AppBackground.png in Resources */,
 				7775E67B16E9336A00080247 /* App Icon FINAL3.png in Resources */,
 				770816F118E7B64500084BC4 /* BlackBG.png in Resources */,
+				772F380D19A547310071F1EA /* flag.png in Resources */,
 				7775E67D16E93CB200080247 /* App Icon FINAL2.png in Resources */,
 				77D27BD51982843F008AEFA5 /* 47-fuel.png in Resources */,
 				77D27BD71982843F008AEFA5 /* 53-house.png in Resources */,

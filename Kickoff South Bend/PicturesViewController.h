@@ -34,7 +34,9 @@
     UILabel *dateLabel;
     int shareMode;
     UIImage *photoToSave;
+    UIImage *photoToFlag;
     UIButton *downloadButton;
+    UIButton *flagButton;
     UIActivityIndicatorView *activityView;
     BOOL spinWheel;
     

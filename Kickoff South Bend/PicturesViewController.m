@@ -433,19 +433,55 @@
         [downloadButton addTarget:self action:@selector(savePhoto:) forControlEvents:UIControlEventTouchUpInside];
         photoToSave = qImage;
         [keyWindow addSubview:downloadButton];
+
+        flagButton = [[UIButton alloc] init];
+        [flagButton setBackgroundImage:[UIImage imageNamed:@"whiteflag.png"] forState:UIControlStateNormal];
+        flagButton.frame = CGRectMake(240.0, 20.0, 30, 30.0);
+        [flagButton addTarget:self action:@selector(flagPhoto:) forControlEvents:UIControlEventTouchUpInside];
+        photoToFlag = qImage;
+        [keyWindow addSubview:flagButton];
     }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    NSLog(@"TAG=%ld", alertView.tag);
+
+    if (alertView.tag == 0) {
+        
+    } else if (alertView.tag == 1) {
+        if (buttonIndex != [alertView cancelButtonIndex]) {
+            NSLog(@"not cancel button pressed");
+        } else {
+            NSLog(@"cancel button pressed");
+        }
+    }
+}
+
+- (void) flagPhoto:(id)sender
+{
+    UIAlertView* alert2;
+    alert2 = [[UIAlertView alloc] initWithTitle:@"Inappropriate Content"
+                                message:@"Do you want to flag this image for inappropriate content? Please note that if found inappropriate, the account for the user posting this image may be closed."
+                               delegate:nil
+                      cancelButtonTitle:@"Cancel"
+                      otherButtonTitles:@"OK",nil];
+    alert2.tag = 1;
+    [alert2 show];
 }
 
 - (void) savePhoto:(id)sender
 {
     UIImageWriteToSavedPhotosAlbum(photoToSave, nil, nil, nil);
     
-    [[[UIAlertView alloc] initWithTitle:@"Image Saved"
+    UIAlertView* alert1;
+    alert1 = [[UIAlertView alloc] initWithTitle:@"Image Saved"
                                 message:@"The image has been saved to your photo roll."
                                delegate:nil
                       cancelButtonTitle:@"OK"
-                      otherButtonTitles:nil] show];
-
+                      otherButtonTitles:nil];
+    alert1.tag = 0;
+    [alert1 show];
 }
 
 - (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
