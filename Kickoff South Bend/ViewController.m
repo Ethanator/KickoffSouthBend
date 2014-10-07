@@ -727,14 +727,21 @@
 
     gameReceived = 0;
     
+    NSTimeZone *tz = [NSTimeZone timeZoneWithAbbreviation:@"EST"];
+    NSInteger seconds = [tz secondsFromGMTForDate:[NSDate date]];
     NSDate *nowDate = [NSDate date];
-    NSTimeInterval secondsInThirtySixHours = 36 * 60 * 60;
-    NSDate *dateAhead = [nowDate dateByAddingTimeInterval:secondsInThirtySixHours];
+    //NSLog(@"Seconds: %ld Minutes: %ld, Hours: %ld", seconds, seconds/60, seconds/3600);
+    NSDate *adjustedDate = [nowDate dateByAddingTimeInterval:seconds];
+    //NSLog(@"ADJ = %@", adjustedDate);
+    //NSTimeInterval secondsInThirtySixHours = 36 * 60 * 60;
+    //NSDate *dateAhead = [nowDate dateByAddingTimeInterval:secondsInThirtySixHours];
     
     PFQuery *query = [PFQuery queryWithClassName:@"FootballSchedule"];
     [query orderByAscending:@"gameDate"];
-    [query whereKey:@"gameDate" greaterThan:dateAhead];
+//    [query whereKey:@"gameDate" greaterThan:dateAhead];
+    [query whereKey:@"gameDate" greaterThan:adjustedDate];
     PFObject *object = [query getFirstObject];
+    
     
     //[query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!object) {
@@ -754,10 +761,13 @@
             NSDateFormatter *dayFormater = [[NSDateFormatter alloc]init];
             [dayFormater setDateFormat:@"dd"];
             
-            int secondsBetween = [gameDate timeIntervalSinceDate:[NSDate date]];
+            int secondsBetween = [gameDate timeIntervalSinceDate:adjustedDate];
             int minutesBetween = secondsBetween/60;
             int hoursBetween = minutesBetween/60;
             int daysBetween = hoursBetween/24;
+            
+            NSLog(@"NOW = %@", adjustedDate);
+            NSLog(@"GAME = %@", gameDate);
             
             NSLog(@"s=%d, m=%d, h=%d, d=%d", secondsBetween, minutesBetween, hoursBetween, daysBetween);
  

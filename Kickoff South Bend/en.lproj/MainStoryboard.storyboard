@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hGk-8d-DAt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hGk-8d-DAt">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment defaultVersion="2048" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -36,7 +37,7 @@
             </objects>
             <point key="canvasLocation" x="554" y="39"/>
         </scene>
-        <!--Parking View Controller - Parking/Transp.-->
+        <!--Parking/Transp.-->
         <scene sceneID="Cej-0h-UoS">
             <objects>
                 <tableViewController id="ntE-Tu-Akr" customClass="ParkingViewController" sceneMemberID="viewController">
@@ -84,7 +85,7 @@
             </objects>
             <point key="canvasLocation" x="127" y="2096"/>
         </scene>
-        <!--Park Map View Controller - Gameday Parking-->
+        <!--Gameday Parking-->
         <scene sceneID="Xwl-xx-pR3">
             <objects>
                 <viewController id="7rY-7n-zxL" customClass="ParkMapViewController" sceneMemberID="viewController">
@@ -109,7 +110,7 @@
             </objects>
             <point key="canvasLocation" x="505" y="2098"/>
         </scene>
-        <!--Transpo View Controller - Transpo Routes & Fares-->
+        <!--Transpo Routes & Fares-->
         <scene sceneID="hK9-Pg-KwY">
             <objects>
                 <viewController id="SWg-oq-C3h" customClass="TranspoViewController" sceneMemberID="viewController">
@@ -207,7 +208,7 @@
             </objects>
             <point key="canvasLocation" x="484" y="1408"/>
         </scene>
-        <!--Dining View Controller - Around Town-->
+        <!--Around Town-->
         <scene sceneID="SKa-W8-cTN">
             <objects>
                 <tableViewController id="Wvl-En-IgE" customClass="DiningViewController" sceneMemberID="viewController">
@@ -331,7 +332,7 @@
             </objects>
             <point key="canvasLocation" x="840" y="749"/>
         </scene>
-        <!--Friends View Controller - My Friends-->
+        <!--My Friends-->
         <scene sceneID="Ctw-cf-NXe">
             <objects>
                 <tableViewController id="wuI-AN-gIS" customClass="FriendsViewController" sceneMemberID="viewController">
@@ -369,7 +370,7 @@
             </objects>
             <point key="canvasLocation" x="1450" y="726"/>
         </scene>
-        <!--Find Friend View Controller - Find Friends-->
+        <!--Find Friends-->
         <scene sceneID="3Xa-nZ-7ks">
             <objects>
                 <viewController id="l34-Qz-mEc" customClass="FindFriendViewController" sceneMemberID="viewController">
@@ -652,7 +653,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aDU-Hv-ix3">
-                                <rect key="frame" x="20" y="311" width="0.0" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -712,7 +712,7 @@
                                             <action selector="dineButtonPressed:" destination="uUg-GI-Gf2" id="LV7-zf-RDJ"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="80-shopping-cart.png" id="PyD-r0-APH">
+                                    <barButtonItem image="48-fork-and-knife.png" id="PyD-r0-APH">
                                         <inset key="imageInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <action selector="shopButtonPressed:" destination="uUg-GI-Gf2" id="FWU-OT-Ow2"/>
@@ -756,7 +756,7 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="T7M-tf-nM3">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="T7M-tf-nM3">
                                 <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </mapView>
@@ -772,7 +772,7 @@
             </objects>
             <point key="canvasLocation" x="1193" y="39"/>
         </scene>
-        <!--My Profile View Controller - My Profile-->
+        <!--My Profile-->
         <scene sceneID="pkB-td-PhU">
             <objects>
                 <viewController id="xlB-Lx-cST" customClass="MyProfileViewController" sceneMemberID="viewController">
@@ -927,9 +927,9 @@
         <image name="112-group.png" width="32" height="21"/>
         <image name="125-food.png" width="29" height="23"/>
         <image name="35-shopping.png" width="24" height="22"/>
+        <image name="48-fork-and-knife.png" width="18" height="26"/>
         <image name="53-house.png" width="22" height="22"/>
         <image name="79-medical-bag.png" width="24" height="20"/>
-        <image name="80-shopping-cart.png" width="26" height="19"/>
         <image name="83-calendar.png" width="23" height="25"/>
         <image name="squared_metal.png" width="132" height="132"/>
         <image name="textfield_background.png" width="320" height="49"/>

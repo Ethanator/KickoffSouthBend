@@ -50,5 +50,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Kickoff App would like to show your location on the map to make it easier for you to find events, venues, and friends!</string>
 </dict>
 </plist>

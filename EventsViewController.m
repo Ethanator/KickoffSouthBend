@@ -91,9 +91,18 @@
 
 - (void)updateEventList
 {
+    NSTimeZone *tz = [NSTimeZone timeZoneWithAbbreviation:@"EST"];
+    NSInteger seconds = [tz secondsFromGMTForDate:[NSDate date]];
+    NSDate *nowDate = [NSDate date];
+    NSDate *adjustedDate = [nowDate dateByAddingTimeInterval:seconds];
+    NSTimeInterval adjustmentSeconds = -60*60*3; // 3 hours tolerance
+    NSDate *dateAhead = [adjustedDate dateByAddingTimeInterval:adjustmentSeconds];
+
+    
     // Fetch all Event objects and store it in the model
     self.eventList = [NSMutableArray array];
     PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    [query whereKey:@"EndTime" greaterThan:dateAhead];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded. Show the first 100 objects

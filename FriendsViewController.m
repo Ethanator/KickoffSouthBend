@@ -359,8 +359,8 @@
     nameLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0];
     affiliationLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:11.0];
     //infoLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:11.0];
-    nameLabel.frame = CGRectMake(50.0, 5.0, 250.0, 20.0);
-    affiliationLabel.frame = CGRectMake(50.0, 23.0, 250.0, 14.0);
+    nameLabel.frame = CGRectMake(50.0, 5.0, 185.0, 20.0);
+    affiliationLabel.frame = CGRectMake(50.0, 23.0, 185.0, 14.0);
     //infoLabel.frame = CGRectMake(50.0, 37.0, 250.0, 14.0);
     //infoLabel.textColor = [UIColor grayColor];
     //infoLabel.text = @"";

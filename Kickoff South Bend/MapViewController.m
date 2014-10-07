@@ -11,6 +11,8 @@
 
 #define METERS_PER_MILE 1609.344
 
+#define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+
 @interface MapViewController ()
 
 @end
@@ -28,6 +30,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 
+    if (IS_OS_8_OR_LATER) {
+        authorizationStatus = [CLLocationManager authorizationStatus];
+    }
+    
     /*
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = 41.698409;
@@ -47,14 +53,31 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    //Instantiate a location object.
+    locationManager = [[CLLocationManager alloc] init];
+    
+    NSLog(@"Creating location manager");
+    
+    if (IS_OS_8_OR_LATER) {
+        if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+            [locationManager requestWhenInUseAuthorization];
+        }
+    
+        authorizationStatus = [CLLocationManager authorizationStatus];
+    }
+    
     //Make this controller the delegate for the map view.
     self.mapView.delegate = self;
     
-    // Ensure that you can view your own location in the map view.
-    [self.mapView setShowsUserLocation:YES];
-    
-    //Instantiate a location object.
-    locationManager = [[CLLocationManager alloc] init];
+    if (IS_OS_8_OR_LATER) {
+        // Ensure that you can view your own location in the map view.
+        if (authorizationStatus == kCLAuthorizationStatusAuthorizedAlways ||
+            authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
+            [self.mapView setShowsUserLocation:YES];
+        }
+    } else {
+        [self.mapView setShowsUserLocation:YES];
+    }
     
     //Make this controller the delegate for the location manager.
     [locationManager setDelegate:self];
@@ -133,17 +156,26 @@
 }
 
 - (IBAction)dineButtonPressed:(id)sender {
-    self.title = @"Dining";
+    self.title = @"Concessions";
+    [self showConcessions];
+/*
     [activityView startAnimating];
     spinWheel = TRUE;
     [self queryGooglePlaces:@"restaurant"];
+*/
 }
 
 - (IBAction)shopButtonPressed:(id)sender {
+/*
     self.title = @"Shopping";
     [activityView startAnimating];
     spinWheel = TRUE;
     [self queryGooglePlaces:@"store"];
+*/
+    self.title = @"Dining";
+    [activityView startAnimating];
+    spinWheel = TRUE;
+    [self queryGooglePlaces:@"restaurant"];
 }
 
 - (IBAction)stayButtonPressed:(id)sender {
@@ -189,13 +221,21 @@
 }
 
 - (void)showMe {
-    for (id<MKAnnotation> annotation in _mapView.annotations) {
-        if ([annotation isKindOfClass:[MapPoint class]]) {
-            [_mapView removeAnnotation:annotation];
+    
+    if (authorizationStatus == kCLAuthorizationStatusAuthorizedAlways ||
+        authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
+    
+        
+        for (id<MKAnnotation> annotation in _mapView.annotations) {
+            if ([annotation isKindOfClass:[MapPoint class]]) {
+                [_mapView removeAnnotation:annotation];
+            }
         }
+        
+        self.mapView.centerCoordinate = self.mapView.userLocation.location.coordinate;
+
     }
 
-    self.mapView.centerCoordinate = self.mapView.userLocation.location.coordinate;
     [activityView stopAnimating];
     spinWheel = FALSE;
 }
@@ -315,6 +355,49 @@
     spinWheel = FALSE;
 }
 
+- (void)showConcessions {
+    for (id<MKAnnotation> annotation in _mapView.annotations) {
+        if ([annotation isKindOfClass:[MapPoint class]]) {
+            [_mapView removeAnnotation:annotation];
+        }
+    }
+    
+    //NSDate *nowDate = [NSDate date];
+    PFQuery *eQuery = [PFQuery queryWithClassName:@"Concessions"];
+    //[eQuery whereKey:@"EndTime" greaterThan:nowDate];
+    eQuery.limit = 1000;
+    NSArray *allEvents = [eQuery findObjects];
+    int numEvents = (int)[allEvents count];
+    
+    for (int i = 0; i < numEvents; i++) {
+        PFObject *eventObject = [allEvents objectAtIndex:i];
+        PFGeoPoint *geoPoint = [eventObject objectForKey:@"Location"];
+        if (geoPoint != nil) {
+            
+            CLLocationCoordinate2D  ctrpoint;
+            ctrpoint.latitude = geoPoint.latitude;
+            ctrpoint.longitude = geoPoint.longitude;
+            
+            NSString *title = [eventObject objectForKey:@"Organizer"];
+            NSString *location = [eventObject objectForKey:@"Description"];
+            //NSDate *startDate = [eventObject objectForKey:@"StartTime"];
+            
+            //NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            //[dateFormat setDateFormat:@"EEE HH:mma"];
+            //NSString *dateString = [dateFormat stringFromDate:startDate];
+            
+            //NSString *subTitle = [NSString stringWithFormat:@"%@ (%@)", location, dateString];
+            
+            MapPoint *placeObject = [[MapPoint alloc] initWithName:title address:location coordinate:ctrpoint];
+            
+            [_mapView addAnnotation:placeObject];
+            
+            //AddressAnnotation *addAnnotation = [[AddressAnnotation alloc] initWithCoordinate:ctrpoint];
+            //[mapview addAnnotation:addAnnotation];
+        }
+    }
+}
+
 - (void)showEvents {
     for (id<MKAnnotation> annotation in _mapView.annotations) {
         if ([annotation isKindOfClass:[MapPoint class]]) {
@@ -322,11 +405,17 @@
         }
     }
 
+    NSTimeZone *tz = [NSTimeZone timeZoneWithAbbreviation:@"EST"];
+    NSInteger seconds = [tz secondsFromGMTForDate:[NSDate date]];
     NSDate *nowDate = [NSDate date];
-    PFQuery *eQuery = [PFQuery queryWithClassName:@"Event"];
-    [eQuery whereKey:@"EndTime" greaterThan:nowDate];
-    eQuery.limit = 1000;
-    NSArray *allEvents = [eQuery findObjects];
+    NSDate *adjustedDate = [nowDate dateByAddingTimeInterval:seconds];
+    NSTimeInterval adjustmentSeconds = -60*60*3; // 3 hours tolerance
+    NSDate *dateAhead = [adjustedDate dateByAddingTimeInterval:adjustmentSeconds];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    [query whereKey:@"EndTime" greaterThan:dateAhead];
+    query.limit = 1000;
+    NSArray *allEvents = [query findObjects];
     int numEvents = (int)[allEvents count];
 
     for (int i = 0; i < numEvents; i++) {

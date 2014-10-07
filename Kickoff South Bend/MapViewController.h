@@ -24,6 +24,7 @@
     UIActivityIndicatorView *activityView;
     BOOL spinWheel;
     ProfileData *userProfileData;
+    CLAuthorizationStatus authorizationStatus;
     
 }
 
