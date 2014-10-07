@@ -27,7 +27,7 @@
     [self.logInView.signUpButton setFrame:CGRectMake(35, 385, 250, 40)];
     [self.fieldsBackground setFrame:CGRectMake(80, 145, 160, 160)];
      */
-    [self.logInView.logo setFrame:CGRectMake(self.view.frame.size.width/2-60, 45, 120, 120)];
+    [self.logInView.logo setFrame:CGRectMake(self.view.frame.size.width/2-60, 55, 120, 120)];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -60,6 +60,8 @@
     self.logInView.passwordField.backgroundColor = [UIColor colorWithRed:243.0f/255.0f green:243.0f/255.0f blue:243.0f/255.0f alpha:1.0];
     self.logInView.usernameField.textColor = [UIColor blackColor];
     self.logInView.passwordField.textColor = [UIColor blackColor];
+    [self.logInView.passwordField setReturnKeyType:UIReturnKeyGo];
+    [self.logInView.usernameField setReturnKeyType:UIReturnKeyGo];
 
     UILabel *termsAndCondition = [[UILabel alloc] initWithFrame:CGRectMake(100.0, 30.0, self.logInView.frame.size.width-100.0, 13.0)];
     termsAndCondition.textAlignment = NSTextAlignmentRight;

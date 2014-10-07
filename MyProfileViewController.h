@@ -21,6 +21,7 @@
     IBOutlet UISwitch *ndGrad;
     IBOutlet UISwitch *ndStudent;
     IBOutlet UILabel *addPhotoLabel;
+    IBOutlet UITextField *passwordField;
     PFObject *myPFObject;
     UIImagePickerController *picker;
     UIImage *profileImage;
@@ -33,6 +34,7 @@
 @property(nonatomic,retain) IBOutlet UITextField *email;
 @property(nonatomic,retain) IBOutlet UITextField *affiliation;
 @property(nonatomic,retain) IBOutlet UITextField *gradYear;
+@property(nonatomic,retain) IBOutlet UITextField *passwordField;
 @property(nonatomic,retain) IBOutlet UIButton *imageButton;
 @property(nonatomic,retain) IBOutlet UISwitch *ndGrad;
 @property(nonatomic,retain) IBOutlet UISwitch *ndStudent;

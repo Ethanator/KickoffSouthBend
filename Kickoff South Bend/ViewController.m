@@ -714,13 +714,13 @@
     
     UIBarButtonItem *logOutButton = [[UIBarButtonItem alloc]
                                      initWithTitle:@"Logout"
-                                     style:UIBarButtonItemStyleBordered
+                                     style:UIBarButtonItemStylePlain
                                      target:self
                                      action:@selector(logOutClicked:)];
     self.navigationItem.leftBarButtonItem = logOutButton;
     UIBarButtonItem *profileButton = [[UIBarButtonItem alloc]
                                      initWithTitle:@"Profile"
-                                     style:UIBarButtonItemStyleBordered
+                                     style:UIBarButtonItemStylePlain
                                      target:self
                                      action:@selector(profileClicked:)];
     self.navigationItem.rightBarButtonItem = profileButton;

@@ -74,11 +74,11 @@
 
 #pragma mark - UISearchDisplayControllerDelegate
 
-- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
+- (void)searchDisplayControllerWillBeginSearch:(UISearchController *)controller {
     isSearching = YES;
 }
 
-- (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller {
+- (void)searchDisplayControllerWillEndSearch:(UISearchController *)controller {
     isSearching = NO;
 }
 

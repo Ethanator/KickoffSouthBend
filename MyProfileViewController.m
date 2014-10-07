@@ -10,17 +10,21 @@
 
 @interface MyProfileViewController () <FDTakeDelegate,UITextFieldDelegate>
 
+@property (nonatomic,strong) NSString *passwordText;
+
 @end
 
 @implementation MyProfileViewController
 
-@synthesize firstName, lastName, email, gradYear, affiliation, imageButton, ndStudent, ndGrad;
+@synthesize firstName, lastName, email, gradYear, affiliation, imageButton, ndStudent, ndGrad, passwordField;
 @synthesize myPFObject;
 @synthesize profileImage;
 @synthesize addPhotoLabel;
+@synthesize passwordText;
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
+    [passwordField resignFirstResponder];
     return YES;
 }
 
@@ -30,6 +34,7 @@
     [affiliation resignFirstResponder];
     [email resignFirstResponder];
     [gradYear resignFirstResponder];
+    [passwordField resignFirstResponder];
 }
 
 - (void)keyboardWillShow:(NSNotification *)notif
@@ -52,6 +57,9 @@
         offset = 130.0f;
     }
     if ([gradYear isFirstResponder]) {
+        offset = 130.0f;
+    }
+    if ([passwordField isFirstResponder]) {
         offset = 130.0f;
     }
     
@@ -216,6 +224,13 @@
         return;
     }
     
+    passwordText = passwordField.text;
+    
+    if (![passwordText isEqualToString:@"****"]) {
+        [PFUser currentUser].password = passwordText;
+        [[PFUser currentUser] save];
+    }
+    
     NSString *myFirstname = firstName.text;
     NSString *myLastname = lastName.text;
     NSString *myEmailAddress = email.text;
@@ -299,6 +314,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        passwordText = @"****";
     }
     return self;
 }
@@ -331,6 +347,8 @@
     
     userProfileData = [ProfileData sharedInstance];
     
+    passwordText = @"****";
+
     PFQuery *query = [PFQuery queryWithClassName:@"Profile"];
     [query whereKey:@"username" equalTo:[userProfileData getUserName]];
     myPFObject = [query getFirstObject];
@@ -366,12 +384,14 @@
     gradYear.text = myYear;
     ndGrad.on = graduate;
     ndStudent.on = student;
+    passwordField.text = passwordText;
     
     [firstName setDelegate:self];
     [lastName setDelegate:self];
     [email setDelegate:self];
     [affiliation setDelegate:self];
     [gradYear setDelegate:self];
+    [passwordField setDelegate:self];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
